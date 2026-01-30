@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://tnrj556cv806"]
+
+[ext_resource type="Script" uid="uid://b0da7too51shs" path="res://Alois/PNJ_Manager.gd" id="1_6c1ar"]
+[ext_resource type="PackedScene" uid="uid://dlpg7dhppfeiw" path="res://Alois/pnj_mesh.tscn" id="1_ymyju"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ptqf"]
+
+[sub_resource type="Curve3D" id="Curve3D_1ptqf"]
+bake_interval = 1.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_eya18"]
+
+[node name="Node3D" type="Node3D" unique_id=939731608]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=564959843]
+transform = Transform3D(0.08766733, 0.6854392, 0.722833, 0.8376052, -0.44348913, 0.3189592, 0.5391957, 0.57748634, -0.61300695, 0, 0, 0)
+light_color = Color(0.71811104, 0.77309656, 0.8151441, 1)
+shadow_enabled = true
+
+[node name="Terrain_Mesh" type="MeshInstance3D" parent="." unique_id=1761828526]
+transform = Transform3D(-3.0969086, 0, 0, 0, 0.1, 0, 0, 0, 33.128483, 0, 0, 0)
+mesh = SubResource("BoxMesh_1ptqf")
+
+[node name="Path3D" type="Path3D" parent="Terrain_Mesh" unique_id=487030063]
+transform = Transform3D(-0.32290265, 0, 0, 0, 10, 0, 0, 0, 0.030185506, -0.12916106, 0.5, 0)
+curve = SubResource("Curve3D_1ptqf")
+debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
+script = ExtResource("1_6c1ar")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Terrain_Mesh/Path3D" unique_id=2105633172]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+loop = false
+
+[node name="Character_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.033352852, 0.14653625, 15.809191)
+mesh = SubResource("CapsuleMesh_eya18")
+
+[node name="Camera3D" type="Camera3D" parent="Character_Mesh" unique_id=1811056502]
+transform = Transform3D(10, 0, 0, 0, 9.063078, 4.226183, 0, -4.226183, 9.063078, 0, 3, 4)
+current = true
+fov = 60.0
+
+[node name="PNJ_mesh" parent="." unique_id=713862691 instance=ExtResource("1_ymyju")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.57276624, 0.1477099, 15.291572)
+
+[node name="Timer" type="Timer" parent="." unique_id=362300206]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="Terrain_Mesh/Path3D" method="_on_timer_timeout"]
