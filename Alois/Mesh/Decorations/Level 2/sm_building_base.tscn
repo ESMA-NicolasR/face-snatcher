@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dw48ytnb4v578"]
+
+[ext_resource type="PackedScene" uid="uid://c56rkbdf0vmba" path="res://Elsa/Meshes_Lvl-02/SM_BuildingBase_001.fbx" id="1_57u4s"]
+
+[node name="SM_BuildingBase_001" unique_id=1245766562 instance=ExtResource("1_57u4s")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2" unique_id=1556273687]

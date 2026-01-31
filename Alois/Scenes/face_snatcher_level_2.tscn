@@ -1,0 +1,257 @@
+[gd_scene format=3 uid="uid://dyhy0u8c7tw4q"]
+
+[ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_l6axn"]
+[ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_rfa7h"]
+[ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="3_cpxnq"]
+[ext_resource type="PackedScene" uid="uid://dw48ytnb4v578" path="res://Alois/Mesh/Decorations/Level 2/sm_building_base.tscn" id="4_l6axn"]
+[ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/Level 1/sm_streetlight.tscn" id="8_y5blx"]
+[ext_resource type="PackedScene" uid="uid://bki5h81kigrij" path="res://Alois/Mesh/Decorations/Level 2/sm_traffic_lights.tscn" id="9_5cyfh"]
+[ext_resource type="PackedScene" uid="uid://cb4pb4lwmvf24" path="res://Nicolas/NPC_Generator.tscn" id="10_ap63k"]
+[ext_resource type="Script" uid="uid://dvdsvbr7rfl4p" path="res://Alois/Scripts/game_speed_manager.gd" id="11_1c3an"]
+[ext_resource type="Script" uid="uid://bxmottpqr251" path="res://Alois/Scripts/Interface.gd" id="12_nir0o"]
+
+[sub_resource type="Curve3D" id="Curve3D_1ptqf"]
+bake_interval = 1.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ptqf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl1dy"]
+albedo_texture = ExtResource("1_l6axn")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_eya18"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_60xjm"]
+
+[node name="Node3D" type="Node3D" unique_id=939731608]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=564959843]
+transform = Transform3D(0.087667346, 0.6854392, 0.72283304, 0.8376051, -0.44348922, 0.31895924, 0.5391958, 0.57748634, -0.6130069, 0, 0, 0)
+light_color = Color(0.71811104, 0.77309656, 0.8151441, 1)
+shadow_enabled = true
+
+[node name="Paths" type="Node3D" parent="." unique_id=1995780754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 0, 0)
+
+[node name="PNJ Left Path3D" type="Path3D" parent="Paths" unique_id=1600655904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.5, 0)
+curve = SubResource("Curve3D_1ptqf")
+debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
+
+[node name="PNJ Right Path3D" type="Path3D" parent="Paths" unique_id=487030063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.5, 0)
+curve = SubResource("Curve3D_1ptqf")
+debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
+
+[node name="Decoration LEFT left Path3D" type="Path3D" parent="Paths" unique_id=508389562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.265, 0)
+curve = SubResource("Curve3D_1ptqf")
+debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
+
+[node name="Decoration LEFT center Path3D" type="Path3D" parent="Paths" unique_id=253330147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.55, 0.265, 0)
+curve = SubResource("Curve3D_1ptqf")
+debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
+
+[node name="Decoration LEFT right Path3D" type="Path3D" parent="Paths" unique_id=155671147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.075, 0)
+curve = SubResource("Curve3D_1ptqf")
+debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
+
+[node name="Decoration RIGHT right Path3D" type="Path3D" parent="Paths" unique_id=644579637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.235, 0.265, 0)
+curve = SubResource("Curve3D_1ptqf")
+debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
+
+[node name="Decoration RIGHT center Path3D" type="Path3D" parent="Paths" unique_id=1670214885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.225, 0.265, 0)
+curve = SubResource("Curve3D_1ptqf")
+debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
+
+[node name="Decoration RIGHT left Path3D" type="Path3D" parent="Paths" unique_id=1633807055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0.075, 0)
+curve = SubResource("Curve3D_1ptqf")
+debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
+
+[node name="Terrain_Mesh" type="MeshInstance3D" parent="." unique_id=1761828526]
+transform = Transform3D(100, 0, 0, 0, -0.215, 3.7748952e-05, 0, -3.2464097e-08, -250, -0.65, -0.05, -85)
+mesh = SubResource("BoxMesh_1ptqf")
+
+[node name="Side_Terrain_Mesh2" type="MeshInstance3D" parent="." unique_id=1739229641]
+transform = Transform3D(3, 0, 0, 0, -0.215, 1.1324685e-05, 0, -3.2464097e-08, -75, 3.25, 0.15, 0)
+mesh = SubResource("BoxMesh_1ptqf")
+
+[node name="Side_Terrain_Mesh3" type="MeshInstance3D" parent="." unique_id=328266079]
+transform = Transform3D(3, 0, 0, 0, -0.215, 1.1324685e-05, 0, -3.2464097e-08, -75, -4.5, 0.15, 0)
+mesh = SubResource("BoxMesh_1ptqf")
+
+[node name="Player_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
+transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 3.25, 0.85, 36)
+material_override = SubResource("StandardMaterial3D_hl1dy")
+mesh = SubResource("CapsuleMesh_eya18")
+
+[node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502]
+transform = Transform3D(10, 0, 0, 0, 8.191521, 5.7357645, 0, -5.7357645, 8.191521, 0, 2, 3)
+current = true
+fov = 70.0
+far = 1000.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Player_Mesh" unique_id=501597762 groups=["Player"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Mesh/StaticBody3D" unique_id=1908706289]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
+shape = SubResource("BoxShape3D_60xjm")
+
+[node name="Timers" type="Node" parent="." unique_id=1303597835]
+
+[node name="PNJ Spawn Timer" type="Timer" parent="Timers" unique_id=362300206]
+wait_time = 5.0
+autostart = true
+
+[node name="Decoration Leftleft Timer1" type="Timer" parent="Timers" unique_id=479268536]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Decoration Leftcenter Timer2" type="Timer" parent="Timers" unique_id=296177828]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Decoration Leftright Timer3" type="Timer" parent="Timers" unique_id=1304791291]
+wait_time = 7.5
+one_shot = true
+autostart = true
+
+[node name="Decoration Rightright Timer4" type="Timer" parent="Timers" unique_id=1618409885]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Decoration Rightcenter Timer5" type="Timer" parent="Timers" unique_id=316492386]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Decoration Rightleft Timer6" type="Timer" parent="Timers" unique_id=523578028]
+wait_time = 7.5
+one_shot = true
+autostart = true
+
+[node name="Scripts" type="Node" parent="." unique_id=1306583703]
+
+[node name="PNJ_Manager" type="Node" parent="Scripts" unique_id=524255491 node_paths=PackedStringArray("path_Left", "path_Right")]
+script = ExtResource("2_rfa7h")
+vitesse_min = 1.25
+debut_ralentissement = 0.5
+fin_ralentissement = 0.85
+debut_acceleration = 0.9
+fin_acceleration = 1.0
+path_Left = NodePath("../../Paths/PNJ Left Path3D")
+path_Right = NodePath("../../Paths/PNJ Right Path3D")
+
+[node name="Decoration_Manager" type="Node" parent="Scripts" unique_id=2044267013 node_paths=PackedStringArray("path_Left_left", "timer_LL", "path_Left_center", "timer_LC", "path_Left_right", "timer_LR", "path_Right_right", "timer_RR", "path_Right_center", "timer_RC", "path_Right_left", "timer_RL")]
+script = ExtResource("3_cpxnq")
+meshes_far = Array[PackedScene]([ExtResource("4_l6axn")])
+meshes_med = Array[PackedScene]([ExtResource("8_y5blx")])
+meshes_close = Array[PackedScene]([ExtResource("9_5cyfh")])
+vitesse_max_far = 3.5
+vitesse_min_far = 1.1
+vitesse_max_med = 3.5
+vitesse_min_med = 1.1
+vitesse_max_close = 4.0
+vitesse_min_close = 1.15
+debut_ralentissement_far = 0.6
+debut_ralentissement_med = 0.9
+fin_ralentissement_med = 0.95
+debut_acceleration_med = 0.95
+rot_y_far_L = Vector2(-90, -90)
+rot_y_med_L = Vector2(0, 0)
+rot_y_far_R = Vector2(90, 90)
+rot_y_med_R = Vector2(0, 0)
+rot_y_close_R = Vector2(-180, -180)
+path_Left_left = NodePath("../../Paths/Decoration LEFT left Path3D")
+timer_LL = NodePath("../../Timers/Decoration Leftleft Timer1")
+path_Left_center = NodePath("../../Paths/Decoration LEFT center Path3D")
+timer_LC = NodePath("../../Timers/Decoration Leftcenter Timer2")
+path_Left_right = NodePath("../../Paths/Decoration LEFT right Path3D")
+timer_LR = NodePath("../../Timers/Decoration Leftright Timer3")
+path_Right_right = NodePath("../../Paths/Decoration RIGHT right Path3D")
+timer_RR = NodePath("../../Timers/Decoration Rightright Timer4")
+path_Right_center = NodePath("../../Paths/Decoration RIGHT center Path3D")
+timer_RC = NodePath("../../Timers/Decoration Rightcenter Timer5")
+path_Right_left = NodePath("../../Paths/Decoration RIGHT left Path3D")
+timer_RL = NodePath("../../Timers/Decoration Rightleft Timer6")
+
+[node name="NPC_Generator" parent="Scripts" unique_id=978562651 instance=ExtResource("10_ap63k")]
+
+[node name="Game_Speed_Manager" type="Node" parent="Scripts" unique_id=979240591]
+script = ExtResource("11_1c3an")
+increment_vitesse = 0.25
+
+[node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar") groups=["UI"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 539.0
+offset_bottom = 962.0
+script = ExtResource("12_nir0o")
+score_label = NodePath("ScoreContainer/Score Label")
+health_bar = NodePath("Health Bar")
+gain_pv_mort = 5.0
+
+[node name="ScoreContainer" type="TextEdit" parent="UI" unique_id=1726788413 groups=["ScoreLabel"]]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 11.0
+offset_right = 528.0
+offset_bottom = 56.0
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+tab_input_mode = false
+virtual_keyboard_enabled = false
+
+[node name="Score Label" type="Label" parent="UI/ScoreContainer" unique_id=1376001332 groups=["ScoreLabel"]]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 214.0
+offset_bottom = 39.0
+text = "Points"
+
+[node name="Face Steal Button" type="Button" parent="UI" unique_id=119236727 groups=["Boutons_interaction"]]
+visible = false
+layout_mode = 0
+offset_left = 391.0
+offset_top = 341.0
+offset_right = 519.2727
+offset_bottom = 424.0
+text = "Vol visage"
+
+[node name="Health Bar" type="ProgressBar" parent="UI" unique_id=1541017287]
+modulate = Color(0, 0.8862745, 0, 1)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 19.0
+offset_right = 292.0
+offset_bottom = 46.0
+value = 100.0
+
+[connection signal="timeout" from="Timers/PNJ Spawn Timer" to="Scripts/PNJ_Manager" method="_on_pnj_spawn_timer_timeout"]
+[connection signal="timeout" from="Timers/Decoration Leftleft Timer1" to="Scripts/Decoration_Manager" method="_on_decoration_leftleft_timer_1_timeout"]
+[connection signal="timeout" from="Timers/Decoration Leftcenter Timer2" to="Scripts/Decoration_Manager" method="_on_decoration_leftcenter_timer_2_timeout"]
+[connection signal="timeout" from="Timers/Decoration Leftright Timer3" to="Scripts/Decoration_Manager" method="_on_decoration_leftright_timer_3_timeout"]
+[connection signal="timeout" from="Timers/Decoration Rightright Timer4" to="Scripts/Decoration_Manager" method="_on_decoration_rightright_timer_4_timeout"]
+[connection signal="timeout" from="Timers/Decoration Rightcenter Timer5" to="Scripts/Decoration_Manager" method="_on_decoration_rightcenter_timer_5_timeout"]
+[connection signal="timeout" from="Timers/Decoration Rightleft Timer6" to="Scripts/Decoration_Manager" method="_on_decoration_rightleft_timer_6_timeout"]
+[connection signal="pressed" from="UI/Face Steal Button" to="UI" method="_on_face_steal_button_pressed"]

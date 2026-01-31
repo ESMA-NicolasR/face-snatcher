@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bki5h81kigrij"]
+
+[ext_resource type="PackedScene" uid="uid://d2lvrptioir7h" path="res://Elsa/Meshes_Lvl-02/SM_TrafficLights_001.fbx" id="1_lp6qu"]
+
+[node name="SM_TrafficLights_001" unique_id=98484565 instance=ExtResource("1_lp6qu")]

@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://tnrj556cv806"]
 
-[ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_60xjm"]
-[ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_3h7c1"]
-[ext_resource type="Script" uid="uid://bxmottpqr251" path="res://Alois/Scripts/Interface.gd" id="3_3h7c1"]
-[ext_resource type="PackedScene" uid="uid://dajoisdrbqbou" path="res://Alois/Mesh/Decorations/sm_tree1.tscn" id="4_lan1h"]
-[ext_resource type="PackedScene" uid="uid://cb4pb4lwmvf24" path="res://Nicolas/NPC_Generator.tscn" id="4_mmw3b"]
-[ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="4_tgash"]
-[ext_resource type="PackedScene" uid="uid://duc73xitbvn5r" path="res://Alois/Mesh/Decorations/sm_tree2.tscn" id="5_x8g61"]
-[ext_resource type="PackedScene" uid="uid://6kjpu35jhofq" path="res://Alois/Mesh/Decorations/sm_tree3.tscn" id="6_rmso8"]
-[ext_resource type="PackedScene" uid="uid://7gmhlma35ycp" path="res://Alois/Mesh/Decorations/sm_fence.tscn" id="7_py22k"]
-[ext_resource type="PackedScene" uid="uid://b5xkaemsjqoka" path="res://Alois/Mesh/Decorations/sm_bench.tscn" id="8_7075h"]
-[ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/sm_streetlight.tscn" id="9_3gcot"]
-[ext_resource type="Script" uid="uid://dvdsvbr7rfl4p" path="res://Alois/Scenes/game_speed_manager.gd" id="11_x8g61"]
+[ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_forw5"]
+[ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_s2v6g"]
+[ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="3_eellc"]
+[ext_resource type="PackedScene" uid="uid://dajoisdrbqbou" path="res://Alois/Mesh/Decorations/Level 1/sm_tree1.tscn" id="4_i0eqp"]
+[ext_resource type="PackedScene" uid="uid://duc73xitbvn5r" path="res://Alois/Mesh/Decorations/Level 1/sm_tree2.tscn" id="5_dcd8u"]
+[ext_resource type="PackedScene" uid="uid://6kjpu35jhofq" path="res://Alois/Mesh/Decorations/Level 1/sm_tree3.tscn" id="6_4bnli"]
+[ext_resource type="PackedScene" uid="uid://7gmhlma35ycp" path="res://Alois/Mesh/Decorations/Level 1/sm_fence.tscn" id="7_rrfvl"]
+[ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/Level 1/sm_streetlight.tscn" id="8_wg8fj"]
+[ext_resource type="PackedScene" uid="uid://b5xkaemsjqoka" path="res://Alois/Mesh/Decorations/Level 1/sm_bench.tscn" id="9_jqlch"]
+[ext_resource type="PackedScene" uid="uid://cb4pb4lwmvf24" path="res://Nicolas/NPC_Generator.tscn" id="10_om7mb"]
+[ext_resource type="Script" uid="uid://dvdsvbr7rfl4p" path="res://Alois/Scripts/game_speed_manager.gd" id="11_a27uk"]
+[ext_resource type="Script" uid="uid://bxmottpqr251" path="res://Alois/Scripts/Interface.gd" id="12_rkggn"]
 
 [sub_resource type="Curve3D" id="Curve3D_1ptqf"]
 bake_interval = 1.0
@@ -24,7 +24,7 @@ point_count = 2
 [sub_resource type="BoxMesh" id="BoxMesh_1ptqf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl1dy"]
-albedo_texture = ExtResource("1_60xjm")
+albedo_texture = ExtResource("1_forw5")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_eya18"]
 
@@ -80,7 +80,7 @@ curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Terrain_Mesh" type="MeshInstance3D" parent="." unique_id=1761828526]
-transform = Transform3D(6.429, 0, 0, 0, -0.215, 1.1324685e-05, 0, -3.2464097e-08, -75, 0, -0.05, 0)
+transform = Transform3D(100, 0, 0, 0, -0.215, 3.7748952e-05, 0, -3.2464097e-08, -250, 0, -0.05, -85)
 mesh = SubResource("BoxMesh_1ptqf")
 
 [node name="Player_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
@@ -139,7 +139,7 @@ autostart = true
 [node name="Scripts" type="Node" parent="." unique_id=1306583703]
 
 [node name="PNJ_Manager" type="Node" parent="Scripts" unique_id=524255491 node_paths=PackedStringArray("path_Left", "path_Right")]
-script = ExtResource("2_3h7c1")
+script = ExtResource("2_s2v6g")
 vitesse_min = 1.25
 debut_ralentissement = 0.5
 fin_ralentissement = 0.85
@@ -149,10 +149,10 @@ path_Left = NodePath("../../Paths/PNJ Left Path3D")
 path_Right = NodePath("../../Paths/PNJ Right Path3D")
 
 [node name="Decoration_Manager" type="Node" parent="Scripts" unique_id=2044267013 node_paths=PackedStringArray("path_Left_left", "timer_LL", "path_Left_center", "timer_LC", "path_Left_right", "timer_LR", "path_Right_right", "timer_RR", "path_Right_center", "timer_RC", "path_Right_left", "timer_RL")]
-script = ExtResource("4_tgash")
-meshes_far = Array[PackedScene]([ExtResource("4_lan1h"), ExtResource("5_x8g61"), ExtResource("6_rmso8")])
-meshes_med = Array[PackedScene]([ExtResource("7_py22k")])
-meshes_close = Array[PackedScene]([ExtResource("9_3gcot"), ExtResource("8_7075h")])
+script = ExtResource("3_eellc")
+meshes_far = Array[PackedScene]([ExtResource("4_i0eqp"), ExtResource("5_dcd8u"), ExtResource("6_4bnli")])
+meshes_med = Array[PackedScene]([ExtResource("7_rrfvl")])
+meshes_close = Array[PackedScene]([ExtResource("8_wg8fj"), ExtResource("9_jqlch")])
 vitesse_max_far = 3.5
 vitesse_min_far = 1.1
 vitesse_max_med = 3.5
@@ -193,10 +193,10 @@ timer_RC = NodePath("../../Timers/Decoration Rightcenter Timer5")
 path_Right_left = NodePath("../../Paths/Decoration RIGHT left Path3D")
 timer_RL = NodePath("../../Timers/Decoration Rightleft Timer6")
 
-[node name="NPC_Generator" parent="Scripts" unique_id=978562651 instance=ExtResource("4_mmw3b")]
+[node name="NPC_Generator" parent="Scripts" unique_id=978562651 instance=ExtResource("10_om7mb")]
 
 [node name="Game_Speed_Manager" type="Node" parent="Scripts" unique_id=979240591]
-script = ExtResource("11_x8g61")
+script = ExtResource("11_a27uk")
 increment_vitesse = 0.25
 
 [node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar") groups=["UI"]]
@@ -204,7 +204,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 539.0
 offset_bottom = 962.0
-script = ExtResource("3_3h7c1")
+script = ExtResource("12_rkggn")
 score_label = NodePath("ScoreContainer/Score Label")
 health_bar = NodePath("Health Bar")
 gain_pv_mort = 5.0

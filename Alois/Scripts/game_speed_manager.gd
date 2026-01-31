@@ -11,8 +11,6 @@ extends Node
 var temps_total: float = 0.0
 # Variable pour savoir combien de paliers ont déjà été passés
 var paliers_atteints: int = 0
-#Variable pour la nouvelle vitesse du jeu
-var nouvelle_vitesse = 1.0
  
 func _process(_delta: float) -> void:
 	# On suit le temps écoulé de manière réelle (indépendant du Time Scale)
