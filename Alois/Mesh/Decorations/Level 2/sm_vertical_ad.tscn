@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://l118nefupjxa"]
+
+[ext_resource type="PackedScene" uid="uid://b1i7tl3l6wyog" path="res://Elsa/Meshes_Lvl-02/SM_VerticalAd_001.fbx" id="1_kvv4t"]
+
+[node name="SM_VerticalAd_001" unique_id=619889609 instance=ExtResource("1_kvv4t")]
