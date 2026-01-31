@@ -1,30 +1,21 @@
 extends Node3D
  
-# Référence au bouton dans l'interface
-var bouton: Button
+var interface: Control
  
 func _ready() -> void:
-	# Récupérer le bouton via le groupe au lancement
-	bouton = get_tree().get_first_node_in_group("Boutons_interaction")
-	
-	# Sécurité si le bouton n'est pas trouvé
-	if bouton:
-		bouton.hide()
+	# On va chercher l'interface (adaptez le chemin selon votre scène)
+	# Si votre UI est dans un groupe "UI", c'est plus simple :
+	interface = get_tree().get_first_node_in_group("UI")
  
-# Déclanché quand un corps entre dans la zone
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	print("entrée collision")
-	# Vérifier si c'est bien le joueur qui est proche
 	if body.is_in_group("Player"):
-		if bouton:
-			bouton.show()
-			print("Joueur proche : Bouton affiché")
+		if interface:
+			# On dit à l'interface que c'est nous la cible
+			interface.enregistrer_cible(self)
+			interface.get_node("Face Steal Button").show()
  
-# Déclanché quand un corps sort de la zone
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	print("sortie collision")
-	# Cacher le bouton quand le joueur s'éloigne
 	if body.is_in_group("Player"):
-		if bouton:
-			bouton.hide()
-			print("Joueur loin : Bouton caché")
+		if interface:
+			interface.retirer_cible()
+			interface.get_node("Face Steal Button").hide()

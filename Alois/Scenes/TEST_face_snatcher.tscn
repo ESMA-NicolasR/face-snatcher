@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_60xjm"]
 [ext_resource type="Script" uid="uid://b0da7too51shs" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_3h7c1"]
+[ext_resource type="Script" uid="uid://bxmottpqr251" path="res://Alois/Scripts/Interface.gd" id="3_3h7c1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1ptqf"]
 
@@ -73,21 +74,30 @@ fin_acceleration = 1.0
 path_Left = NodePath("../Terrain_Mesh/Left Path3D")
 path_Right = NodePath("../Terrain_Mesh/Right Path3D")
 
-[node name="Control" type="Control" parent="." unique_id=556213673]
+[node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label") groups=["UI"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 539.0
 offset_bottom = 962.0
+script = ExtResource("3_3h7c1")
+score_label = NodePath("ScoreContainer/Score Label")
 
-[node name="ScoreText" type="TextEdit" parent="Control" unique_id=1726788413]
+[node name="ScoreContainer" type="TextEdit" parent="UI" unique_id=1726788413 groups=["ScoreLabel"]]
 layout_mode = 0
 offset_left = 308.0
 offset_top = 11.0
 offset_right = 528.0
 offset_bottom = 56.0
-placeholder_text = "Points"
 
-[node name="Button" type="Button" parent="Control" unique_id=119236727 groups=["Boutons_interaction"]]
+[node name="Score Label" type="Label" parent="UI/ScoreContainer" unique_id=1376001332 groups=["ScoreLabel"]]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 214.0
+offset_bottom = 39.0
+text = "Points"
+
+[node name="Face Steal Button" type="Button" parent="UI" unique_id=119236727 groups=["Boutons_interaction"]]
 visible = false
 layout_mode = 0
 offset_left = 391.0
@@ -98,3 +108,4 @@ text = "Bouton
 Vol visage"
 
 [connection signal="timeout" from="PNJ Spawn Timer" to="PNJ_Manager" method="_on_pnj_spawn_timer_timeout"]
+[connection signal="pressed" from="UI/Face Steal Button" to="UI" method="_on_face_steal_button_pressed"]
