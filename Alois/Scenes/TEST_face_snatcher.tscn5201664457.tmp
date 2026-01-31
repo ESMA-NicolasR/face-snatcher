@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_60xjm"]
 [ext_resource type="Script" uid="uid://b0da7too51shs" path="res://Alois/Scripts/PNJ_Manager_Spawn_and_path.gd" id="2_3h7c1"]
 [ext_resource type="Script" uid="uid://bxmottpqr251" path="res://Alois/Scripts/Interface.gd" id="3_3h7c1"]
+[ext_resource type="PackedScene" uid="uid://dp7y7lbx4jj4d" path="res://Alois/Mesh/decoration.tscn" id="4_mmw3b"]
 [ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="4_tgash"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1ptqf"]
@@ -141,9 +142,8 @@ path_Right = NodePath("../../Terrain_Mesh/PNJ Right Path3D")
 
 [node name="Decoration_Manager" type="Node" parent="Scripts" unique_id=2044267013 node_paths=PackedStringArray("path_Left_left", "path_Left_center", "path_Left_right", "path_Right_right", "path_Right_center", "path_Right_left")]
 script = ExtResource("4_tgash")
-meshes_far = Array[PackedScene]([null, null])
-meshes_med = Array[PackedScene]([null, null])
-meshes_close = Array[PackedScene]([null, null])
+Decoration_mesh_scene = ExtResource("4_mmw3b")
+debut_acceleration = 0.85
 path_Left_left = NodePath("../../Terrain_Mesh/Decoration LEFT left Path3D")
 path_Left_center = NodePath("../../Terrain_Mesh/Decoration LEFT center Path3D")
 path_Left_right = NodePath("../../Terrain_Mesh/Decoration LEFT right Path3D")

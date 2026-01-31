@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dp7y7lbx4jj4d"]
+
+[ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="1_jbngt"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_3h7c1"]
+
+[node name="Decoration" type="MeshInstance3D" unique_id=1555248033]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+gi_mode = 2
+mesh = SubResource("PrismMesh_3h7c1")
+script = ExtResource("1_jbngt")

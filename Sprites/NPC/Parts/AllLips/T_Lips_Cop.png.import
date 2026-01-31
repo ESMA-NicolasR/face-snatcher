@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt1pwy1r8u4bx"
-path.s3tc="res://.godot/imported/clodo.png-76750313c9c8e5b82d22f1d2741d6d8b.s3tc.ctex"
-path.etc2="res://.godot/imported/clodo.png-76750313c9c8e5b82d22f1d2741d6d8b.etc2.ctex"
+uid="uid://qkyahilya6ec"
+path.s3tc="res://.godot/imported/T_Lips_Cop.png-551e956a276dada3dac1bfb03790e84c.s3tc.ctex"
+path.etc2="res://.godot/imported/T_Lips_Cop.png-551e956a276dada3dac1bfb03790e84c.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Nicolas/clodo.png"
-dest_files=["res://.godot/imported/clodo.png-76750313c9c8e5b82d22f1d2741d6d8b.s3tc.ctex", "res://.godot/imported/clodo.png-76750313c9c8e5b82d22f1d2741d6d8b.etc2.ctex"]
+source_file="res://Sprites/NPC/Parts/AllLips/T_Lips_Cop.png"
+dest_files=["res://.godot/imported/T_Lips_Cop.png-551e956a276dada3dac1bfb03790e84c.s3tc.ctex", "res://.godot/imported/T_Lips_Cop.png-551e956a276dada3dac1bfb03790e84c.etc2.ctex"]
 
 [params]
 
