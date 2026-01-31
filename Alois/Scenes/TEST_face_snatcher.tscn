@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://7gmhlma35ycp" path="res://Alois/Mesh/Decorations/sm_fence.tscn" id="7_py22k"]
 [ext_resource type="PackedScene" uid="uid://b5xkaemsjqoka" path="res://Alois/Mesh/Decorations/sm_bench.tscn" id="8_7075h"]
 [ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/sm_streetlight.tscn" id="9_3gcot"]
+[ext_resource type="Script" uid="uid://dvdsvbr7rfl4p" path="res://Alois/Scenes/game_speed_manager.gd" id="11_x8g61"]
 
 [sub_resource type="Curve3D" id="Curve3D_1ptqf"]
 bake_interval = 1.0
@@ -96,7 +97,7 @@ far = 1000.0
 [node name="StaticBody3D" type="StaticBody3D" parent="Player_Mesh" unique_id=501597762 groups=["Player"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Mesh/StaticBody3D" unique_id=1908706289]
-transform = Transform3D(1.4142135, 0, 1.4142135, 0, 2, 0, -1.4142135, 0, 1.4142135, 0, 0, 0)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 shape = SubResource("BoxShape3D_60xjm")
 
 [node name="Timers" type="Node" parent="." unique_id=1303597835]
@@ -193,6 +194,10 @@ path_Right_left = NodePath("../../Paths/Decoration RIGHT left Path3D")
 timer_RL = NodePath("../../Timers/Decoration Rightleft Timer6")
 
 [node name="NPC_Generator" parent="Scripts" unique_id=978562651 instance=ExtResource("4_mmw3b")]
+
+[node name="Game_Speed_Manager" type="Node" parent="Scripts" unique_id=979240591]
+script = ExtResource("11_x8g61")
+increment_vitesse = 0.25
 
 [node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar") groups=["UI"]]
 layout_mode = 3
