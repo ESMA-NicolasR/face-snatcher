@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://tnrj556cv806"]
 
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_60xjm"]
-[ext_resource type="Script" uid="uid://b0da7too51shs" path="res://Alois/Scripts/PNJ_Manager_Spawn_and_path.gd" id="2_3h7c1"]
+[ext_resource type="Script" uid="uid://c243yria0r6ru" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_3h7c1"]
 [ext_resource type="Script" uid="uid://bxmottpqr251" path="res://Alois/Scripts/Interface.gd" id="3_3h7c1"]
-[ext_resource type="PackedScene" uid="uid://de4jdsfikkdwb" path="res://Elsa/Meshes_Lvl-01/SM_Tree_001.fbx" id="4_jrc8a"]
-[ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="4_tgash"]
-[ext_resource type="PackedScene" uid="uid://bfx0rjatsvsli" path="res://Elsa/Meshes_Lvl-01/SM_Tree_002.fbx" id="5_lan1h"]
-[ext_resource type="PackedScene" uid="uid://cqxofi5b44nfs" path="res://Elsa/Meshes_Lvl-01/SM_Tree_003.fbx" id="6_x8g61"]
-[ext_resource type="PackedScene" uid="uid://b205wuklsxfc" path="res://Elsa/Meshes_Lvl-01/SM_Bench_001.fbx" id="7_rmso8"]
-[ext_resource type="PackedScene" uid="uid://bqjt3l87aigab" path="res://Elsa/Meshes_Lvl-01/SM_Fence_001.fbx" id="8_py22k"]
-[ext_resource type="PackedScene" uid="uid://ddvqpg2ovjw3d" path="res://Elsa/Meshes_Lvl-01/SM_Streetlight_001.fbx" id="9_7075h"]
+[ext_resource type="PackedScene" uid="uid://ybihehlv3jnf" path="res://Elsa/Meshes_Lvl-01/SM_Tree_001.fbx" id="4_jrc8a"]
+[ext_resource type="PackedScene" uid="uid://cb4pb4lwmvf24" path="res://Nicolas/NPC_Generator.tscn" id="4_mmw3b"]
+[ext_resource type="Script" path="res://Alois/Scripts/Decorations_Manager.gd" id="4_tgash"]
+[ext_resource type="PackedScene" uid="uid://bg3h71d5pj67j" path="res://Elsa/Meshes_Lvl-01/SM_Tree_002.fbx" id="5_lan1h"]
+[ext_resource type="PackedScene" uid="uid://dbc83yipxammw" path="res://Elsa/Meshes_Lvl-01/SM_Tree_003.fbx" id="6_x8g61"]
+[ext_resource type="PackedScene" uid="uid://pslvs3usjdtr" path="res://Elsa/Meshes_Lvl-01/SM_Bench_001.fbx" id="7_rmso8"]
+[ext_resource type="PackedScene" uid="uid://dsh1u6agmqtlo" path="res://Elsa/Meshes_Lvl-01/SM_Fence_001.fbx" id="8_py22k"]
+[ext_resource type="PackedScene" uid="uid://g0m5ob8qjgni" path="res://Elsa/Meshes_Lvl-01/SM_Streetlight_001.fbx" id="9_7075h"]
 
 [sub_resource type="Curve3D" id="Curve3D_1ptqf"]
 bake_interval = 1.0
@@ -158,6 +159,8 @@ path_Left_right = NodePath("../../Paths/Decoration LEFT right Path3D")
 path_Right_right = NodePath("../../Paths/Decoration RIGHT right Path3D")
 path_Right_center = NodePath("../../Paths/Decoration RIGHT center Path3D")
 path_Right_left = NodePath("../../Paths/Decoration RIGHT left Path3D")
+
+[node name="NPC_Generator" parent="Scripts" unique_id=978562651 instance=ExtResource("4_mmw3b")]
 
 [node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar") groups=["UI"]]
 layout_mode = 3
