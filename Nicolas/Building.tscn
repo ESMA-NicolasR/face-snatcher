@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://sn3ax6saw7rw"]
+
+[ext_resource type="Script" uid="uid://cyiq2yyo4om7t" path="res://Nicolas/building.gd" id="1_e37n3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ts6n"]
+
+[node name="Building" type="Node3D" unique_id=993539414]
+script = ExtResource("1_e37n3")
+speed = 1.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1864603612]
+transform = Transform3D(1, 0, 0, 0, 2.878073, 0, 0, 0, 1, 0, 1.4697325, 0)
+mesh = SubResource("BoxMesh_8ts6n")
