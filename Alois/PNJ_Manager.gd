@@ -5,11 +5,13 @@ extends Path3D
 @export var vitesse: float = 5.0
 
 func _on_timer_timeout() -> void:
+	print("spawn")
 	pnj_spawn()
 
 func pnj_spawn():
 	# Création suiveur de path
 	var new_victim = PathFollow3D.new()
+	new_victim.loop = false
 	add_child(new_victim)
 	
 	# Instance mesh dans le suiveur de path
@@ -23,5 +25,5 @@ func _process(delta: float) -> void:
 			pnj.progress += vitesse * delta
 			
 			# Supprimer le PNJ s'il arrive au bout du path
-			if pnj.progress_ratio >= 1.0:
+			if pnj.progress_ratio >= 1:
 				pnj.queue_free()

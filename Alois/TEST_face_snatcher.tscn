@@ -18,7 +18,7 @@ point_count = 2
 [node name="Node3D" type="Node3D" unique_id=939731608]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=564959843]
-transform = Transform3D(0.08766733, 0.6854392, 0.722833, 0.8376052, -0.44348913, 0.3189592, 0.5391957, 0.57748634, -0.61300695, 0, 0, 0)
+transform = Transform3D(0.087667346, 0.6854392, 0.72283304, 0.8376051, -0.44348922, 0.31895924, 0.5391958, 0.57748634, -0.6130069, 0, 0, 0)
 light_color = Color(0.71811104, 0.77309656, 0.8151441, 1)
 shadow_enabled = true
 
@@ -27,7 +27,7 @@ transform = Transform3D(-3.0969086, 0, 0, 0, 0.1, 0, 0, 0, 33.128483, 0, 0, 0)
 mesh = SubResource("BoxMesh_1ptqf")
 
 [node name="Path3D" type="Path3D" parent="Terrain_Mesh" unique_id=487030063]
-transform = Transform3D(-0.32290265, 0, 0, 0, 10, 0, 0, 0, 0.030185506, -0.12916106, 0.5, 0)
+transform = Transform3D(-0.32290265, 0, 0, 0, 10, 0, 0, 0, 0.030185506, -0.129, 1.5, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 script = ExtResource("1_6c1ar")
@@ -37,7 +37,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 loop = false
 
 [node name="Character_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.033352852, 0.14653625, 15.809191)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.15, 16)
 mesh = SubResource("CapsuleMesh_eya18")
 
 [node name="Camera3D" type="Camera3D" parent="Character_Mesh" unique_id=1811056502]
@@ -46,7 +46,7 @@ current = true
 fov = 60.0
 
 [node name="PNJ_mesh" parent="." unique_id=713862691 instance=ExtResource("1_ymyju")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.57276624, 0.1477099, 15.291572)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.15, 15)
 
 [node name="Timer" type="Timer" parent="." unique_id=362300206]
 wait_time = 1.5
