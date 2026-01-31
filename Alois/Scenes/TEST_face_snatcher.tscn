@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://tnrj556cv806"]
+
+[ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_60xjm"]
+[ext_resource type="Script" uid="uid://b0da7too51shs" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_3h7c1"]
+[ext_resource type="Script" uid="uid://bxmottpqr251" path="res://Alois/Scripts/Interface.gd" id="3_3h7c1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ptqf"]
+
+[sub_resource type="Curve3D" id="Curve3D_1ptqf"]
+bake_interval = 1.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl1dy"]
+albedo_texture = ExtResource("1_60xjm")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_eya18"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_60xjm"]
+
+[node name="Node3D" type="Node3D" unique_id=939731608]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=564959843]
+transform = Transform3D(0.087667346, 0.6854392, 0.72283304, 0.8376051, -0.44348922, 0.31895924, 0.5391958, 0.57748634, -0.6130069, 0, 0, 0)
+light_color = Color(0.71811104, 0.77309656, 0.8151441, 1)
+shadow_enabled = true
+
+[node name="Terrain_Mesh" type="MeshInstance3D" parent="." unique_id=1761828526]
+transform = Transform3D(-3.0969086, 0, 0, 0, 0.1, 0, 0, 0, 33.128483, 0, 0, 0)
+mesh = SubResource("BoxMesh_1ptqf")
+
+[node name="Left Path3D" type="Path3D" parent="Terrain_Mesh" unique_id=1600655904]
+transform = Transform3D(-0.32290265, 0, 0, 0, 10, 0, 0, 0, 0.030185506, 0.05, 1.5, 0)
+curve = SubResource("Curve3D_1ptqf")
+debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
+
+[node name="Right Path3D" type="Path3D" parent="Terrain_Mesh" unique_id=487030063]
+transform = Transform3D(-0.32290265, 0, 0, 0, 10, 0, 0, 0, 0.030185506, -0.05, 1.5, 0)
+curve = SubResource("Curve3D_1ptqf")
+debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
+
+[node name="Player_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.15, 16)
+material_override = SubResource("StandardMaterial3D_hl1dy")
+mesh = SubResource("CapsuleMesh_eya18")
+
+[node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502]
+transform = Transform3D(10, 0, 0, 0, 9.063078, 4.226183, 0, -4.226183, 9.063078, 0, 3, 4)
+current = true
+fov = 70.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Player_Mesh" unique_id=501597762 groups=["Player"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Mesh/StaticBody3D" unique_id=1908706289]
+transform = Transform3D(1.4142135, 0, 1.4142135, 0, 2, 0, -1.4142135, 0, 1.4142135, 0, 0, 0)
+shape = SubResource("BoxShape3D_60xjm")
+
+[node name="PNJ Spawn Timer" type="Timer" parent="." unique_id=362300206]
+wait_time = 5.0
+autostart = true
+ignore_time_scale = true
+
+[node name="PNJ_Manager" type="Node" parent="." unique_id=524255491 node_paths=PackedStringArray("path_Left", "path_Right")]
+script = ExtResource("2_3h7c1")
+vitesse_max = 2.0
+vitesse_min = 0.5
+debut_ralentissement = 0.5
+fin_ralentissement = 0.85
+debut_acceleration = 0.9
+fin_acceleration = 1.0
+path_Left = NodePath("../Terrain_Mesh/Left Path3D")
+path_Right = NodePath("../Terrain_Mesh/Right Path3D")
+
+[node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar") groups=["UI"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 539.0
+offset_bottom = 962.0
+script = ExtResource("3_3h7c1")
+score_label = NodePath("ScoreContainer/Score Label")
+health_bar = NodePath("Health Bar")
+gain_pv_mort = 5.0
+
+[node name="ScoreContainer" type="TextEdit" parent="UI" unique_id=1726788413 groups=["ScoreLabel"]]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 11.0
+offset_right = 528.0
+offset_bottom = 56.0
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+tab_input_mode = false
+virtual_keyboard_enabled = false
+
+[node name="Score Label" type="Label" parent="UI/ScoreContainer" unique_id=1376001332 groups=["ScoreLabel"]]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 214.0
+offset_bottom = 39.0
+text = "Points"
+
+[node name="Face Steal Button" type="Button" parent="UI" unique_id=119236727 groups=["Boutons_interaction"]]
+visible = false
+layout_mode = 0
+offset_left = 391.0
+offset_top = 341.0
+offset_right = 519.2727
+offset_bottom = 424.0
+text = "Bouton
+Vol visage"
+
+[node name="Health Bar" type="ProgressBar" parent="UI" unique_id=1541017287]
+modulate = Color(0, 0.8862745, 0, 1)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 19.0
+offset_right = 292.0
+offset_bottom = 46.0
+value = 100.0
+
+[connection signal="timeout" from="PNJ Spawn Timer" to="PNJ_Manager" method="_on_pnj_spawn_timer_timeout"]
+[connection signal="pressed" from="UI/Face Steal Button" to="UI" method="_on_face_steal_button_pressed"]

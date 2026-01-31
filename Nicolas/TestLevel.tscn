@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cty4vjmxxonrk"]
+
+[ext_resource type="PackedScene" uid="uid://bny1gf0u8q53x" path="res://Nicolas/PlayerCharacter.tscn" id="1_y1jsw"]
+[ext_resource type="PackedScene" uid="uid://sn3ax6saw7rw" path="res://Nicolas/Building.tscn" id="2_1kog2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_34lg8"]
+
+[node name="Node3D" type="Node3D" unique_id=433154049]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1741028132]
+transform = Transform3D(1, 0, 0, 0, 0.9141761, 0.40531713, 0, -0.40531713, 0.9141761, -0.096886635, 1.7542883, 0.9555527)
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=217057954]
+transform = Transform3D(36.149586, 0, 0, 0, 1.182706, 0, 0, 0, 32.825413, 0, 0, 0)
+mesh = SubResource("PlaneMesh_34lg8")
+
+[node name="PlayerCharacter" parent="." unique_id=1402226892 instance=ExtResource("1_y1jsw")]
+
+[node name="Building1" parent="." unique_id=993539414 instance=ExtResource("2_1kog2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7868749, 0, -2.8438425)
+
+[node name="Building2" parent="." unique_id=32614669 instance=ExtResource("2_1kog2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4773892, 0, -2.8438425)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=531978894]
+transform = Transform3D(1, 0, 0, 0, 0.4654291, 0.88508517, 0, -0.88508517, 0.4654291, 0, 5.372519, 0)
