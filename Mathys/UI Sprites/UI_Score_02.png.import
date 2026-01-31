@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xapj5g2xyebo"
-path="res://.godot/imported/UI_Hp3.png-1b6fa78315c8001f7e9f11074e98067d.ctex"
+uid="uid://66tiuginvxpl"
+path="res://.godot/imported/UI_Score_02.png-6b4a27e29a9b4b54a37c056c74544c40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mathys/UI Sprites/UI_Hp3.png"
-dest_files=["res://.godot/imported/UI_Hp3.png-1b6fa78315c8001f7e9f11074e98067d.ctex"]
+source_file="res://Mathys/UI Sprites/UI_Score_02.png"
+dest_files=["res://.godot/imported/UI_Score_02.png-6b4a27e29a9b4b54a37c056c74544c40.ctex"]
 
 [params]
 

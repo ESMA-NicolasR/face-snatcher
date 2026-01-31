@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bny1gf0u8q53x" path="res://Nicolas/PlayerCharacter.tscn" id="1_y1jsw"]
 [ext_resource type="PackedScene" uid="uid://sn3ax6saw7rw" path="res://Nicolas/Building.tscn" id="2_1kog2"]
+[ext_resource type="PackedScene" uid="uid://58dbsjrtxt8s" path="res://Mathys/FX_FallingLeaves.tscn" id="3_2rmuv"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_34lg8"]
 
@@ -24,3 +25,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4773892, 0, -2.8438425)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=531978894]
 transform = Transform3D(1, 0, 0, 0, 0.4654291, 0.88508517, 0, -0.88508517, 0.4654291, 0, 5.372519, 0)
+
+[node name="Node3D" parent="." unique_id=1478669180 instance=ExtResource("3_2rmuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1868052, -1.2529867)

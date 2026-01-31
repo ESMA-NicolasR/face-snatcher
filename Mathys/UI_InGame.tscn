@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://cogw2bkbmxuvv"]
+
+[ext_resource type="Texture2D" uid="uid://dqkdsm0lbaksh" path="res://Mathys/UI Sprites/UI_Score.png" id="1_t5lrb"]
+[ext_resource type="Texture2D" uid="uid://66tiuginvxpl" path="res://Mathys/UI Sprites/UI_Score_02.png" id="2_q3hre"]
+[ext_resource type="Texture2D" uid="uid://078mp6npal8q" path="res://Mathys/UI Sprites/UI_Frame.png" id="3_ugqyf"]
+[ext_resource type="Texture2D" uid="uid://c0wgxijc4rp7y" path="res://Mathys/UI Sprites/UI_Frame_02.png" id="4_10l6p"]
+[ext_resource type="Texture2D" uid="uid://xut11wbq6jqr" path="res://Mathys/UI Sprites/UI_Hp4.png" id="5_6mt80"]
+[ext_resource type="Texture2D" uid="uid://c671i28uw4p38" path="res://Mathys/UI Sprites/UI_HeadPupils.png" id="6_spvky"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_vdrr1"]
+frames = 2
+frame_0/texture = ExtResource("1_t5lrb")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("2_q3hre")
+frame_1/duration = 0.5
+
+[sub_resource type="Animation" id="Animation_0pvea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Label:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_14neg"]
+resource_name = "ScoreTextAnim"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Label:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.5),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [0.08726646259971647, -0.08726646259971647]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vdrr1"]
+_data = {
+&"RESET": SubResource("Animation_0pvea"),
+&"ScoreTextAnim": SubResource("Animation_14neg")
+}
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_1diuk"]
+frames = 2
+frame_0/texture = ExtResource("3_ugqyf")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("4_10l6p")
+frame_1/duration = 0.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cwbuu"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(80, 20, 1)
+gravity = Vector3(0, 98, 0)
+scale_min = 4.0
+scale_max = 8.0
+color = Color(0.52026963, 5.715527e-07, 2.8878452e-07, 1)
+
+[node name="inGameUI" type="Control" unique_id=1454388861]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreContainer" type="MarginContainer" parent="." unique_id=134473296]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -212.83499
+offset_top = -47.015
+offset_right = 43.16504
+offset_bottom = 208.985
+grow_horizontal = 0
+scale = Vector2(0.8, 0.8)
+
+[node name="TextureRect" type="TextureRect" parent="ScoreContainer" unique_id=231478585]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_vdrr1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScoreContainer/TextureRect" unique_id=937091701]
+libraries/ = SubResource("AnimationLibrary_vdrr1")
+
+[node name="Label" type="Label" parent="ScoreContainer/TextureRect/AnimationPlayer" unique_id=1403013745]
+offset_left = 370.355
+offset_top = 45.0
+offset_right = 490.355
+offset_bottom = 70.0
+pivot_offset = Vector2(60, 12)
+text = "000000"
+horizontal_alignment = 1
+
+[node name="HeadFrameContainer" type="MarginContainer" parent="." unique_id=1752014446]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 271.0
+offset_bottom = 271.0
+scale = Vector2(0.7, 0.7)
+
+[node name="FrameSprite" type="TextureRect" parent="HeadFrameContainer" unique_id=1929809884]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_1diuk")
+
+[node name="HeadContainer" type="MarginContainer" parent="HeadFrameContainer" unique_id=930123730]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HeadSprite" type="TextureRect" parent="HeadFrameContainer/HeadContainer" unique_id=473459851]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_6mt80")
+stretch_mode = 2
+
+[node name="HeadPupils" type="TextureRect" parent="HeadFrameContainer/HeadContainer/HeadSprite" unique_id=1369718612]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_spvky")
+
+[node name="EmitterBloodHead" type="GPUParticles2D" parent="HeadFrameContainer/HeadContainer" unique_id=2001681547]
+position = Vector2(129.17, 73.62)
+amount = 20
+lifetime = 1.8
+process_material = SubResource("ParticleProcessMaterial_cwbuu")
