@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://cogw2bkbmxuvv"]
 
-[ext_resource type="Texture2D" uid="uid://dqkdsm0lbaksh" path="res://Mathys/UI Sprites/UI_Score.png" id="1_t5lrb"]
-[ext_resource type="Texture2D" uid="uid://66tiuginvxpl" path="res://Mathys/UI Sprites/UI_Score_02.png" id="2_q3hre"]
-[ext_resource type="Texture2D" uid="uid://078mp6npal8q" path="res://Mathys/UI Sprites/UI_Frame.png" id="3_ugqyf"]
-[ext_resource type="Texture2D" uid="uid://c0wgxijc4rp7y" path="res://Mathys/UI Sprites/UI_Frame_02.png" id="4_10l6p"]
-[ext_resource type="Texture2D" uid="uid://xut11wbq6jqr" path="res://Mathys/UI Sprites/UI_Hp4.png" id="5_6mt80"]
-[ext_resource type="Texture2D" uid="uid://c671i28uw4p38" path="res://Mathys/UI Sprites/UI_HeadPupils.png" id="6_spvky"]
+[ext_resource type="Texture2D" uid="uid://dqkdsm0lbaksh" path="res://Sprites/UI Sprites/T_Score.png" id="1_e2kok"]
+[ext_resource type="Texture2D" uid="uid://66tiuginvxpl" path="res://Sprites/UI Sprites/T_Score_02.png" id="2_dkp8g"]
+[ext_resource type="Texture2D" uid="uid://078mp6npal8q" path="res://Sprites/UI Sprites/T_Frame.png" id="3_nmhjk"]
+[ext_resource type="Texture2D" uid="uid://c0wgxijc4rp7y" path="res://Sprites/UI Sprites/T_Frame_02.png" id="4_gvi5j"]
+[ext_resource type="Texture2D" uid="uid://xut11wbq6jqr" path="res://Sprites/UI Sprites/T_Hp4.png" id="5_tyu64"]
+[ext_resource type="Texture2D" uid="uid://c671i28uw4p38" path="res://Sprites/UI Sprites/T_HeadPupils.png" id="6_0t6be"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_vdrr1"]
 frames = 2
-frame_0/texture = ExtResource("1_t5lrb")
+frame_0/texture = ExtResource("1_e2kok")
 frame_0/duration = 0.5
-frame_1/texture = ExtResource("2_q3hre")
+frame_1/texture = ExtResource("2_dkp8g")
 frame_1/duration = 0.5
 
 [sub_resource type="Animation" id="Animation_0pvea"]
@@ -53,9 +53,9 @@ _data = {
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_1diuk"]
 frames = 2
-frame_0/texture = ExtResource("3_ugqyf")
+frame_0/texture = ExtResource("3_nmhjk")
 frame_0/duration = 0.5
-frame_1/texture = ExtResource("4_10l6p")
+frame_1/texture = ExtResource("4_gvi5j")
 frame_1/duration = 0.5
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cwbuu"]
@@ -124,14 +124,14 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("5_6mt80")
+texture = ExtResource("5_tyu64")
 stretch_mode = 2
 
 [node name="HeadPupils" type="TextureRect" parent="HeadFrameContainer/HeadContainer/HeadSprite" unique_id=1369718612]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("6_spvky")
+texture = ExtResource("6_0t6be")
 
 [node name="EmitterBloodHead" type="GPUParticles2D" parent="HeadFrameContainer/HeadContainer" unique_id=2001681547]
 position = Vector2(129.17, 73.62)
