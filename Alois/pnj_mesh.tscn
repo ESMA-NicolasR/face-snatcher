@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://dlpg7dhppfeiw"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_1ptqf"]
-
-[node name="PNJ_mesh" type="MeshInstance3D" unique_id=713862691]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_1ptqf")

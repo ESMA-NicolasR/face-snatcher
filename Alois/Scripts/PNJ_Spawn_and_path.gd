@@ -1,7 +1,7 @@
 extends Node
  
 # Mesh pnj
-@export var PNJ_mesh_scene: PackedScene = preload("res://Alois/pnj_mesh.tscn")
+@export var PNJ_mesh_scene: PackedScene = preload("res://Alois/Mesh/pnj_mesh.tscn")
  
 # Vitesse de déplacement m/s maximum
 @export var vitesse_max: float = 5.0

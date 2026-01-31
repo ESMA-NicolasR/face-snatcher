@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://tnrj556cv806"]
 
-[ext_resource type="Script" uid="uid://b0da7too51shs" path="res://Alois/PNJ_Manager.gd" id="1_6c1ar"]
-[ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_k8wfa"]
+[ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_60xjm"]
+[ext_resource type="Script" uid="uid://b0da7too51shs" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_3h7c1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1ptqf"]
 
@@ -14,9 +14,11 @@ _data = {
 point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl1dy"]
-albedo_texture = ExtResource("1_k8wfa")
+albedo_texture = ExtResource("1_60xjm")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_eya18"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_60xjm"]
 
 [node name="Node3D" type="Node3D" unique_id=939731608]
 
@@ -39,15 +41,21 @@ transform = Transform3D(-0.32290265, 0, 0, 0, 10, 0, 0, 0, 0.030185506, -0.05, 1
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
-[node name="Character_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
+[node name="Player_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.15, 16)
 material_override = SubResource("StandardMaterial3D_hl1dy")
 mesh = SubResource("CapsuleMesh_eya18")
 
-[node name="Camera3D" type="Camera3D" parent="Character_Mesh" unique_id=1811056502]
+[node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502]
 transform = Transform3D(10, 0, 0, 0, 9.063078, 4.226183, 0, -4.226183, 9.063078, 0, 3, 4)
 current = true
-fov = 60.0
+fov = 70.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Player_Mesh" unique_id=501597762 groups=["Player"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Mesh/StaticBody3D" unique_id=1908706289]
+transform = Transform3D(1.4142135, 0, 1.4142135, 0, 2, 0, -1.4142135, 0, 1.4142135, 0, 0, 0)
+shape = SubResource("BoxShape3D_60xjm")
 
 [node name="PNJ Spawn Timer" type="Timer" parent="." unique_id=362300206]
 wait_time = 5.0
@@ -55,7 +63,7 @@ autostart = true
 ignore_time_scale = true
 
 [node name="PNJ_Manager" type="Node" parent="." unique_id=524255491 node_paths=PackedStringArray("path_Left", "path_Right")]
-script = ExtResource("1_6c1ar")
+script = ExtResource("2_3h7c1")
 vitesse_max = 2.0
 vitesse_min = 0.5
 debut_ralentissement = 0.5
@@ -64,5 +72,29 @@ debut_acceleration = 0.9
 fin_acceleration = 1.0
 path_Left = NodePath("../Terrain_Mesh/Left Path3D")
 path_Right = NodePath("../Terrain_Mesh/Right Path3D")
+
+[node name="Control" type="Control" parent="." unique_id=556213673]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 539.0
+offset_bottom = 962.0
+
+[node name="ScoreText" type="TextEdit" parent="Control" unique_id=1726788413]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 11.0
+offset_right = 528.0
+offset_bottom = 56.0
+placeholder_text = "Points"
+
+[node name="Button" type="Button" parent="Control" unique_id=119236727 groups=["Boutons_interaction"]]
+visible = false
+layout_mode = 0
+offset_left = 391.0
+offset_top = 341.0
+offset_right = 519.2727
+offset_bottom = 424.0
+text = "Bouton
+Vol visage"
 
 [connection signal="timeout" from="PNJ Spawn Timer" to="PNJ_Manager" method="_on_pnj_spawn_timer_timeout"]
