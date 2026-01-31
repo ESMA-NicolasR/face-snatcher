@@ -107,32 +107,32 @@ autostart = true
 ignore_time_scale = true
 
 [node name="Decoration Leftleft Timer1" type="Timer" parent="Timers" unique_id=479268536]
-wait_time = 3.5
+wait_time = 5.0
 autostart = true
 ignore_time_scale = true
 
 [node name="Decoration Leftcenter Timer2" type="Timer" parent="Timers" unique_id=296177828]
-wait_time = 5.0
+wait_time = 7.5
 autostart = true
 ignore_time_scale = true
 
 [node name="Decoration Leftright Timer3" type="Timer" parent="Timers" unique_id=1304791291]
-wait_time = 7.0
+wait_time = 10.0
 autostart = true
 ignore_time_scale = true
 
 [node name="Decoration Rightright Timer4" type="Timer" parent="Timers" unique_id=1618409885]
-wait_time = 3.5
-autostart = true
-ignore_time_scale = true
-
-[node name="Decoration Rightcenter Timer5" type="Timer" parent="Timers" unique_id=316492386]
 wait_time = 5.0
 autostart = true
 ignore_time_scale = true
 
+[node name="Decoration Rightcenter Timer5" type="Timer" parent="Timers" unique_id=316492386]
+wait_time = 7.5
+autostart = true
+ignore_time_scale = true
+
 [node name="Decoration Rightleft Timer6" type="Timer" parent="Timers" unique_id=523578028]
-wait_time = 7.0
+wait_time = 10.0
 autostart = true
 ignore_time_scale = true
 
@@ -153,6 +153,12 @@ script = ExtResource("4_tgash")
 meshes_far = Array[PackedScene]([ExtResource("4_lan1h"), ExtResource("5_x8g61"), ExtResource("6_rmso8")])
 meshes_med = Array[PackedScene]([ExtResource("7_py22k")])
 meshes_close = Array[PackedScene]([ExtResource("8_7075h"), ExtResource("9_3gcot")])
+vitesse_min_far = 0.85
+vitesse_min_med = 0.95
+vitesse_min_close = 1.05
+fin_ralentissement_far = 0.82
+fin_ralentissement_med = 0.82
+fin_ralentissement_close = 0.82
 path_Left_left = NodePath("../../Paths/Decoration LEFT left Path3D")
 path_Left_center = NodePath("../../Paths/Decoration LEFT center Path3D")
 path_Left_right = NodePath("../../Paths/Decoration LEFT right Path3D")
