@@ -8,7 +8,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_k6bbx"]
 
 [node name="PNJ_mesh" type="MeshInstance3D" unique_id=713862691]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 mesh = SubResource("CylinderMesh_1ptqf")
 script = ExtResource("1_ub2ge")
 
