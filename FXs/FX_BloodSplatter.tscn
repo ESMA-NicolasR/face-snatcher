@@ -11,28 +11,31 @@ curve = SubResource("Curve_sh63r")
 particle_flag_rotate_y = true
 emission_shape_scale = Vector3(0.2, 0.2, 1)
 emission_shape = 3
-emission_box_extents = Vector3(1, 1, 0.1)
+emission_box_extents = Vector3(0, 0, 0)
 angle_min = -9.9999895
 angle_max = 10.0000105
 velocity_pivot = Vector3(0, 100, 0)
-direction = Vector3(0, 1, 0)
+direction = Vector3(0, 1, 1)
 initial_velocity_min = 3.0
 initial_velocity_max = 5.0
-scale_min = 1.5
-scale_max = 2.0
+scale_max = 1.5
 scale_curve = SubResource("CurveTexture_03sxt")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh63r"]
-albedo_color = Color(0.52156866, 0, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxhu1"]
+albedo_color = Color(0.6862745, 0, 0, 1)
 
-[sub_resource type="QuadMesh" id="QuadMesh_03sxt"]
-material = SubResource("StandardMaterial3D_sh63r")
+[sub_resource type="QuadMesh" id="QuadMesh_j5o7d"]
+material = SubResource("StandardMaterial3D_xxhu1")
 size = Vector2(0.1, 0.1)
 
 [node name="FX_BloodSplatter" type="Node3D" unique_id=1176256644]
 
 [node name="Emitter" type="GPUParticles3D" parent="." unique_id=623935569]
-amount = 20
+amount = 50
 amount_ratio = 0.7
+explosiveness = 1.0
+trail_lifetime = 0.8
 process_material = SubResource("ParticleProcessMaterial_sh63r")
-draw_pass_1 = SubResource("QuadMesh_03sxt")
+draw_passes = 2
+draw_pass_1 = SubResource("QuadMesh_j5o7d")
+draw_pass_2 = null
