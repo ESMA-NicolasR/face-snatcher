@@ -1,26 +1,16 @@
 [gd_scene format=3 uid="uid://tnrj556cv806"]
 
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_60xjm"]
-[ext_resource type="Script" uid="uid://c243yria0r6ru" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_3h7c1"]
+[ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_3h7c1"]
 [ext_resource type="Script" uid="uid://bxmottpqr251" path="res://Alois/Scripts/Interface.gd" id="3_3h7c1"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://ybihehlv3jnf" path="res://Elsa/Meshes_Lvl-01/SM_Tree_001.fbx" id="4_jrc8a"]
+[ext_resource type="PackedScene" uid="uid://dajoisdrbqbou" path="res://Alois/Mesh/Decorations/sm_tree1.tscn" id="4_lan1h"]
 [ext_resource type="PackedScene" uid="uid://cb4pb4lwmvf24" path="res://Nicolas/NPC_Generator.tscn" id="4_mmw3b"]
-[ext_resource type="Script" path="res://Alois/Scripts/Decorations_Manager.gd" id="4_tgash"]
-[ext_resource type="PackedScene" uid="uid://bg3h71d5pj67j" path="res://Elsa/Meshes_Lvl-01/SM_Tree_002.fbx" id="5_lan1h"]
-[ext_resource type="PackedScene" uid="uid://dbc83yipxammw" path="res://Elsa/Meshes_Lvl-01/SM_Tree_003.fbx" id="6_x8g61"]
-[ext_resource type="PackedScene" uid="uid://pslvs3usjdtr" path="res://Elsa/Meshes_Lvl-01/SM_Bench_001.fbx" id="7_rmso8"]
-[ext_resource type="PackedScene" uid="uid://dsh1u6agmqtlo" path="res://Elsa/Meshes_Lvl-01/SM_Fence_001.fbx" id="8_py22k"]
-[ext_resource type="PackedScene" uid="uid://g0m5ob8qjgni" path="res://Elsa/Meshes_Lvl-01/SM_Streetlight_001.fbx" id="9_7075h"]
-=======
-[ext_resource type="PackedScene" uid="uid://dajoisdrbqbou" path="res://Alois/Mesh/Decorations/sm_tree1.tscn" id="4_3gcot"]
 [ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="4_tgash"]
-[ext_resource type="PackedScene" uid="uid://duc73xitbvn5r" path="res://Alois/Mesh/Decorations/sm_tree2.tscn" id="5_vj2r2"]
-[ext_resource type="PackedScene" uid="uid://6kjpu35jhofq" path="res://Alois/Mesh/Decorations/sm_tree3.tscn" id="6_616ho"]
-[ext_resource type="PackedScene" uid="uid://7gmhlma35ycp" path="res://Alois/Mesh/Decorations/sm_fence.tscn" id="7_qbaqy"]
-[ext_resource type="PackedScene" uid="uid://b5xkaemsjqoka" path="res://Alois/Mesh/Decorations/sm_bench.tscn" id="8_thyt7"]
-[ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/sm_streetlight.tscn" id="9_0s55d"]
->>>>>>> Stashed changes
+[ext_resource type="PackedScene" uid="uid://duc73xitbvn5r" path="res://Alois/Mesh/Decorations/sm_tree2.tscn" id="5_x8g61"]
+[ext_resource type="PackedScene" uid="uid://6kjpu35jhofq" path="res://Alois/Mesh/Decorations/sm_tree3.tscn" id="6_rmso8"]
+[ext_resource type="PackedScene" uid="uid://7gmhlma35ycp" path="res://Alois/Mesh/Decorations/sm_fence.tscn" id="7_py22k"]
+[ext_resource type="PackedScene" uid="uid://b5xkaemsjqoka" path="res://Alois/Mesh/Decorations/sm_bench.tscn" id="8_7075h"]
+[ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/sm_streetlight.tscn" id="9_3gcot"]
 
 [sub_resource type="Curve3D" id="Curve3D_1ptqf"]
 bake_interval = 1.0
@@ -160,13 +150,9 @@ path_Right = NodePath("../../Paths/PNJ Right Path3D")
 
 [node name="Decoration_Manager" type="Node" parent="Scripts" unique_id=2044267013 node_paths=PackedStringArray("path_Left_left", "path_Left_center", "path_Left_right", "path_Right_right", "path_Right_center", "path_Right_left")]
 script = ExtResource("4_tgash")
-meshes_far = Array[PackedScene]([ExtResource("4_3gcot"), ExtResource("5_vj2r2"), ExtResource("6_616ho")])
-meshes_med = Array[PackedScene]([ExtResource("7_qbaqy")])
-meshes_close = Array[PackedScene]([ExtResource("8_thyt7"), ExtResource("9_0s55d")])
-vitesse_min_far = 0.5
-vitesse_min_med = 0.75
-vitesse_max_close = 4.0
-vitesse_min_close = 1.0
+meshes_far = Array[PackedScene]([ExtResource("4_lan1h"), ExtResource("5_x8g61"), ExtResource("6_rmso8")])
+meshes_med = Array[PackedScene]([ExtResource("7_py22k")])
+meshes_close = Array[PackedScene]([ExtResource("8_7075h"), ExtResource("9_3gcot")])
 path_Left_left = NodePath("../../Paths/Decoration LEFT left Path3D")
 path_Left_center = NodePath("../../Paths/Decoration LEFT center Path3D")
 path_Left_right = NodePath("../../Paths/Decoration LEFT right Path3D")
