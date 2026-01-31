@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://7jgdtr8v0dt4"]
+
+[ext_resource type="Script" uid="uid://bxfnwipwcv6lq" path="res://Nicolas/npc_sprites.gd" id="1_scoui"]
+[ext_resource type="Texture2D" uid="uid://cffg0pcd6q78" path="res://Sprites/NPC/Parts/AllFaces/T_Dead_Faces.png" id="2_qyxr5"]
+[ext_resource type="Texture2D" uid="uid://qkyahilya6ec" path="res://Sprites/NPC/Parts/AllLips/T_Lips_Cop.png" id="3_gwjbn"]
+[ext_resource type="Texture2D" uid="uid://sd27n7livaj4" path="res://Sprites/NPC/Parts/AllEyes/T_Eyes_Cop.png" id="4_20fhq"]
+[ext_resource type="Texture2D" uid="uid://s6d2gdmg4efo" path="res://Sprites/NPC/Parts/AllNoses/T_Nose_Karen.png" id="5_y8v77"]
+[ext_resource type="Texture2D" uid="uid://c0sm22xh05ms4" path="res://Sprites/NPC/Parts/AllEyebrows/T_Eyebrows_Cop.png" id="6_3f0ai"]
+[ext_resource type="Texture2D" uid="uid://dxiiffpo5552d" path="res://Sprites/NPC/Parts/AllBodies/T_Boy_Body.png" id="7_qyxr5"]
+
+[node name="NPC_Sprites" type="Node3D" unique_id=1493722209]
+script = ExtResource("1_scoui")
+
+[node name="BaseFace" type="Sprite3D" parent="." unique_id=1248402716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6393169, 0)
+texture = ExtResource("2_qyxr5")
+hframes = 7
+vframes = 2
+
+[node name="Lips" type="Sprite3D" parent="BaseFace" unique_id=1066996545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+texture = ExtResource("3_gwjbn")
+
+[node name="Eyes" type="Sprite3D" parent="BaseFace" unique_id=1272236926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+texture = ExtResource("4_20fhq")
+
+[node name="Nose" type="Sprite3D" parent="BaseFace" unique_id=1270209971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+texture = ExtResource("5_y8v77")
+
+[node name="Eyebrows" type="Sprite3D" parent="BaseFace" unique_id=601976870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+texture = ExtResource("6_3f0ai")
+
+[node name="Body" type="Sprite3D" parent="." unique_id=1155153539]
+texture = ExtResource("7_qyxr5")

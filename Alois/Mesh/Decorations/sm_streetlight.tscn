@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cede8dj1osq7"]
+
+[ext_resource type="PackedScene" uid="uid://g0m5ob8qjgni" path="res://Elsa/Meshes_Lvl-01/SM_Streetlight_001.fbx" id="1_tctx4"]
+
+[node name="SM_Streetlight_001" unique_id=505501069 instance=ExtResource("1_tctx4")]

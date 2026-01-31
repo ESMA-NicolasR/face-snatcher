@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dn4ob6id3dawi" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Everyman.png" id="6_vmuiw"]
 [ext_resource type="Texture2D" uid="uid://dilrlinfrhrlb" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Karen.png" id="7_bff45"]
 [ext_resource type="Texture2D" uid="uid://bcal6k070awcq" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Pumkin.png" id="8_0ruml"]
+[ext_resource type="Texture2D" uid="uid://dxiiffpo5552d" path="res://Sprites/NPC/Parts/AllBodies/T_Boy_Body.png" id="9_40h30"]
 [ext_resource type="Texture2D" uid="uid://da47cdntyw8w2" path="res://Sprites/NPC/Parts/AllLips/T_Lips_Biker.png" id="9_swj2v"]
 [ext_resource type="Texture2D" uid="uid://dooyca0hryyaa" path="res://Sprites/NPC/Parts/AllLips/T_Lips_Botox.png" id="10_i08pa"]
+[ext_resource type="Texture2D" uid="uid://b8klu0mrxtj0x" path="res://Sprites/NPC/Parts/AllBodies/T_Girl_Body.png" id="10_upq5r"]
 [ext_resource type="Texture2D" uid="uid://qkyahilya6ec" path="res://Sprites/NPC/Parts/AllLips/T_Lips_Cop.png" id="11_622r8"]
 [ext_resource type="Texture2D" uid="uid://jd2oq5tg606j" path="res://Sprites/NPC/Parts/AllLips/T_Lips_Cougar.png" id="12_1jpdf"]
 [ext_resource type="Texture2D" uid="uid://0mjur8675bda" path="res://Sprites/NPC/Parts/AllLips/T_Lips_Everyman.png" id="13_jpwvu"]
@@ -40,6 +42,7 @@
 [node name="NPC_Generator" type="Node" unique_id=978562651]
 script = ExtResource("1_umpkl")
 allFaces = Array[Texture]([ExtResource("2_4urkp"), ExtResource("3_jffr5"), ExtResource("4_40h30"), ExtResource("5_upq5r"), ExtResource("6_vmuiw"), ExtResource("7_bff45"), ExtResource("8_0ruml")])
+allBodies = Array[Texture]([ExtResource("9_40h30"), ExtResource("10_upq5r")])
 allLips = Array[Texture]([ExtResource("9_swj2v"), ExtResource("10_i08pa"), ExtResource("11_622r8"), ExtResource("12_1jpdf"), ExtResource("13_jpwvu"), ExtResource("14_pyhrm"), ExtResource("15_4lrob")])
 allEyes = Array[Texture]([ExtResource("16_kxrli"), ExtResource("17_hnoln"), ExtResource("18_1tr4u"), ExtResource("19_onwlc"), ExtResource("20_ahqga"), ExtResource("21_wmo8d"), ExtResource("22_3deyd")])
 allEyebrows = Array[Texture]([ExtResource("23_ngthj"), ExtResource("24_4oqxd"), ExtResource("25_y1flu"), ExtResource("26_n54wf"), ExtResource("27_2buoy"), ExtResource("28_nheot"), ExtResource("29_x1qd2")])

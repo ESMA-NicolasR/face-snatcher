@@ -1,7 +1,7 @@
 extends Node
  
 # Mesh pnj
-@export var PNJ_mesh_scene: PackedScene = preload("res://Alois/Mesh/PNJ_mesh.tscn")
+@export var PNJ_mesh_scene: PackedScene = preload("res://Alois/Mesh/pnj_mesh.tscn")
  
 # Vitesse de déplacement m/s maximum
 @export var vitesse_max: float = 5.0
@@ -56,6 +56,9 @@ func pnj_spawn():
 	
 	# Instance mesh dans le suiveur de path
 	var new_pnj = PNJ_mesh_scene.instantiate()
+	# Generation du skin
+	var npc_sprites = new_pnj.get_node("NPC_Sprites")
+	$"../NPC_Generator".init_npc(npc_sprites)
 	new_victim.add_child(new_pnj)
  
 func _process(delta: float) -> void:
@@ -92,7 +95,3 @@ func _process(delta: float) -> void:
 func _on_pnj_spawn_timer_timeout() -> void:
 	print("Une nouvelle victime apparue")
 	pnj_spawn()
-
-
-func _on_decoration_leftright_timer_3_timeout() -> void:
-	pass # Replace with function body.

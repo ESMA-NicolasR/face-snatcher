@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://dlpg7dhppfeiw"]
 
 [ext_resource type="Script" uid="uid://cb2k8n46v1ho7" path="res://Alois/Scripts/Face_steal.gd" id="1_ub2ge"]
+[ext_resource type="PackedScene" uid="uid://7jgdtr8v0dt4" path="res://Nicolas/npc_sprites.tscn" id="2_gnl0j"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_1ptqf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k6bbx"]
 
 [node name="PNJ_mesh" type="MeshInstance3D" unique_id=713862691]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 mesh = SubResource("CylinderMesh_1ptqf")
 script = ExtResource("1_ub2ge")
 
@@ -17,6 +18,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1697190693]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 shape = SubResource("BoxShape3D_k6bbx")
+
+[node name="NPC_Sprites" parent="." unique_id=1493722209 instance=ExtResource("2_gnl0j")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5, -0.5)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

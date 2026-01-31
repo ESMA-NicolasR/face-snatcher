@@ -54,7 +54,7 @@ func _on_face_steal_button_pressed() -> void:
 		clics_actuels += 1
 		print("Clic : ", clics_actuels)
 		# Si on atteint 5 clics on détruit le pnj
-		if clics_actuels >= 5:
+		if clics_actuels >= 1:
 			detruire_pnj()
  
 func detruire_pnj():
@@ -70,9 +70,8 @@ func detruire_pnj():
 	
 	# Détruire le PNJ (via son parent PathFollow3D)
 	if pnj_actuel:
-		# On remonte au parent car le script est sur le Mesh 
-		# mais c'est le PathFollow3D qu'on veut supprimer
-		pnj_actuel.get_parent().queue_free()
+		# On modifie le visage du npc
+		pnj_actuel.get_node("NPC_Sprites").snatch_face()
 		print("pnj actuel trouvé")
 	
 	# Cacher le bouton et nettoyer les références

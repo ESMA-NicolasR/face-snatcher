@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://6kjpu35jhofq"]
+
+[ext_resource type="PackedScene" uid="uid://dbc83yipxammw" path="res://Elsa/Meshes_Lvl-01/SM_Tree_003.fbx" id="1_e61yr"]
+
+[node name="SM_Tree_003" unique_id=728269304 instance=ExtResource("1_e61yr")]
