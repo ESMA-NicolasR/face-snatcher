@@ -92,3 +92,7 @@ func _process(delta: float) -> void:
 func _on_pnj_spawn_timer_timeout() -> void:
 	print("Une nouvelle victime apparue")
 	pnj_spawn()
+
+
+func _on_decoration_leftright_timer_3_timeout() -> void:
+	pass # Replace with function body.
