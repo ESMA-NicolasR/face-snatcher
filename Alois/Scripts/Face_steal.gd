@@ -3,8 +3,7 @@ extends Node3D
 var interface: Control
  
 func _ready() -> void:
-	# On va chercher l'interface (adaptez le chemin selon votre scène)
-	# Si votre UI est dans un groupe "UI", c'est plus simple :
+	# On va chercher l'interface
 	interface = get_tree().get_first_node_in_group("UI")
  
 func _on_area_3d_body_entered(body: Node3D) -> void:
