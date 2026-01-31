@@ -1,6 +1,7 @@
 extends Node
 
 @export var allFaces : Array[Texture]
+@export var allBodies : Array[Texture]
 @export var allLips : Array[Texture]
 @export var allEyes : Array[Texture]
 @export var allEyebrows : Array[Texture]
@@ -18,17 +19,14 @@ func create_npc():
 	var new_npc : NPC_Sprites = npc_scene.instantiate()
 	
 	# Random face generation
-	new_npc.change_face(allFaces.pick_random())
-	new_npc.change_lips(allLips.pick_random())
-	new_npc.change_eyes(allEyes.pick_random())
-	new_npc.change_eyebrows(allEyebrows.pick_random())
-	new_npc.change_nose(allNoses.pick_random())
+	init_npc(new_npc)
 	
 	# Place NPC in scene
 	spawnPoint.add_child(new_npc)
 
 func init_npc(npc):
-	npc.change_face(allFaces.pick_random())
+	npc.change_face(randi())
+	npc.change_body(allBodies.pick_random())
 	npc.change_lips(allLips.pick_random())
 	npc.change_eyes(allEyes.pick_random())
 	npc.change_eyebrows(allEyebrows.pick_random())
