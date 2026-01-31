@@ -10,7 +10,7 @@ extends Node
 @export var npc_scene : PackedScene = preload("res://Nicolas/npc_sprites.tscn")
 @export var spawnPoint : Node3D
 
-func _process(delta):
+func _process(_delta):
 	if(Input.is_action_just_pressed("debugSpawn")):
 		create_npc()
 
