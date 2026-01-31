@@ -111,7 +111,7 @@ one_shot = true
 autostart = true
 
 [node name="Decoration Leftcenter Timer2" type="Timer" parent="Timers" unique_id=296177828]
-wait_time = 6.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 
@@ -126,7 +126,7 @@ one_shot = true
 autostart = true
 
 [node name="Decoration Rightcenter Timer5" type="Timer" parent="Timers" unique_id=316492386]
-wait_time = 6.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 
@@ -152,25 +152,33 @@ script = ExtResource("4_tgash")
 meshes_far = Array[PackedScene]([ExtResource("4_lan1h"), ExtResource("5_x8g61"), ExtResource("6_rmso8")])
 meshes_med = Array[PackedScene]([ExtResource("7_py22k")])
 meshes_close = Array[PackedScene]([ExtResource("9_3gcot"), ExtResource("8_7075h")])
-vitesse_max_far = 3.0
-vitesse_min_far = 1.05
+vitesse_max_far = 3.5
+vitesse_min_far = 1.1
 vitesse_max_med = 3.5
 vitesse_min_med = 1.1
 vitesse_max_close = 4.0
 vitesse_min_close = 1.15
 debut_ralentissement_far = 0.6
-range_far_left_min = 5.0
-range_far_left_max = 7.5
-range_far_right_min = 5.0
-range_far_right_max = 7.5
-range_med_left_min = 3.0
-range_med_left_max = 3.0
-range_med_right_min = 3.0
-range_med_right_max = 3.0
+debut_ralentissement_med = 0.9
+fin_ralentissement_med = 0.95
+debut_acceleration_med = 0.95
+rot_y_far_L = Vector2(0, 180)
+rot_y_med_L = Vector2(0, 0)
+rot_y_far_R = Vector2(0, 180)
+rot_y_med_R = Vector2(0, 0)
+rot_y_close_R = Vector2(180, 180)
+range_far_left_min = 4.0
+range_far_left_max = 10.0
+range_far_right_min = 4.0
+range_far_right_max = 10.0
+range_med_left_min = 0.638
+range_med_left_max = 0.638
+range_med_right_min = 0.638
+range_med_right_max = 0.638
 range_close_left_min = 4.0
-range_close_left_max = 6.0
+range_close_left_max = 8.0
 range_close_right_min = 4.0
-range_close_right_max = 6.0
+range_close_right_max = 8.0
 path_Left_left = NodePath("../../Paths/Decoration LEFT left Path3D")
 timer_LL = NodePath("../../Timers/Decoration Leftleft Timer1")
 path_Left_center = NodePath("../../Paths/Decoration LEFT center Path3D")
@@ -229,8 +237,7 @@ offset_left = 391.0
 offset_top = 341.0
 offset_right = 519.2727
 offset_bottom = 424.0
-text = "Bouton
-Vol visage"
+text = "Vol visage"
 
 [node name="Health Bar" type="ProgressBar" parent="UI" unique_id=1541017287]
 modulate = Color(0, 0.8862745, 0, 1)
