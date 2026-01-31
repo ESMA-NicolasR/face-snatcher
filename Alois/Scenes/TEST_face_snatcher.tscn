@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://tnrj556cv806"]
 
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_60xjm"]
-[ext_resource type="Script" uid="uid://b0da7too51shs" path="res://Alois/Scripts/PNJ_Manager_Spawn_and_path.gd" id="2_3h7c1"]
+[ext_resource type="Script" uid="uid://c243yria0r6ru" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_3h7c1"]
 [ext_resource type="Script" uid="uid://bxmottpqr251" path="res://Alois/Scripts/Interface.gd" id="3_3h7c1"]
-[ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="4_tgash"]
+[ext_resource type="PackedScene" uid="uid://de4jdsfikkdwb" path="res://Elsa/Meshes_Lvl-01/SM_Tree_001.fbx" id="4_jrc8a"]
+[ext_resource type="PackedScene" uid="uid://cb4pb4lwmvf24" path="res://Nicolas/NPC_Generator.tscn" id="4_mmw3b"]
+[ext_resource type="Script" path="res://Alois/Scripts/Decorations_Manager.gd" id="4_tgash"]
+[ext_resource type="PackedScene" uid="uid://bfx0rjatsvsli" path="res://Elsa/Meshes_Lvl-01/SM_Tree_002.fbx" id="5_lan1h"]
+[ext_resource type="PackedScene" uid="uid://cqxofi5b44nfs" path="res://Elsa/Meshes_Lvl-01/SM_Tree_003.fbx" id="6_x8g61"]
+[ext_resource type="PackedScene" uid="uid://b205wuklsxfc" path="res://Elsa/Meshes_Lvl-01/SM_Bench_001.fbx" id="7_rmso8"]
+[ext_resource type="PackedScene" uid="uid://bqjt3l87aigab" path="res://Elsa/Meshes_Lvl-01/SM_Fence_001.fbx" id="8_py22k"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1ptqf"]
 
@@ -141,15 +147,17 @@ path_Right = NodePath("../../Terrain_Mesh/PNJ Right Path3D")
 
 [node name="Decoration_Manager" type="Node" parent="Scripts" unique_id=2044267013 node_paths=PackedStringArray("path_Left_left", "path_Left_center", "path_Left_right", "path_Right_right", "path_Right_center", "path_Right_left")]
 script = ExtResource("4_tgash")
-meshes_far = Array[PackedScene]([null, null])
-meshes_med = Array[PackedScene]([null, null])
-meshes_close = Array[PackedScene]([null, null])
+meshes_far = Array[PackedScene]([ExtResource("4_jrc8a"), ExtResource("5_lan1h")])
+meshes_med = Array[PackedScene]([ExtResource("6_x8g61"), ExtResource("7_rmso8")])
+meshes_close = Array[PackedScene]([ExtResource("8_py22k"), ExtResource("8_py22k")])
 path_Left_left = NodePath("../../Terrain_Mesh/Decoration LEFT left Path3D")
 path_Left_center = NodePath("../../Terrain_Mesh/Decoration LEFT center Path3D")
 path_Left_right = NodePath("../../Terrain_Mesh/Decoration LEFT right Path3D")
 path_Right_right = NodePath("../../Terrain_Mesh/Decoration RIGHT right Path3D")
 path_Right_center = NodePath("../../Terrain_Mesh/Decoration RIGHT center Path3D")
 path_Right_left = NodePath("../../Terrain_Mesh/Decoration RIGHT left Path3D")
+
+[node name="NPC_Generator" parent="Scripts" unique_id=978562651 instance=ExtResource("4_mmw3b")]
 
 [node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar") groups=["UI"]]
 layout_mode = 3

@@ -1,6 +1,6 @@
 extends Node3D
 
-class_name NPC
+class_name NPC_Sprites
 
 func change_face(sprite: Texture):
 	$BaseFace.texture = sprite

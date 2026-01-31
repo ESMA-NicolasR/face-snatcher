@@ -6,7 +6,7 @@ extends Node
 @export var allEyebrows : Array[Texture]
 @export var allNoses : Array[Texture]
 
-@export var npc_scene : PackedScene = preload("res://Nicolas/npc.tscn")
+@export var npc_scene : PackedScene = preload("res://Nicolas/npc_sprites.tscn")
 @export var spawnPoint : Node3D
 
 func _process(delta):
@@ -15,7 +15,7 @@ func _process(delta):
 
 func create_npc():
 	# Create NPC
-	var new_npc : NPC = npc_scene.instantiate()
+	var new_npc : NPC_Sprites = npc_scene.instantiate()
 	
 	# Random face generation
 	new_npc.change_face(allFaces.pick_random())
@@ -26,3 +26,10 @@ func create_npc():
 	
 	# Place NPC in scene
 	spawnPoint.add_child(new_npc)
+
+func init_npc(npc):
+	npc.change_face(allFaces.pick_random())
+	npc.change_lips(allLips.pick_random())
+	npc.change_eyes(allEyes.pick_random())
+	npc.change_eyebrows(allEyebrows.pick_random())
+	npc.change_nose(allNoses.pick_random())
