@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b5xkaemsjqoka"]
+
+[ext_resource type="PackedScene" uid="uid://pslvs3usjdtr" path="res://Elsa/Meshes_Lvl-01/SM_Bench_001.fbx" id="1_xkso5"]
+
+[node name="SM_Bench_001" unique_id=580982631 instance=ExtResource("1_xkso5")]
+
+[node name="SM_Bench_001" parent="." index="0" unique_id=146885560]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
