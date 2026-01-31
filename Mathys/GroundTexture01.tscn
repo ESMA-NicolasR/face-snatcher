@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://8lrg3s5uqvkc"]
+
+[ext_resource type="Shader" uid="uid://hsspn01eu2ia" path="res://Mathys/Ground.gdshader" id="1_tle3q"]
+[ext_resource type="Texture2D" uid="uid://gkmpva800as2" path="res://Mathys/T_Level01_Ground.png" id="2_fwnnc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6324s"]
+render_priority = 0
+shader = ExtResource("1_tle3q")
+shader_parameter/groundTexture = ExtResource("2_fwnnc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_shpik"]
+material = SubResource("ShaderMaterial_6324s")
+
+[node name="Node3D" type="Node3D" unique_id=1692235402]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2111253245]
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 5, 0, -5, -2.1855695e-07, 0, 0, 0)
+mesh = SubResource("QuadMesh_shpik")

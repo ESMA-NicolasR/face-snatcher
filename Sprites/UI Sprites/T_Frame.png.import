@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2ons8cadgadl"
-path.s3tc="res://.godot/imported/TX_Spark.png-4a905287ec9a7e0a9d7380b120c22234.s3tc.ctex"
-path.etc2="res://.godot/imported/TX_Spark.png-4a905287ec9a7e0a9d7380b120c22234.etc2.ctex"
+path.s3tc="res://.godot/imported/T_Frame.png-7fb65763404e0e3671b1d150f3017418.s3tc.ctex"
+path.etc2="res://.godot/imported/T_Frame.png-7fb65763404e0e3671b1d150f3017418.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mathys/UI Sprites/TX_Spark.png"
-dest_files=["res://.godot/imported/TX_Spark.png-4a905287ec9a7e0a9d7380b120c22234.s3tc.ctex", "res://.godot/imported/TX_Spark.png-4a905287ec9a7e0a9d7380b120c22234.etc2.ctex"]
+source_file="res://Sprites/UI Sprites/T_Frame.png"
+dest_files=["res://.godot/imported/T_Frame.png-7fb65763404e0e3671b1d150f3017418.s3tc.ctex", "res://.godot/imported/T_Frame.png-7fb65763404e0e3671b1d150f3017418.etc2.ctex"]
 
 [params]
 
