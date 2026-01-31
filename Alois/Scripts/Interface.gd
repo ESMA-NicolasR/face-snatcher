@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 	# Logique de Game Over si PV à zéro
 	if pv_actuels <= 0:
 		print("Mort du joueur")
+		get_tree().reload_current_scene()
  
 # Fonction appelée par le PNJ quand on s'approche
 func enregistrer_cible(pnj):
