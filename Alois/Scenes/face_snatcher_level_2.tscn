@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://dyhy0u8c7tw4q"]
 
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_l6axn"]
-[ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_rfa7h"]
+[ext_resource type="Script" uid="uid://c243yria0r6ru" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_rfa7h"]
 [ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="3_cpxnq"]
 [ext_resource type="PackedScene" uid="uid://dw48ytnb4v578" path="res://Alois/Mesh/Decorations/Level 2/sm_building_base.tscn" id="4_l6axn"]
 [ext_resource type="Script" uid="uid://di85fq50j2eop" path="res://Alois/Scripts/camera_shake.gd" id="4_rfa7h"]
 [ext_resource type="Script" uid="uid://bbdw60f0d54jf" path="res://Alois/Scripts/mask_manager.gd" id="5_cpxnq"]
 [ext_resource type="Texture2D" uid="uid://b805r5722fbkm" path="res://Sprites/PlayerCharacter/T_MainCharacter.png" id="6_mtapa"]
-[ext_resource type="Texture2D" uid="uid://dn4ob6id3dawi" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Everyman.png" id="6_o0vg1"]
 [ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/Level 1/sm_streetlight.tscn" id="8_y5blx"]
 [ext_resource type="PackedScene" uid="uid://bki5h81kigrij" path="res://Alois/Mesh/Decorations/Level 2/sm_traffic_lights.tscn" id="9_5cyfh"]
 [ext_resource type="PackedScene" uid="uid://t8iavu5cggva" path="res://Mathys/SM_Ground_002.fbx" id="10_3wmsk"]
@@ -191,14 +190,14 @@ shape = SubResource("BoxShape3D_60xjm")
 script = ExtResource("5_cpxnq")
 
 [node name="Sprite3D" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=205316414]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15408921, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 pixel_size = 0.005
 billboard = 2
 texture = ExtResource("6_mtapa")
 
 [node name="PlayerFace" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=1946916395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.25, -0.25)
-texture = ExtResource("6_o0vg1")
+visible = false
 
 [node name="EyeBrows" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=1322200979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.006)
@@ -310,7 +309,7 @@ script = ExtResource("11_1c3an")
 increment_vitesse = 0.25
 intervalle_temps = 20.0
 
-[node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar", "mask_manager") groups=["UI"]]
+[node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar", "mask_manager", "mask_texture") groups=["UI"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 539.0
@@ -319,11 +318,12 @@ script = ExtResource("12_nir0o")
 score_label = NodePath("ScoreContainer/TextureRect/AnimationPlayer/Label")
 health_bar = NodePath("Health Bar")
 mask_manager = NodePath("../Player_Mesh/Visuals/Mask_Manager")
+mask_texture = NodePath("CustomFace/Mask")
 fx_steal_scene = ExtResource("15_o0vg1")
 hauteur_visage = 1.0
 zone_largeur = Vector2(-0.3, 0.3)
 gain_pv_mort = 4.0
-score_objectif = 25000
+score_objectif = 20000
 prochain_niveau = "face_snatcher_level_3"
 
 [node name="ScoreContainer" type="MarginContainer" parent="UI" unique_id=674412134]
@@ -375,7 +375,7 @@ offset_right = 292.0
 offset_bottom = 46.0
 value = 100.0
 
-[node name="CustomFace" type="Control" parent="UI" unique_id=47553258]
+[node name="CustomFace" type="Control" parent="UI" unique_id=1756101903]
 custom_minimum_size = Vector2(128, 128)
 anchors_preset = 0
 offset_left = 20.0
@@ -383,7 +383,7 @@ offset_top = 47.0
 offset_right = 148.0
 offset_bottom = 175.0
 
-[node name="FullFace" type="TextureRect" parent="UI/CustomFace" unique_id=1507459660]
+[node name="FullFace" type="TextureRect" parent="UI/CustomFace" unique_id=1794280667]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -399,7 +399,7 @@ grow_vertical = 2
 texture = ExtResource("18_ap63k")
 expand_mode = 1
 
-[node name="Mask" type="TextureRect" parent="UI/CustomFace" unique_id=355808544]
+[node name="Mask" type="TextureRect" parent="UI/CustomFace" unique_id=58752605]
 clip_contents = true
 layout_mode = 0
 offset_left = 16.0
@@ -407,14 +407,14 @@ offset_top = 8.0
 offset_right = 112.0
 offset_bottom = 104.0
 
-[node name="TextureRect" type="TextureRect" parent="UI/CustomFace/Mask" unique_id=2096813294]
+[node name="TextureRect" type="TextureRect" parent="UI/CustomFace/Mask" unique_id=33652910]
 layout_mode = 1
 offset_right = 96.0
 offset_bottom = 96.0
 texture = ExtResource("19_1c3an")
 expand_mode = 1
 
-[node name="Eyebrows" type="TextureRect" parent="UI/CustomFace" unique_id=738330970]
+[node name="Eyebrows" type="TextureRect" parent="UI/CustomFace" unique_id=627218043]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -428,7 +428,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Eyes" type="TextureRect" parent="UI/CustomFace" unique_id=1883706791]
+[node name="Eyes" type="TextureRect" parent="UI/CustomFace" unique_id=2020927461]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -442,7 +442,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Nose" type="TextureRect" parent="UI/CustomFace" unique_id=1269997847]
+[node name="Nose" type="TextureRect" parent="UI/CustomFace" unique_id=1617221969]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -456,7 +456,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Lips" type="TextureRect" parent="UI/CustomFace" unique_id=1743242214]
+[node name="Lips" type="TextureRect" parent="UI/CustomFace" unique_id=2094760625]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
