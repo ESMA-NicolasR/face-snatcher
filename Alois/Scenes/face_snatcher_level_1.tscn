@@ -103,7 +103,7 @@ curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Player_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
-transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 0, 0.65, -1.3334274)
+transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 0, 0.59, -1.333)
 material_override = SubResource("StandardMaterial3D_hl1dy")
 mesh = SubResource("CapsuleMesh_s2v6g")
 
@@ -114,8 +114,8 @@ fov = 70.0
 far = 1000.0
 script = ExtResource("3_dcd8u")
 seuil_stress = 50.0
-force_min = 0.01
-force_max = 0.25
+force_min = 0.005
+force_max = 0.2
 ui_interface = NodePath("../../UI")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Player_Mesh" unique_id=501597762 groups=["Player"]]
@@ -130,7 +130,7 @@ shape = SubResource("BoxShape3D_60xjm")
 script = ExtResource("2_eellc")
 
 [node name="PlayerFace" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=2113139002]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.25, -0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.25, -0.25)
 texture = ExtResource("3_i0eqp")
 
 [node name="EyeBrows" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=1697586647]
@@ -240,6 +240,7 @@ timer_RL = NodePath("../../Timers/Decoration Rightleft Timer6")
 [node name="Game_Speed_Manager" type="Node" parent="Scripts" unique_id=979240591]
 script = ExtResource("11_a27uk")
 increment_vitesse = 0.25
+intervalle_temps = 20.0
 
 [node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar", "mask_manager") groups=["UI"]]
 layout_mode = 3
@@ -252,7 +253,7 @@ health_bar = NodePath("Health Bar")
 mask_manager = NodePath("../Player_Mesh/Visuals/Mask_Manager")
 fx_steal_scene = ExtResource("17_4bnli")
 hauteur_visage = 1.0
-zone_hauteur = Vector2(-0.4, 0.4)
+zone_largeur = Vector2(-0.4, 0.4)
 scale_min = 0.1
 scale_max = 1.35
 
@@ -293,7 +294,7 @@ text = "Vol
 visage"
 
 [node name="Health Bar" type="ProgressBar" parent="UI" unique_id=1541017287]
-modulate = Color(0.9989018, 0, 0.082687445, 1)
+modulate = Color(1, 0.09019608, 0.05882353, 1)
 layout_mode = 0
 offset_left = 16.0
 offset_top = 19.0
