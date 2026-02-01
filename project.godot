@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="FaceSnatcher"
-run/main_scene="uid://tnrj556cv806"
+run/main_scene="uid://bfqcmmqffqswa"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

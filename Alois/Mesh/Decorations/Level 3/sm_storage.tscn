@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://biie6wfuqob4y"]
+
+[ext_resource type="PackedScene" uid="uid://cm7tk4g2u8u4y" path="res://Arsène/Mesh/SM_storage_001.fbx" id="1_8uol6"]
+
+[node name="SM_storage_001" unique_id=1522825954 instance=ExtResource("1_8uol6")]

@@ -1,20 +1,20 @@
-[gd_scene format=3 uid="uid://dyhy0u8c7tw4q"]
+[gd_scene format=3 uid="uid://bh7p1c48igd10"]
 
-[ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_l6axn"]
-[ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_rfa7h"]
-[ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="3_cpxnq"]
-[ext_resource type="PackedScene" uid="uid://dw48ytnb4v578" path="res://Alois/Mesh/Decorations/Level 2/sm_building_base.tscn" id="4_l6axn"]
-[ext_resource type="Script" uid="uid://di85fq50j2eop" path="res://Alois/Scripts/camera_shake.gd" id="4_rfa7h"]
-[ext_resource type="Script" uid="uid://bbdw60f0d54jf" path="res://Alois/Scripts/mask_manager.gd" id="5_cpxnq"]
-[ext_resource type="Texture2D" uid="uid://dn4ob6id3dawi" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Everyman.png" id="6_o0vg1"]
-[ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/Level 1/sm_streetlight.tscn" id="8_y5blx"]
-[ext_resource type="PackedScene" uid="uid://bki5h81kigrij" path="res://Alois/Mesh/Decorations/Level 2/sm_traffic_lights.tscn" id="9_5cyfh"]
-[ext_resource type="PackedScene" uid="uid://t8iavu5cggva" path="res://Mathys/SM_Ground_002.fbx" id="10_3wmsk"]
-[ext_resource type="PackedScene" uid="uid://cb4pb4lwmvf24" path="res://Nicolas/NPC_Generator.tscn" id="10_ap63k"]
-[ext_resource type="Script" uid="uid://dvdsvbr7rfl4p" path="res://Alois/Scripts/game_speed_manager.gd" id="11_1c3an"]
-[ext_resource type="PackedScene" uid="uid://bb7hqh2c2gj4" path="res://Mathys/SM_Ground_Pavement.fbx" id="11_qs7py"]
-[ext_resource type="Script" uid="uid://b61vs6qflbt3x" path="res://Alois/Scripts/Interface.gd" id="12_nir0o"]
-[ext_resource type="PackedScene" uid="uid://dhkcbon4b1gtv" path="res://FXs/FX_BloodSplatter.tscn" id="15_o0vg1"]
+[ext_resource type="PackedScene" uid="uid://bb7hqh2c2gj4" path="res://Mathys/SM_Ground_Pavement.fbx" id="2_lckb1"]
+[ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="3_031ei"]
+[ext_resource type="Script" uid="uid://di85fq50j2eop" path="res://Alois/Scripts/camera_shake.gd" id="4_53r6m"]
+[ext_resource type="Script" uid="uid://bbdw60f0d54jf" path="res://Alois/Scripts/mask_manager.gd" id="5_awkde"]
+[ext_resource type="Texture2D" uid="uid://dn4ob6id3dawi" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Everyman.png" id="6_eadn0"]
+[ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="7_ik7uh"]
+[ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="8_tch37"]
+[ext_resource type="PackedScene" uid="uid://biie6wfuqob4y" path="res://Alois/Mesh/Decorations/Level 3/sm_storage.tscn" id="10_7sgm2"]
+[ext_resource type="PackedScene" uid="uid://cvpycmw67atio" path="res://Alois/Mesh/Decorations/Level 3/sm_shoppingcart.tscn" id="11_lckb1"]
+[ext_resource type="PackedScene" uid="uid://bs7tprcdlcfxa" path="res://Alois/Mesh/Decorations/Level 3/sm_led.tscn" id="12_031ei"]
+[ext_resource type="PackedScene" uid="uid://cb4pb4lwmvf24" path="res://Nicolas/NPC_Generator.tscn" id="12_jvrkt"]
+[ext_resource type="Script" uid="uid://dvdsvbr7rfl4p" path="res://Alois/Scripts/game_speed_manager.gd" id="13_0mpgf"]
+[ext_resource type="PackedScene" uid="uid://cl5an2sgm43wp" path="res://Alois/Mesh/Decorations/Level 3/sm_cam.tscn" id="13_53r6m"]
+[ext_resource type="Script" uid="uid://b61vs6qflbt3x" path="res://Alois/Scripts/Interface.gd" id="14_8obvg"]
+[ext_resource type="PackedScene" uid="uid://dhkcbon4b1gtv" path="res://FXs/FX_BloodSplatter.tscn" id="15_2ha7w"]
 
 [sub_resource type="Curve3D" id="Curve3D_qs7py"]
 bake_interval = 1.0
@@ -43,7 +43,7 @@ point_count = 2
 [sub_resource type="BoxMesh" id="BoxMesh_1ptqf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl1dy"]
-albedo_texture = ExtResource("1_l6axn")
+albedo_texture = ExtResource("3_031ei")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_eya18"]
 
@@ -104,14 +104,14 @@ transform = Transform3D(100, 0, 0, 0, -0.215, 3.7748952e-05, 0, -3.2464097e-08, 
 visible = false
 mesh = SubResource("BoxMesh_1ptqf")
 
-[node name="SM_Ground_002" parent="." unique_id=391820358 instance=ExtResource("10_3wmsk")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0.691)
+[node name="SM_Ground_Pavement" parent="." unique_id=1231963121 instance=ExtResource("2_lckb1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 1)
 
-[node name="SM_Ground_Pavement" parent="." unique_id=1231963121 instance=ExtResource("11_qs7py")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1419497, 0.08969855, 1.1786685)
+[node name="SM_Ground_Pavement2" parent="." unique_id=973443786 instance=ExtResource("2_lckb1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 0, 1)
 
-[node name="SM_Ground_Pavement2" parent="." unique_id=1417090442 instance=ExtResource("11_qs7py")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.160059, 0.08969855, 1.1786685)
+[node name="SM_Ground_Pavement3" parent="." unique_id=2090916559 instance=ExtResource("2_lckb1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 0, 1)
 
 [node name="Player_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
 transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 0, 0.85, 0)
@@ -123,7 +123,7 @@ transform = Transform3D(10, 0, 0, 0, 8.191521, 5.7357645, 0, -5.7357645, 8.19152
 current = true
 fov = 70.0
 far = 1000.0
-script = ExtResource("4_rfa7h")
+script = ExtResource("4_53r6m")
 seuil_stress = 50.0
 force_min = 0.005
 force_max = 0.2
@@ -138,11 +138,11 @@ shape = SubResource("BoxShape3D_60xjm")
 [node name="Visuals" type="Node3D" parent="Player_Mesh" unique_id=152884719]
 
 [node name="Mask_Manager" type="Node3D" parent="Player_Mesh/Visuals" unique_id=199234468]
-script = ExtResource("5_cpxnq")
+script = ExtResource("5_awkde")
 
 [node name="PlayerFace" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=1946916395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.25, -0.25)
-texture = ExtResource("6_o0vg1")
+texture = ExtResource("6_eadn0")
 
 [node name="EyeBrows" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=1322200979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.006)
@@ -195,7 +195,7 @@ autostart = true
 [node name="Scripts" type="Node" parent="." unique_id=1306583703]
 
 [node name="PNJ_Manager" type="Node" parent="Scripts" unique_id=524255491 node_paths=PackedStringArray("path_Left", "path_Right")]
-script = ExtResource("2_rfa7h")
+script = ExtResource("7_ik7uh")
 vitesse_min = 1.25
 debut_ralentissement = 0.5
 fin_ralentissement = 0.85
@@ -205,10 +205,8 @@ path_Left = NodePath("../../Paths/PNJ Left Path3D")
 path_Right = NodePath("../../Paths/PNJ Right Path3D")
 
 [node name="Decoration_Manager" type="Node" parent="Scripts" unique_id=2044267013 node_paths=PackedStringArray("path_Left_left", "timer_LL", "path_Left_center", "timer_LC", "path_Left_right", "timer_LR", "path_Right_right", "timer_RR", "path_Right_center", "timer_RC", "path_Right_left", "timer_RL")]
-script = ExtResource("3_cpxnq")
-meshes_far = Array[PackedScene]([ExtResource("4_l6axn")])
-meshes_med = Array[PackedScene]([ExtResource("8_y5blx")])
-meshes_close = Array[PackedScene]([ExtResource("9_5cyfh")])
+script = ExtResource("8_tch37")
+meshes_far = Array[PackedScene]([ExtResource("10_7sgm2")])
 vitesse_max_far = 3.5
 vitesse_min_far = 1.1
 vitesse_max_med = 3.5
@@ -219,7 +217,7 @@ debut_ralentissement_far = 0.6
 debut_ralentissement_med = 0.9
 fin_ralentissement_med = 0.95
 debut_acceleration_med = 0.95
-rot_y_far_L = Vector2(-90, -90)
+rot_y_far_L = Vector2(90, 90)
 rot_y_med_L = Vector2(0, 180)
 rot_y_far_R = Vector2(90, 90)
 rot_y_med_R = Vector2(0, 180)
@@ -247,28 +245,36 @@ timer_RC = NodePath("../../Timers/Decoration Rightcenter Timer5")
 path_Right_left = NodePath("../../Paths/Decoration RIGHT left Path3D")
 timer_RL = NodePath("../../Timers/Decoration Rightleft Timer6")
 
-[node name="NPC_Generator" parent="Scripts" unique_id=978562651 instance=ExtResource("10_ap63k")]
+[node name="NPC_Generator" parent="Scripts" unique_id=978562651 instance=ExtResource("12_jvrkt")]
 
 [node name="Game_Speed_Manager" type="Node" parent="Scripts" unique_id=979240591]
-script = ExtResource("11_1c3an")
+script = ExtResource("13_0mpgf")
 increment_vitesse = 0.25
 intervalle_temps = 20.0
+
+[node name="SM_shoppingcart_001" parent="Scripts" unique_id=446205291 instance=ExtResource("11_lckb1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2877994, 0, -3.1251597)
+
+[node name="SM_led_001" parent="Scripts" unique_id=692647226 instance=ExtResource("12_031ei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.084704, 0, -1.6544857)
+
+[node name="SM_cam_001" parent="Scripts" unique_id=1305318428 instance=ExtResource("13_53r6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2238526, 0, -0.8982892)
 
 [node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar", "mask_manager") groups=["UI"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 539.0
 offset_bottom = 962.0
-script = ExtResource("12_nir0o")
+script = ExtResource("14_8obvg")
 score_label = NodePath("ScoreContainer/Score Label")
 health_bar = NodePath("Health Bar")
 mask_manager = NodePath("../Player_Mesh/Visuals/Mask_Manager")
-fx_steal_scene = ExtResource("15_o0vg1")
+fx_steal_scene = ExtResource("15_2ha7w")
 hauteur_visage = 1.0
 zone_largeur = Vector2(-0.4, 0.4)
-gain_pv_mort = 4.0
-score_objectif = 25000
-prochain_niveau = "face_snatcher_level_3"
+score_objectif = 35000
+prochain_niveau = "face_snatcher_level_1"
 
 [node name="ScoreContainer" type="TextEdit" parent="UI" unique_id=1726788413 groups=["ScoreLabel"]]
 layout_mode = 0
