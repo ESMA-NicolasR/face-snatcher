@@ -112,7 +112,7 @@ func voler_visage_pnj():
 			npc_visuals.snatch_face()
  
 		# Destruction du PNJ
-		pnj_actuel.get_parent().queue_free()
+		# pnj_actuel.get_parent().queue_free()
  
 	pnj_actuel = null
 	get_node("Face Steal Button").hide()

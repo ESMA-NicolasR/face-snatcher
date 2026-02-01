@@ -2,13 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_forw5"]
 [ext_resource type="Script" uid="uid://bbdw60f0d54jf" path="res://Alois/Scripts/mask_manager.gd" id="2_eellc"]
-[ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_s2v6g"]
+[ext_resource type="Script" uid="uid://c243yria0r6ru" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_s2v6g"]
 [ext_resource type="Script" uid="uid://di85fq50j2eop" path="res://Alois/Scripts/camera_shake.gd" id="3_dcd8u"]
 [ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="3_eellc"]
 [ext_resource type="Texture2D" uid="uid://dn4ob6id3dawi" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Everyman.png" id="3_i0eqp"]
 [ext_resource type="PackedScene" uid="uid://dajoisdrbqbou" path="res://Alois/Mesh/Decorations/Level 1/sm_tree1.tscn" id="4_i0eqp"]
 [ext_resource type="PackedScene" uid="uid://duc73xitbvn5r" path="res://Alois/Mesh/Decorations/Level 1/sm_tree2.tscn" id="5_dcd8u"]
 [ext_resource type="PackedScene" uid="uid://6kjpu35jhofq" path="res://Alois/Mesh/Decorations/Level 1/sm_tree3.tscn" id="6_4bnli"]
+[ext_resource type="Texture2D" uid="uid://b805r5722fbkm" path="res://Sprites/PlayerCharacter/T_MainCharacter.png" id="6_jqlch"]
 [ext_resource type="PackedScene" uid="uid://7gmhlma35ycp" path="res://Alois/Mesh/Decorations/Level 1/sm_fence.tscn" id="7_rrfvl"]
 [ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/Level 1/sm_streetlight.tscn" id="8_wg8fj"]
 [ext_resource type="PackedScene" uid="uid://b5xkaemsjqoka" path="res://Alois/Mesh/Decorations/Level 1/sm_bench.tscn" id="9_jqlch"]
@@ -46,8 +47,6 @@ point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl1dy"]
 albedo_texture = ExtResource("1_forw5")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_s2v6g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_60xjm"]
 
@@ -107,7 +106,6 @@ debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 [node name="Player_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
 transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 0, 0.59, -1.333)
 material_override = SubResource("StandardMaterial3D_hl1dy")
-mesh = SubResource("CapsuleMesh_s2v6g")
 
 [node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502 node_paths=PackedStringArray("ui_interface")]
 transform = Transform3D(10, 0, 0, 0, 8.191521, 5.7357645, 0, -5.7357645, 8.191521, 0, 2, 3)
@@ -147,6 +145,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
 
 [node name="Lips" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=1824721497]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+
+[node name="Sprite3D" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=570441303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15408927, 0)
+pixel_size = 0.005
+billboard = 2
+texture = ExtResource("6_jqlch")
 
 [node name="Timers" type="Node" parent="." unique_id=1303597835]
 
