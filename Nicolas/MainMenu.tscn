@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://bfqcmmqffqswa"]
+[gd_scene format=3 uid="uid://d3i0o25d3fkub"]
 
-[ext_resource type="Script" uid="uid://dxphod1kxpf02" path="res://Nicolas/main_menu.gd" id="1_d6ipt"]
-[ext_resource type="Texture2D" uid="uid://caae5slwhmjrq" path="res://icon.svg" id="1_fej4o"]
+[ext_resource type="Script" path="res://Nicolas/main_menu.gd" id="1_d6ipt"]
+[ext_resource type="Texture2D" uid="uid://c273in551j331" path="res://Sprites/UI Sprites/T_MenuNeutral.png" id="2_65ncr"]
+[ext_resource type="Texture2D" uid="uid://cvib1xvygum7s" path="res://Sprites/UI Sprites/T_Logo.png" id="3_pv3d2"]
 
 [node name="MainMenu" type="Control" unique_id=1237401542]
 layout_mode = 3
@@ -13,34 +14,42 @@ grow_vertical = 2
 script = ExtResource("1_d6ipt")
 
 [node name="PlayButton" type="Button" parent="." unique_id=1266894615]
+custom_minimum_size = Vector2(-9.695, 0)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -129.0
-offset_top = -390.0
-offset_right = 123.0
-offset_bottom = -282.0
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = 45.0
+offset_right = 120.0
+offset_bottom = 108.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 text = "Play"
+icon = ExtResource("2_65ncr")
+flat = true
+icon_alignment = 1
 
 [node name="LeaveButton" type="Button" parent="." unique_id=1717372805]
+custom_minimum_size = Vector2(-100, -100)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -129.0
-offset_top = -226.0
-offset_right = 123.0
-offset_bottom = -118.0
+offset_left = -124.5
+offset_top = -260.0
+offset_right = 139.5
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Exit"
+icon = ExtResource("2_65ncr")
+flat = true
+icon_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=169260091]
 layout_mode = 1
@@ -48,7 +57,8 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 471.0
 grow_horizontal = 2
-texture = ExtResource("1_fej4o")
+texture = ExtResource("3_pv3d2")
+expand_mode = 1
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="LeaveButton" to="." method="_on_leave_button_pressed"]
