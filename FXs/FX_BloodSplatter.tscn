@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhkcbon4b1gtv"]
 
-[ext_resource type="Script" uid="uid://dsnqtcmdhfcp8" path="res://FXs/fx_blood_splatter.gd" id="1_j5o7d"]
+[ext_resource type="Script" path="res://FXs/fx_blood_splatter.gd" id="1_j5o7d"]
 
 [sub_resource type="Curve" id="Curve_sh63r"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.40196073, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

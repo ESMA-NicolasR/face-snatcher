@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dcn8m8r5le2gn"]
+
+[ext_resource type="Texture2D" uid="uid://c2ons8cadgadl" path="res://Sprites/UI Sprites/T_Spark.png" id="1_twuke"]
+
+[sub_resource type="Curve" id="Curve_tqte1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9019607, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hgnyi"]
+curve = SubResource("Curve_tqte1")
+
+[sub_resource type="Curve" id="Curve_fvcpw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99509794, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8ug7j"]
+curve = SubResource("Curve_fvcpw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1kx0s"]
+spread = 180.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 0, 0)
+damping_max = 16.129002
+damping_curve = SubResource("CurveTexture_hgnyi")
+scale_min = 0.099999994
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_8ug7j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vaex6"]
+transparency = 1
+albedo_texture = ExtResource("1_twuke")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xs6qi"]
+material = SubResource("StandardMaterial3D_vaex6")
+
+[node name="Node3D" type="Node3D" unique_id=230672728]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=96840137]
+amount = 10
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1kx0s")
+draw_pass_1 = SubResource("QuadMesh_xs6qi")
