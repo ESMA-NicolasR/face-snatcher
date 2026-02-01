@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://ksmjidk4ga1n" path="res://Mathys/M_Ground.tres" id="1_s2v6g"]
 [ext_resource type="Script" uid="uid://c243yria0r6ru" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_s2v6g"]
 [ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="3_eellc"]
+[ext_resource type="Script" uid="uid://di85fq50j2eop" path="res://Alois/Scripts/camera_shake.gd" id="3_i0eqp"]
 [ext_resource type="PackedScene" uid="uid://dajoisdrbqbou" path="res://Alois/Mesh/Decorations/Level 1/sm_tree1.tscn" id="4_i0eqp"]
 [ext_resource type="PackedScene" uid="uid://duc73xitbvn5r" path="res://Alois/Mesh/Decorations/Level 1/sm_tree2.tscn" id="5_dcd8u"]
 [ext_resource type="PackedScene" uid="uid://6kjpu35jhofq" path="res://Alois/Mesh/Decorations/Level 1/sm_tree3.tscn" id="6_4bnli"]
@@ -11,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/Level 1/sm_streetlight.tscn" id="8_wg8fj"]
 [ext_resource type="PackedScene" uid="uid://b5xkaemsjqoka" path="res://Alois/Mesh/Decorations/Level 1/sm_bench.tscn" id="9_jqlch"]
 [ext_resource type="PackedScene" uid="uid://cb4pb4lwmvf24" path="res://Nicolas/NPC_Generator.tscn" id="10_om7mb"]
-[ext_resource type="Script" path="res://Alois/Scripts/game_speed_manager.gd" id="11_a27uk"]
+[ext_resource type="Script" uid="uid://dvdsvbr7rfl4p" path="res://Alois/Scripts/game_speed_manager.gd" id="11_a27uk"]
 [ext_resource type="Script" uid="uid://bxmottpqr251" path="res://Alois/Scripts/Interface.gd" id="12_rkggn"]
 
 [sub_resource type="Curve3D" id="Curve3D_s2v6g"]
@@ -68,32 +69,32 @@ curve = SubResource("Curve3D_eellc")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration LEFT left Path3D" type="Path3D" parent="Paths" unique_id=508389562]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.06, -36.78343)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 0, -36.783)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration LEFT center Path3D" type="Path3D" parent="Paths" unique_id=253330147]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0.06, -36.78343)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -36.783)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration LEFT right Path3D" type="Path3D" parent="Paths" unique_id=155671147]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2169099, 0.06, -36.78343)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -36.783)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration RIGHT right Path3D" type="Path3D" parent="Paths" unique_id=644579637]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.06, -36.78343)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75, 0, -36.783)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration RIGHT center Path3D" type="Path3D" parent="Paths" unique_id=1670214885]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 0.06, -36.78343)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -36.783)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration RIGHT left Path3D" type="Path3D" parent="Paths" unique_id=1633807055]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2958851, 0.06, -36.78343)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -36.783)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
@@ -107,11 +108,16 @@ transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 0, 0.65, -1.3334274
 material_override = SubResource("StandardMaterial3D_hl1dy")
 mesh = SubResource("CapsuleMesh_eya18")
 
-[node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502]
+[node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502 node_paths=PackedStringArray("ui_interface")]
 transform = Transform3D(10, 0, 0, 0, 8.191521, 5.7357645, 0, -5.7357645, 8.191521, 0, 2, 3)
 current = true
 fov = 70.0
 far = 1000.0
+script = ExtResource("3_i0eqp")
+seuil_stress = 50.0
+force_min = 0.01
+force_max = 0.25
+ui_interface = NodePath("../../UI")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Player_Mesh" unique_id=501597762 groups=["Player"]]
 
@@ -226,6 +232,13 @@ offset_bottom = 962.0
 script = ExtResource("12_rkggn")
 score_label = NodePath("ScoreContainer/Score Label")
 health_bar = NodePath("Health Bar")
+hauteur_visage = 1.0
+zone_largeur = null
+zone_hauteur = Vector2(-0.4, 0.4)
+scale_min = 0.1
+scale_max = 1.35
+distance_reference = null
+perte_pv_seconde = null
 gain_pv_mort = 5.0
 
 [node name="ScoreContainer" type="TextEdit" parent="UI" unique_id=1726788413 groups=["ScoreLabel"]]

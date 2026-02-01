@@ -1,82 +1,126 @@
 extends Control
- 
-# Référence au label de score
+
+# Références existantes
 @export var score_label: Label
-# Référence à la barre de vie (ProgressBar ou TextureProgressBar)
 @export var health_bar: ProgressBar
- 
-# Vitesse de perte de PV (% par seconde)
+@export var mask_manager: MaskManager
+
+# --- NOUVELLE RÉFÉRENCE FX ---
+@export_group("Effets Visuels")
+@export var fx_steal_scene: PackedScene # Ta scène contenant le GPUParticles3D
+
+# --- CONFIGURATION DU BOUTON ---
+@export_group("Réglages du Bouton")
+@export var hauteur_visage: float = 1.6
+@export var zone_largeur: Vector2 = Vector2(-0.5, 0.5)
+@export var zone_hauteur: Vector2 = Vector2(-0.3, 0.3)
+@export var scale_min: float = 0.4
+@export var scale_max: float = 1.5
+@export var distance_reference: float = 5.0 
+
+# --- LOGIQUE DE JEU ---
+@export_group("Paramètres de Jeu")
 @export var perte_pv_seconde: float = 1.0
-# Points de vie récupérés par PNJ tué
 @export var gain_pv_mort: float = 15.0
- 
+
 var score: int = 0
 var clics_actuels: int = 0
 var pv_actuels: float = 100.0
-var pnj_actuel: Node3D = null # Garde en mémoire le PNJ proche
- 
+var pnj_actuel: Node3D = null
+var décalage_aléatoire: Vector3 = Vector3.ZERO 
+
 func _ready():
-	# Initialiser le texte du score
-	print("Update score")
 	mettre_a_jour_score()
-	# Initialiser la barre de vie
 	health_bar.value = pv_actuels
- 
+	var bouton = get_node("Face Steal Button")
+	bouton.pivot_offset = bouton.size / 2
+
 func _process(delta: float) -> void:
-	# Diminuer les PV progressivement selon le temps
 	pv_actuels -= perte_pv_seconde * delta
-	
-	# Empêcher les PV de descendre en dessous de 0
 	pv_actuels = max(pv_actuels, 0)
-	
-	# Mettre à jour l'affichage de la barre
 	health_bar.value = pv_actuels
 	
-	# Logique de Game Over si PV à zéro
 	if pv_actuels <= 0:
-		print("Mort du joueur")
 		get_tree().reload_current_scene()
- 
-# Fonction appelée par le PNJ quand on s'approche
+
+	if pnj_actuel:
+		positionner_bouton_dynamique()
+
+func positionner_bouton_dynamique():
+	var camera = get_viewport().get_camera_3d()
+	var bouton = get_node("Face Steal Button")
+	
+	if camera and bouton.visible:
+		var pos_base = pnj_actuel.global_position + Vector3(0, hauteur_visage, 0)
+		var pos_3d_finale = pos_base + décalage_aléatoire
+		
+		var distance = camera.global_position.distance_to(pnj_actuel.global_position)
+		var facteur_scale = distance_reference / distance
+		facteur_scale = clamp(facteur_scale, scale_min, scale_max)
+		bouton.scale = Vector2(facteur_scale, facteur_scale)
+		
+		if camera.is_position_behind(pos_3d_finale):
+			bouton.hide()
+		else:
+			var position_2d = camera.unproject_position(pos_3d_finale)
+			bouton.global_position = position_2d - (bouton.size * bouton.scale / 2)
+			if not bouton.visible: bouton.show()
+
 func enregistrer_cible(pnj):
-	print("Nouvelle cible à portée")
 	pnj_actuel = pnj
-	clics_actuels = 0 # On remet les clics à zéro pour le nouveau PNJ
- 
-# Fonction appelée par le PNJ quand on s'éloigne
+	clics_actuels = 0 
+	décalage_aléatoire = Vector3(
+		randf_range(zone_largeur.x, zone_largeur.y),
+		randf_range(zone_hauteur.x, zone_hauteur.y),
+		0
+	)
+	get_node("Face Steal Button").show()
+
 func retirer_cible():
-	print("Cible hors portée")
 	pnj_actuel = null
 	clics_actuels = 0
- 
+	get_node("Face Steal Button").hide()
+
 func _on_face_steal_button_pressed() -> void:
 	if pnj_actuel != null:
 		clics_actuels += 1
-		print("Clic : ", clics_actuels)
-		# Si on atteint 5 clics on détruit le pnj
 		if clics_actuels >= 1:
 			detruire_pnj()
- 
+
 func detruire_pnj():
-	# Ajouter un point au score
-	score += 1
-	print("Plus vivant")
+	var mult = Engine.time_scale
+	
+	# Score et Soin
+	var points_gagnes = round(1 * mult)
+	score += int(points_gagnes)
 	mettre_a_jour_score()
 	
-	# Récupérer des points de vie
-	pv_actuels += gain_pv_mort
-	# Limiter les PV à 100
-	pv_actuels = min(pv_actuels, 100.0)
+	var soin = gain_pv_mort * sqrt(mult)
+	pv_actuels = min(pv_actuels + soin, 100.0)
 	
-	# Détruire le PNJ (via son parent PathFollow3D)
+	# --- LOGIQUE DE VOL ET FX ---
 	if pnj_actuel:
-		# On modifie le visage du npc
-		pnj_actuel.get_node("NPC_Sprites").snatch_face()
-		print("pnj actuel trouvé")
+		# 1. Spawn du FX à la position du visage
+		if fx_steal_scene:
+			var fx = fx_steal_scene.instantiate()
+			# On l'ajoute à la scène courante pour qu'il ne soit pas supprimé avec le PNJ
+			get_tree().current_scene.add_child(fx)
+			fx.global_position = pnj_actuel.global_position + Vector3(0, hauteur_visage, 0)
+
+		# 2. Logique de vol de visage
+		var npc_visuals = pnj_actuel as NPC_Sprites
+		if not npc_visuals:
+			npc_visuals = pnj_actuel.get_node_or_null("NPC_Sprites")
+			
+		if npc_visuals and mask_manager:
+			mask_manager.collecter_morceau(npc_visuals.get_npc_data())
+			npc_visuals.snatch_face()
+		
+		# 3. Suppression du PNJ
+		pnj_actuel.get_parent().queue_free()
 	
-	# Cacher le bouton et nettoyer les références
 	pnj_actuel = null
 	get_node("Face Steal Button").hide()
- 
+
 func mettre_a_jour_score():
 	score_label.text = "Score : " + str(score)

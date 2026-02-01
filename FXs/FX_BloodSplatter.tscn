@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dhkcbon4b1gtv"]
 
+[ext_resource type="Script" uid="uid://dsnqtcmdhfcp8" path="res://FXs/fx_blood_splatter.gd" id="1_j5o7d"]
+
 [sub_resource type="Curve" id="Curve_sh63r"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.40196073, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -29,10 +31,13 @@ material = SubResource("StandardMaterial3D_xxhu1")
 size = Vector2(0.1, 0.1)
 
 [node name="FX_BloodSplatter" type="Node3D" unique_id=1176256644]
+script = ExtResource("1_j5o7d")
 
 [node name="Emitter" type="GPUParticles3D" parent="." unique_id=623935569]
+emitting = false
 amount = 50
 amount_ratio = 0.7
+one_shot = true
 explosiveness = 1.0
 trail_lifetime = 0.8
 process_material = SubResource("ParticleProcessMaterial_sh63r")
