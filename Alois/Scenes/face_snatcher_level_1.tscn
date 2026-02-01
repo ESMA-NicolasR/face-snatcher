@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_forw5"]
 [ext_resource type="Script" uid="uid://bbdw60f0d54jf" path="res://Alois/Scripts/mask_manager.gd" id="2_eellc"]
-[ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_s2v6g"]
+[ext_resource type="Script" uid="uid://c243yria0r6ru" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_s2v6g"]
 [ext_resource type="Script" uid="uid://di85fq50j2eop" path="res://Alois/Scripts/camera_shake.gd" id="3_dcd8u"]
 [ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="3_eellc"]
 [ext_resource type="Texture2D" uid="uid://dn4ob6id3dawi" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Everyman.png" id="3_i0eqp"]
@@ -17,6 +17,8 @@
 [ext_resource type="Script" uid="uid://b61vs6qflbt3x" path="res://Alois/Scripts/Interface.gd" id="12_rkggn"]
 [ext_resource type="PackedScene" uid="uid://diaftxgkqrmto" path="res://Mathys/SM_Ground.fbx" id="14_eellc"]
 [ext_resource type="PackedScene" uid="uid://dhkcbon4b1gtv" path="res://FXs/FX_BloodSplatter.tscn" id="17_4bnli"]
+[ext_resource type="Texture2D" uid="uid://dp4x8hibd1btk" path="res://Sprites/UI Sprites/T_Hp1.png" id="18_a27uk"]
+[ext_resource type="Texture2D" uid="uid://xut11wbq6jqr" path="res://Sprites/UI Sprites/T_Hp4.png" id="19_1w2fg"]
 
 [sub_resource type="Curve3D" id="Curve3D_s2v6g"]
 bake_interval = 1.0
@@ -131,6 +133,7 @@ script = ExtResource("2_eellc")
 
 [node name="PlayerFace" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=2113139002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.25, -0.25)
+visible = false
 texture = ExtResource("3_i0eqp")
 
 [node name="EyeBrows" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=1697586647]
@@ -242,7 +245,7 @@ script = ExtResource("11_a27uk")
 increment_vitesse = 0.25
 intervalle_temps = 20.0
 
-[node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar", "mask_manager") groups=["UI"]]
+[node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar", "mask_manager", "mask_texture") groups=["UI"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 539.0
@@ -251,6 +254,7 @@ script = ExtResource("12_rkggn")
 score_label = NodePath("ScoreContainer/Score Label")
 health_bar = NodePath("Health Bar")
 mask_manager = NodePath("../Player_Mesh/Visuals/Mask_Manager")
+mask_texture = NodePath("CustomFace/Mask")
 fx_steal_scene = ExtResource("17_4bnli")
 hauteur_visage = 1.0
 zone_largeur = Vector2(-0.4, 0.4)
@@ -302,30 +306,100 @@ offset_right = 292.0
 offset_bottom = 46.0
 value = 100.0
 
-[node name="BoundsLeft" type="Control" parent="UI" unique_id=573824415]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = -350.0
-offset_right = 229.0
-offset_bottom = -90.0
-grow_vertical = 0
+[node name="CustomFace" type="Control" parent="UI" unique_id=1893370400]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 47.0
+offset_right = 148.0
+offset_bottom = 175.0
 
-[node name="BoundsRight" type="Control" parent="UI" unique_id=59165273]
+[node name="FullFace" type="TextureRect" parent="UI/CustomFace" unique_id=796008449]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -236.0
-offset_top = -310.0
-offset_right = -37.0
-offset_bottom = -50.0
-grow_horizontal = 0
-grow_vertical = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -56.0
+offset_right = 48.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_1w2fg")
+expand_mode = 1
+
+[node name="Mask" type="TextureRect" parent="UI/CustomFace" unique_id=762920227]
+clip_contents = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/CustomFace/Mask" unique_id=153458762]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("18_a27uk")
+expand_mode = 1
+
+[node name="Eyebrows" type="TextureRect" parent="UI/CustomFace" unique_id=224830137]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Eyes" type="TextureRect" parent="UI/CustomFace" unique_id=247508575]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Nose" type="TextureRect" parent="UI/CustomFace" unique_id=1558812396]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lips" type="TextureRect" parent="UI/CustomFace" unique_id=1800859976]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="timeout" from="Timers/PNJ Spawn Timer" to="Scripts/PNJ_Manager" method="_on_pnj_spawn_timer_timeout"]
 [connection signal="timeout" from="Timers/Decoration Leftleft Timer1" to="Scripts/Decoration_Manager" method="_on_decoration_leftleft_timer_1_timeout"]

@@ -5,6 +5,7 @@ extends Control
 @export var score_label: Label
 @export var health_bar: ProgressBar
 @export var mask_manager: MaskManager
+@export var mask_texture: TextureRect
  
 # --- EFFETS VISUELS ---
 @export_group("Effets Visuels")
@@ -68,6 +69,7 @@ func _process(delta: float) -> void:
 	pv_actuels -= perte_pv_seconde * delta
 	pv_actuels = max(pv_actuels, 0)
 	health_bar.value = pv_actuels
+	mask_texture.size.y = (1-(pv_actuels /100)) * 96;
 	
 	if pv_actuels <= 0:
 		print("Mort du joueur")
