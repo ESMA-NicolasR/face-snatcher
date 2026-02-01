@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xut11wbq6jqr"
-path.s3tc="res://.godot/imported/T_Hp4.png-2a65181d056482ed37a5569e6ca0b693.s3tc.ctex"
-path.etc2="res://.godot/imported/T_Hp4.png-2a65181d056482ed37a5569e6ca0b693.etc2.ctex"
+uid="uid://bxye1yumkt6q2"
+path.s3tc="res://.godot/imported/T_SkyPanorama_03.png-a9d1038a19d904c29659f8543fbbb108.s3tc.ctex"
+path.etc2="res://.godot/imported/T_SkyPanorama_03.png-a9d1038a19d904c29659f8543fbbb108.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/UI Sprites/T_Hp4.png"
-dest_files=["res://.godot/imported/T_Hp4.png-2a65181d056482ed37a5569e6ca0b693.s3tc.ctex", "res://.godot/imported/T_Hp4.png-2a65181d056482ed37a5569e6ca0b693.etc2.ctex"]
+source_file="res://Sprites/UI Sprites/T_SkyPanorama_03.png"
+dest_files=["res://.godot/imported/T_SkyPanorama_03.png-a9d1038a19d904c29659f8543fbbb108.s3tc.ctex", "res://.godot/imported/T_SkyPanorama_03.png-a9d1038a19d904c29659f8543fbbb108.etc2.ctex"]
 
 [params]
 

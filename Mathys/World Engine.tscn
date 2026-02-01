@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dhnygjow8jurk"]
+
+[ext_resource type="Texture2D" uid="uid://bxye1yumkt6q2" path="res://Sprites/UI Sprites/T_SkyPanorama_03.png" id="1_turt3"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_e28rv"]
+panorama = ExtResource("1_turt3")
+
+[sub_resource type="Sky" id="Sky_3jy82"]
+sky_material = SubResource("PanoramaSkyMaterial_e28rv")
+
+[sub_resource type="Environment" id="Environment_8xy4l"]
+background_mode = 2
+sky = SubResource("Sky_3jy82")
+
+[node name="Node3D" type="Node3D" unique_id=2050051969]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=820453316]
+environment = SubResource("Environment_8xy4l")
