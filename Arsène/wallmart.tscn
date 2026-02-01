@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c54pltp5s1he6"]
+
+[ext_resource type="PackedScene" uid="uid://pkx0eaecpykx" path="res://Arsène/Mesh/SM_cam_001.fbx" id="1_7djox"]
+[ext_resource type="PackedScene" uid="uid://t7ku5kemuu0h" path="res://Arsène/Mesh/SM_led_001.fbx" id="2_ejykj"]
+[ext_resource type="PackedScene" uid="uid://t17nd2e04y74" path="res://Arsène/Mesh/SM_shoppingcart_001.fbx" id="3_02ec6"]
+[ext_resource type="PackedScene" uid="uid://bi3tipmen48lm" path="res://Arsène/Mesh/SM_snack_001.fbx" id="4_84sh2"]
+[ext_resource type="PackedScene" uid="uid://cm7tk4g2u8u4y" path="res://Arsène/Mesh/SM_storage_001.fbx" id="5_p53b8"]
+
+[node name="Node3D" type="Node3D" unique_id=663848043]
+
+[node name="SM_cam_001" parent="." unique_id=1848884752 instance=ExtResource("1_7djox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1.9538221)
+
+[node name="SM_led_001" parent="." unique_id=1526989984 instance=ExtResource("2_ejykj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7748343, 0)
+
+[node name="SM_shoppingcart_001" parent="." unique_id=753178892 instance=ExtResource("3_02ec6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -0.6500139)
+
+[node name="SM_snack_001" parent="." unique_id=1447952004 instance=ExtResource("4_84sh2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="SM_storage_001" parent="." unique_id=107459560 instance=ExtResource("5_p53b8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.117429, -0.26248455, -0.22765732)

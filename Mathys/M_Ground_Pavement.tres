@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dyv3pvxfyak8i"]
+
+[ext_resource type="Shader" uid="uid://hsspn01eu2ia" path="res://Mathys/Ground.gdshader" id="1_qrmwr"]
+[ext_resource type="Texture2D" uid="uid://dfbaomjfanac7" path="res://Mathys/T_Level03_Ground.png" id="2_qrmwr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qrmwr")
+shader_parameter/groundTexture = ExtResource("2_qrmwr")
+shader_parameter/uv_tiling = Vector2(1.5, 1.5)
+shader_parameter/uv_panning = Vector2(0, -1)

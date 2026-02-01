@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ba7gus5ftp5hn"
-path="res://.godot/imported/SM_Windows_001.fbx-21424f1e5b0cf2e9b4a5381d2bcc065b.scn"
+uid="uid://pkx0eaecpykx"
+path="res://.godot/imported/SM_cam_001.fbx-038ce20c628f32e2ed6afbb0c93a92ed.scn"
 
 [deps]
 
-source_file="res://Elsa/Meshes_Lvl-02/SM_Windows_001.fbx"
-dest_files=["res://.godot/imported/SM_Windows_001.fbx-21424f1e5b0cf2e9b4a5381d2bcc065b.scn"]
+source_file="res://Arsène/Mesh/SM_cam_001.fbx"
+dest_files=["res://.godot/imported/SM_cam_001.fbx-038ce20c628f32e2ed6afbb0c93a92ed.scn"]
 
 [params]
 
@@ -39,7 +39,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"standardSurface1": {
+"openPBR_shader1": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Nicolas/M_Assets.tres",
 "use_external/path": "uid://dpmiqfvxt4hyf"

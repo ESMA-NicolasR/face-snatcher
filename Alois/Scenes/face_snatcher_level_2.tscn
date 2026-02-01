@@ -4,11 +4,33 @@
 [ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_rfa7h"]
 [ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="3_cpxnq"]
 [ext_resource type="PackedScene" uid="uid://dw48ytnb4v578" path="res://Alois/Mesh/Decorations/Level 2/sm_building_base.tscn" id="4_l6axn"]
+[ext_resource type="Script" uid="uid://di85fq50j2eop" path="res://Alois/Scripts/camera_shake.gd" id="4_rfa7h"]
+[ext_resource type="Script" uid="uid://bbdw60f0d54jf" path="res://Alois/Scripts/mask_manager.gd" id="5_cpxnq"]
+[ext_resource type="Texture2D" uid="uid://dn4ob6id3dawi" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Everyman.png" id="6_o0vg1"]
 [ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/Level 1/sm_streetlight.tscn" id="8_y5blx"]
 [ext_resource type="PackedScene" uid="uid://bki5h81kigrij" path="res://Alois/Mesh/Decorations/Level 2/sm_traffic_lights.tscn" id="9_5cyfh"]
+[ext_resource type="PackedScene" uid="uid://t8iavu5cggva" path="res://Mathys/SM_Ground_002.fbx" id="10_3wmsk"]
 [ext_resource type="PackedScene" uid="uid://cb4pb4lwmvf24" path="res://Nicolas/NPC_Generator.tscn" id="10_ap63k"]
 [ext_resource type="Script" uid="uid://dvdsvbr7rfl4p" path="res://Alois/Scripts/game_speed_manager.gd" id="11_1c3an"]
-[ext_resource type="Script" uid="uid://bxmottpqr251" path="res://Alois/Scripts/Interface.gd" id="12_nir0o"]
+[ext_resource type="PackedScene" uid="uid://bb7hqh2c2gj4" path="res://Mathys/SM_Ground_Pavement.fbx" id="11_qs7py"]
+[ext_resource type="Script" uid="uid://b61vs6qflbt3x" path="res://Alois/Scripts/Interface.gd" id="12_nir0o"]
+[ext_resource type="PackedScene" uid="uid://dhkcbon4b1gtv" path="res://FXs/FX_BloodSplatter.tscn" id="15_o0vg1"]
+
+[sub_resource type="Curve3D" id="Curve3D_qs7py"]
+bake_interval = 1.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -2.5, 0, 0, 0, 0, 0, 0, 0, 0, -1.5, 10, 0, 0, 0, 0, 0, 0, 0, -0.6, 20, 0, 0, 0, 0, 0, 0, 0, -0.375, 39),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_l6axn"]
+bake_interval = 1.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, -2.5, 0, 0, 0, 0, 0, 0, 0, 0, -1.5, 10, 0, 0, 0, 0, 0, 0, 0, -0.6, 20, 0, 0, 0, 0, 0, 0, 0, -0.375, 39),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_1ptqf"]
 bake_interval = 1.0
@@ -35,76 +57,104 @@ light_color = Color(0.71811104, 0.77309656, 0.8151441, 1)
 shadow_enabled = true
 
 [node name="Paths" type="Node3D" parent="." unique_id=1995780754]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 0, -36.431274)
 
 [node name="PNJ Left Path3D" type="Path3D" parent="Paths" unique_id=1600655904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.5, 0)
-curve = SubResource("Curve3D_1ptqf")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9672709, 0.5, 0)
+curve = SubResource("Curve3D_qs7py")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="PNJ Right Path3D" type="Path3D" parent="Paths" unique_id=487030063]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0.5, 0)
-curve = SubResource("Curve3D_1ptqf")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78126, 0.5, 0)
+curve = SubResource("Curve3D_l6axn")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration LEFT left Path3D" type="Path3D" parent="Paths" unique_id=508389562]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.265, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3619785, 0, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration LEFT center Path3D" type="Path3D" parent="Paths" unique_id=253330147]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.55, 0.265, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1447034, 0, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration LEFT right Path3D" type="Path3D" parent="Paths" unique_id=155671147]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.075, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6129427, 0, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration RIGHT right Path3D" type="Path3D" parent="Paths" unique_id=644579637]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.235, 0.265, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74433756, 0, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration RIGHT center Path3D" type="Path3D" parent="Paths" unique_id=1670214885]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.225, 0.265, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12053442, 0, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration RIGHT left Path3D" type="Path3D" parent="Paths" unique_id=1633807055]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0.075, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8252182, 0, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Terrain_Mesh" type="MeshInstance3D" parent="." unique_id=1761828526]
 transform = Transform3D(100, 0, 0, 0, -0.215, 3.7748952e-05, 0, -3.2464097e-08, -250, -0.65, -0.05, -85)
+visible = false
 mesh = SubResource("BoxMesh_1ptqf")
 
-[node name="Side_Terrain_Mesh2" type="MeshInstance3D" parent="." unique_id=1739229641]
-transform = Transform3D(3, 0, 0, 0, -0.215, 1.1324685e-05, 0, -3.2464097e-08, -75, 3.25, 0.15, 0)
-mesh = SubResource("BoxMesh_1ptqf")
+[node name="SM_Ground_002" parent="." unique_id=391820358 instance=ExtResource("10_3wmsk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0.691)
 
-[node name="Side_Terrain_Mesh3" type="MeshInstance3D" parent="." unique_id=328266079]
-transform = Transform3D(3, 0, 0, 0, -0.215, 1.1324685e-05, 0, -3.2464097e-08, -75, -4.5, 0.15, 0)
-mesh = SubResource("BoxMesh_1ptqf")
+[node name="SM_Ground_Pavement" parent="." unique_id=1231963121 instance=ExtResource("11_qs7py")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1419497, 0.08969855, 1.1786685)
+
+[node name="SM_Ground_Pavement2" parent="." unique_id=1417090442 instance=ExtResource("11_qs7py")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.160059, 0.08969855, 1.1786685)
 
 [node name="Player_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
-transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 3.25, 0.85, 36)
+transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 0, 0.85, 0)
 material_override = SubResource("StandardMaterial3D_hl1dy")
 mesh = SubResource("CapsuleMesh_eya18")
 
-[node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502]
+[node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502 node_paths=PackedStringArray("ui_interface")]
 transform = Transform3D(10, 0, 0, 0, 8.191521, 5.7357645, 0, -5.7357645, 8.191521, 0, 2, 3)
 current = true
 fov = 70.0
 far = 1000.0
+script = ExtResource("4_rfa7h")
+seuil_stress = 50.0
+force_min = 0.005
+force_max = 0.2
+ui_interface = NodePath("../../UI")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Player_Mesh" unique_id=501597762 groups=["Player"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Mesh/StaticBody3D" unique_id=1908706289]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 shape = SubResource("BoxShape3D_60xjm")
+
+[node name="Visuals" type="Node3D" parent="Player_Mesh" unique_id=152884719]
+
+[node name="Mask_Manager" type="Node3D" parent="Player_Mesh/Visuals" unique_id=199234468]
+script = ExtResource("5_cpxnq")
+
+[node name="PlayerFace" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=1946916395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.25, -0.25)
+texture = ExtResource("6_o0vg1")
+
+[node name="EyeBrows" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=1322200979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.006)
+
+[node name="Eyes" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=1573921181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.004)
+
+[node name="Nose" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=234251040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+
+[node name="Lips" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=121204715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
 
 [node name="Timers" type="Node" parent="." unique_id=1303597835]
 
@@ -173,17 +223,17 @@ rot_y_far_L = Vector2(-90, -90)
 rot_y_med_L = Vector2(0, 180)
 rot_y_far_R = Vector2(90, 90)
 rot_y_med_R = Vector2(0, 180)
-rot_y_close_R = Vector2(-180, -180)
-range_far_left_min = 4.0
-range_far_right_min = 4.0
-range_med_left_min = 4.0
-range_med_left_max = 7.0
-range_med_right_min = 4.0
-range_med_right_max = 7.0
-range_close_left_min = 2.0
-range_close_left_max = 5.0
-range_close_right_min = 2.0
-range_close_right_max = 5.0
+rot_y_close_R = Vector2(180, 0)
+range_far_left_min = 1.5
+range_far_left_max = 2.5
+range_far_right_min = 1.5
+range_far_right_max = 2.5
+range_med_left_min = 5.0
+range_med_right_min = 5.0
+range_close_left_min = 10.0
+range_close_left_max = 20.0
+range_close_right_min = 10.0
+range_close_right_max = 20.0
 path_Left_left = NodePath("../../Paths/Decoration LEFT left Path3D")
 timer_LL = NodePath("../../Timers/Decoration Leftleft Timer1")
 path_Left_center = NodePath("../../Paths/Decoration LEFT center Path3D")
@@ -202,8 +252,9 @@ timer_RL = NodePath("../../Timers/Decoration Rightleft Timer6")
 [node name="Game_Speed_Manager" type="Node" parent="Scripts" unique_id=979240591]
 script = ExtResource("11_1c3an")
 increment_vitesse = 0.25
+intervalle_temps = 20.0
 
-[node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar") groups=["UI"]]
+[node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar", "mask_manager") groups=["UI"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 539.0
@@ -211,7 +262,11 @@ offset_bottom = 962.0
 script = ExtResource("12_nir0o")
 score_label = NodePath("ScoreContainer/Score Label")
 health_bar = NodePath("Health Bar")
-gain_pv_mort = 5.0
+mask_manager = NodePath("../Player_Mesh/Visuals/Mask_Manager")
+fx_steal_scene = ExtResource("15_o0vg1")
+hauteur_visage = 1.0
+zone_largeur = Vector2(-0.4, 0.4)
+gain_pv_mort = 4.0
 
 [node name="ScoreContainer" type="TextEdit" parent="UI" unique_id=1726788413 groups=["ScoreLabel"]]
 layout_mode = 0
@@ -249,7 +304,7 @@ offset_bottom = 424.0
 text = "Vol visage"
 
 [node name="Health Bar" type="ProgressBar" parent="UI" unique_id=1541017287]
-modulate = Color(0, 0.8862745, 0, 1)
+modulate = Color(0.9999998, 0.090942286, 0.05946441, 1)
 layout_mode = 0
 offset_left = 16.0
 offset_top = 19.0

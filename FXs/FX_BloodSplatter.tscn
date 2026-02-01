@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhkcbon4b1gtv"]
 
-[ext_resource type="Script" path="res://FXs/fx_blood_splatter.gd" id="1_j5o7d"]
+[ext_resource type="Script" uid="uid://dsnqtcmdhfcp8" path="res://Alois/Scripts/fx_blood_splatter.gd" id="1_j5o7d"]
 
 [sub_resource type="Curve" id="Curve_sh63r"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.40196073, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -28,7 +28,7 @@ albedo_color = Color(0.6862745, 0, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_j5o7d"]
 material = SubResource("StandardMaterial3D_xxhu1")
-size = Vector2(0.1, 0.1)
+size = Vector2(0.05, 0.05)
 
 [node name="FX_BloodSplatter" type="Node3D" unique_id=1176256644]
 script = ExtResource("1_j5o7d")
