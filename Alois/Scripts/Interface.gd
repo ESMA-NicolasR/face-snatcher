@@ -8,7 +8,7 @@ extends Control
  
 # --- EFFETS VISUELS ---
 @export_group("Effets Visuels")
-@export var fx_steal_scene: PackedScene # Scène avec GPUParticles3D (One-Shot)
+@export var fx_steal_scene: PackedScene
  
 # --- CONFIGURATION DU BOUTON ---
 @export_group("Réglages du Bouton")
@@ -23,6 +23,13 @@ extends Control
 @export_group("Paramètres de Jeu")
 @export var perte_pv_seconde: float = 1.0
 @export var gain_pv_mort: float = 5.0
+
+# --- PROGRESSION ---
+@export_group("Progression")
+# Le score à atteindre pour gagner
+@export var score_objectif: int = 10000
+# Le nom du fichier de la scène suivante
+@export var prochain_niveau: String = "face_snatcher_level_2"
  
 # --- VARIABLES INTERNES ---
 var score: int = 0
@@ -32,11 +39,29 @@ var pnj_actuel: Node3D = null
 var décalage_aléatoire: Vector3 = Vector3.ZERO 
  
 func _ready():
+# On récupère le score persistant depuis le script Global
+	score = Global.score_total
 	mettre_a_jour_score()
 	health_bar.value = pv_actuels
-	# Centrage du pivot pour un scaling propre
 	var bouton = get_node("Face Steal Button")
 	bouton.pivot_offset = bouton.size / 2
+ 
+# --- MISE À JOUR DU SCORE ET VÉRIFICATION DE VICTOIRE ---
+func mettre_a_jour_score():
+# Synchronisation avec le Global
+	Global.score_total = score
+	score_label.text = "Score : " + str(score)
+# VÉRIFICATION : Si on atteint 10 000 points
+	if score >= score_objectif:
+		print("Objectif atteint !")
+		passer_au_niveau_suivant(prochain_niveau)
+ 
+# --- FONCTION DE CHANGEMENT DE SCÈNE ---
+func passer_au_niveau_suivant(nom_scene_suivante: String):
+	print("Niveau terminé ! Passage à : ", nom_scene_suivante)
+	Engine.time_scale = 1.0
+	var chemin_scene = "res://Alois/Scenes/" + nom_scene_suivante + ".tscn"
+	get_tree().change_scene_to_file(chemin_scene)
  
 func _process(delta: float) -> void:
 	# Perte de PV (accélérée par la vitesse globale du jeu)
@@ -126,6 +151,3 @@ func voler_visage_pnj():
 	# Reset interface
 	pnj_actuel = null
 	get_node("Face Steal Button").hide()
- 
-func mettre_a_jour_score():
-	score_label.text = "Score : " + str(score)
