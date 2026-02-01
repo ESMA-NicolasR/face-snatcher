@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://t7ku5kemuu0h" path="res://Arsène/Mesh/SM_led_001.fbx" id="1_tmta7"]
 
 [node name="SM_led_001" unique_id=692647226 instance=ExtResource("1_tmta7")]
+
+[node name="SM_led_001" parent="." index="0" unique_id=59733575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)

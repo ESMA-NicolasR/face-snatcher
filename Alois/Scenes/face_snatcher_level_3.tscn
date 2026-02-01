@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bb7hqh2c2gj4" path="res://Mathys/SM_Ground_Pavement.fbx" id="2_lckb1"]
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="3_031ei"]
 [ext_resource type="Script" uid="uid://di85fq50j2eop" path="res://Alois/Scripts/camera_shake.gd" id="4_53r6m"]
+[ext_resource type="Texture2D" uid="uid://b805r5722fbkm" path="res://Sprites/PlayerCharacter/T_MainCharacter.png" id="5_53r6m"]
 [ext_resource type="Script" uid="uid://bbdw60f0d54jf" path="res://Alois/Scripts/mask_manager.gd" id="5_awkde"]
 [ext_resource type="Texture2D" uid="uid://dn4ob6id3dawi" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Everyman.png" id="6_eadn0"]
 [ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="7_ik7uh"]
@@ -12,9 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://bs7tprcdlcfxa" path="res://Alois/Mesh/Decorations/Level 3/sm_led.tscn" id="12_031ei"]
 [ext_resource type="PackedScene" uid="uid://cb4pb4lwmvf24" path="res://Nicolas/NPC_Generator.tscn" id="12_jvrkt"]
 [ext_resource type="Script" uid="uid://dvdsvbr7rfl4p" path="res://Alois/Scripts/game_speed_manager.gd" id="13_0mpgf"]
-[ext_resource type="PackedScene" uid="uid://cl5an2sgm43wp" path="res://Alois/Mesh/Decorations/Level 3/sm_cam.tscn" id="13_53r6m"]
 [ext_resource type="Script" uid="uid://b61vs6qflbt3x" path="res://Alois/Scripts/Interface.gd" id="14_8obvg"]
 [ext_resource type="PackedScene" uid="uid://dhkcbon4b1gtv" path="res://FXs/FX_BloodSplatter.tscn" id="15_2ha7w"]
+[ext_resource type="Texture2D" uid="uid://xut11wbq6jqr" path="res://Sprites/UI Sprites/T_Hp4.png" id="18_ik7uh"]
+[ext_resource type="Texture2D" uid="uid://dp4x8hibd1btk" path="res://Sprites/UI Sprites/T_Hp1.png" id="19_tch37"]
 
 [sub_resource type="Curve3D" id="Curve3D_qs7py"]
 bake_interval = 1.0
@@ -45,57 +47,105 @@ point_count = 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl1dy"]
 albedo_texture = ExtResource("3_031ei")
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_eya18"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_60xjm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wg8fj"]
+load_path = "res://.godot/imported/T_Score.png-74e42ba39369fcdd37a7bba39d28cea6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jqlch"]
+load_path = "res://.godot/imported/T_Score_02.png-3d2901f9f2d10d45874cbd969cbbc456.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_031ei"]
+frames = 2
+speed_scale = 2.0
+frame_0/texture = SubResource("CompressedTexture2D_wg8fj")
+frame_1/texture = SubResource("CompressedTexture2D_jqlch")
+frame_1/duration = 1.0
+
+[sub_resource type="Animation" id="Animation_0pvea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Label:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_14neg"]
+resource_name = "ScoreTextAnim"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Label:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [0.08726646259971647, -0.08726646259971647]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tf3kj"]
+_data = {
+&"RESET": SubResource("Animation_0pvea"),
+&"ScoreTextAnim": SubResource("Animation_14neg")
+}
 
 [node name="Node3D" type="Node3D" unique_id=939731608]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=564959843]
-transform = Transform3D(0.087667346, 0.6854392, 0.72283304, 0.8376051, -0.44348922, 0.31895924, 0.5391958, 0.57748634, -0.6130069, 0, 0, 0)
+transform = Transform3D(-0.96154475, 0.11722821, 0.24837326, 0.0461236, -0.8225643, 0.56679875, 0.27074778, 0.5564581, 0.7855253, 0, 0, 0)
 light_color = Color(0.71811104, 0.77309656, 0.8151441, 1)
 shadow_enabled = true
 
 [node name="Paths" type="Node3D" parent="." unique_id=1995780754]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 0, -36.431274)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36.431)
 
 [node name="PNJ Left Path3D" type="Path3D" parent="Paths" unique_id=1600655904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9672709, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.5, 0)
 curve = SubResource("Curve3D_qs7py")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="PNJ Right Path3D" type="Path3D" parent="Paths" unique_id=487030063]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.78126, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.5, 0)
 curve = SubResource("Curve3D_l6axn")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration LEFT left Path3D" type="Path3D" parent="Paths" unique_id=508389562]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3619785, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.2, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration LEFT center Path3D" type="Path3D" parent="Paths" unique_id=253330147]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1447034, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.2, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration LEFT right Path3D" type="Path3D" parent="Paths" unique_id=155671147]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6129427, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, -0.2, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration RIGHT right Path3D" type="Path3D" parent="Paths" unique_id=644579637]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74433756, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.2, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration RIGHT center Path3D" type="Path3D" parent="Paths" unique_id=1670214885]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12053442, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.2, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
 [node name="Decoration RIGHT left Path3D" type="Path3D" parent="Paths" unique_id=1633807055]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8252182, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, -0.2, 0)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
@@ -114,9 +164,8 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 0
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6, 0, 1)
 
 [node name="Player_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
-transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 0, 0.85, 0)
+transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 0, 0.65, 0)
 material_override = SubResource("StandardMaterial3D_hl1dy")
-mesh = SubResource("CapsuleMesh_eya18")
 
 [node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502 node_paths=PackedStringArray("ui_interface")]
 transform = Transform3D(10, 0, 0, 0, 8.191521, 5.7357645, 0, -5.7357645, 8.191521, 0, 2, 3)
@@ -139,6 +188,12 @@ shape = SubResource("BoxShape3D_60xjm")
 
 [node name="Mask_Manager" type="Node3D" parent="Player_Mesh/Visuals" unique_id=199234468]
 script = ExtResource("5_awkde")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=1058446605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15408921, 0)
+pixel_size = 0.005
+billboard = 2
+texture = ExtResource("5_53r6m")
 
 [node name="PlayerFace" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=1946916395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.25, -0.25)
@@ -207,31 +262,30 @@ path_Right = NodePath("../../Paths/PNJ Right Path3D")
 [node name="Decoration_Manager" type="Node" parent="Scripts" unique_id=2044267013 node_paths=PackedStringArray("path_Left_left", "timer_LL", "path_Left_center", "timer_LC", "path_Left_right", "timer_LR", "path_Right_right", "timer_RR", "path_Right_center", "timer_RC", "path_Right_left", "timer_RL")]
 script = ExtResource("8_tch37")
 meshes_far = Array[PackedScene]([ExtResource("10_7sgm2")])
+meshes_med = Array[PackedScene]([ExtResource("12_031ei")])
+meshes_close = Array[PackedScene]([ExtResource("11_lckb1")])
 vitesse_max_far = 3.5
-vitesse_min_far = 1.1
+vitesse_min_far = 1.0
 vitesse_max_med = 3.5
-vitesse_min_med = 1.1
-vitesse_max_close = 4.0
-vitesse_min_close = 1.15
+vitesse_min_med = 1.0
+vitesse_max_close = 3.5
+vitesse_min_close = 1.0
 debut_ralentissement_far = 0.6
-debut_ralentissement_med = 0.9
-fin_ralentissement_med = 0.95
-debut_acceleration_med = 0.95
+debut_ralentissement_med = 0.6
+debut_ralentissement_close = 0.6
 rot_y_far_L = Vector2(90, 90)
-rot_y_med_L = Vector2(0, 180)
+rot_y_med_L = Vector2(0, 0)
 rot_y_far_R = Vector2(90, 90)
-rot_y_med_R = Vector2(0, 180)
+rot_y_med_R = Vector2(0, 0)
 rot_y_close_R = Vector2(180, 0)
-range_far_left_min = 1.5
-range_far_left_max = 2.5
-range_far_right_min = 1.5
-range_far_right_max = 2.5
-range_med_left_min = 5.0
-range_med_right_min = 5.0
-range_close_left_min = 10.0
-range_close_left_max = 20.0
-range_close_right_min = 10.0
-range_close_right_max = 20.0
+range_far_left_max = 4.0
+range_far_right_max = 4.0
+range_med_left_min = 3.0
+range_med_right_min = 3.0
+range_close_left_min = 3.0
+range_close_left_max = 6.0
+range_close_right_min = 3.0
+range_close_right_max = 6.0
 path_Left_left = NodePath("../../Paths/Decoration LEFT left Path3D")
 timer_LL = NodePath("../../Timers/Decoration Leftleft Timer1")
 path_Left_center = NodePath("../../Paths/Decoration LEFT center Path3D")
@@ -252,22 +306,13 @@ script = ExtResource("13_0mpgf")
 increment_vitesse = 0.25
 intervalle_temps = 20.0
 
-[node name="SM_shoppingcart_001" parent="Scripts" unique_id=446205291 instance=ExtResource("11_lckb1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2877994, 0, -3.1251597)
-
-[node name="SM_led_001" parent="Scripts" unique_id=692647226 instance=ExtResource("12_031ei")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.084704, 0, -1.6544857)
-
-[node name="SM_cam_001" parent="Scripts" unique_id=1305318428 instance=ExtResource("13_53r6m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2238526, 0, -0.8982892)
-
 [node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar", "mask_manager") groups=["UI"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 539.0
 offset_bottom = 962.0
 script = ExtResource("14_8obvg")
-score_label = NodePath("ScoreContainer/Score Label")
+score_label = NodePath("ScoreContainer/TextureRect/AnimationPlayer/Label")
 health_bar = NodePath("Health Bar")
 mask_manager = NodePath("../Player_Mesh/Visuals/Mask_Manager")
 fx_steal_scene = ExtResource("15_2ha7w")
@@ -276,49 +321,149 @@ zone_largeur = Vector2(-0.4, 0.4)
 score_objectif = 35000
 prochain_niveau = "face_snatcher_level_1"
 
-[node name="ScoreContainer" type="TextEdit" parent="UI" unique_id=1726788413 groups=["ScoreLabel"]]
-layout_mode = 0
-offset_left = 308.0
-offset_top = 11.0
-offset_right = 528.0
-offset_bottom = 56.0
-editable = false
-context_menu_enabled = false
-emoji_menu_enabled = false
-shortcut_keys_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-middle_mouse_paste_enabled = false
-empty_selection_clipboard_enabled = false
-tab_input_mode = false
-virtual_keyboard_enabled = false
+[node name="ScoreContainer" type="MarginContainer" parent="UI" unique_id=1451884257]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -212.83499
+offset_top = -47.015
+offset_right = 43.16504
+offset_bottom = 208.985
+grow_horizontal = 0
+scale = Vector2(0.8, 0.8)
 
-[node name="Score Label" type="Label" parent="UI/ScoreContainer" unique_id=1376001332 groups=["ScoreLabel"]]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 8.0
-offset_right = 214.0
-offset_bottom = 39.0
-text = "Points"
+[node name="TextureRect" type="TextureRect" parent="UI/ScoreContainer" unique_id=594232324]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_031ei")
 
-[node name="Face Steal Button" type="Button" parent="UI" unique_id=119236727 groups=["Boutons_interaction"]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/ScoreContainer/TextureRect" unique_id=1523686184]
+libraries/ = SubResource("AnimationLibrary_tf3kj")
+playback_auto_capture_transition_type = 9
+playback_auto_capture_ease_type = 2
+
+[node name="Label" type="Label" parent="UI/ScoreContainer/TextureRect/AnimationPlayer" unique_id=773793337 groups=["ScoreLabel"]]
+offset_left = 370.355
+offset_top = 45.0
+offset_right = 490.355
+offset_bottom = 70.0
+pivot_offset = Vector2(60, 12)
+text = "000000"
+horizontal_alignment = 1
+
+[node name="Face Steal Button" type="Button" parent="UI" unique_id=282859643 groups=["Boutons_interaction"]]
 visible = false
 layout_mode = 0
 offset_left = 391.0
 offset_top = 341.0
-offset_right = 519.2727
+offset_right = 482.0
 offset_bottom = 424.0
-text = "Vol visage"
+text = "Vol
+visage"
 
-[node name="Health Bar" type="ProgressBar" parent="UI" unique_id=1541017287]
-modulate = Color(0.9999998, 0.090942286, 0.05946441, 1)
+[node name="Health Bar" type="ProgressBar" parent="UI" unique_id=1052873416]
+modulate = Color(1, 0.09019608, 0.05882353, 1)
 layout_mode = 0
 offset_left = 16.0
 offset_top = 19.0
 offset_right = 292.0
 offset_bottom = 46.0
 value = 100.0
+
+[node name="CustomFace" type="Control" parent="UI" unique_id=2112671551]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 47.0
+offset_right = 148.0
+offset_bottom = 175.0
+
+[node name="FullFace" type="TextureRect" parent="UI/CustomFace" unique_id=1383351142]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -56.0
+offset_right = 48.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ik7uh")
+expand_mode = 1
+
+[node name="Mask" type="TextureRect" parent="UI/CustomFace" unique_id=1164326801]
+clip_contents = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/CustomFace/Mask" unique_id=1969036849]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("19_tch37")
+expand_mode = 1
+
+[node name="Eyebrows" type="TextureRect" parent="UI/CustomFace" unique_id=1396705067]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Eyes" type="TextureRect" parent="UI/CustomFace" unique_id=796405717]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Nose" type="TextureRect" parent="UI/CustomFace" unique_id=180105491]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lips" type="TextureRect" parent="UI/CustomFace" unique_id=1938140394]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="timeout" from="Timers/PNJ Spawn Timer" to="Scripts/PNJ_Manager" method="_on_pnj_spawn_timer_timeout"]
 [connection signal="timeout" from="Timers/Decoration Leftleft Timer1" to="Scripts/Decoration_Manager" method="_on_decoration_leftleft_timer_1_timeout"]
@@ -327,4 +472,4 @@ value = 100.0
 [connection signal="timeout" from="Timers/Decoration Rightright Timer4" to="Scripts/Decoration_Manager" method="_on_decoration_rightright_timer_4_timeout"]
 [connection signal="timeout" from="Timers/Decoration Rightcenter Timer5" to="Scripts/Decoration_Manager" method="_on_decoration_rightcenter_timer_5_timeout"]
 [connection signal="timeout" from="Timers/Decoration Rightleft Timer6" to="Scripts/Decoration_Manager" method="_on_decoration_rightleft_timer_6_timeout"]
-[connection signal="pressed" from="UI/Face Steal Button" to="UI" method="_on_face_steal_button_pressed"]
+[connection signal="button_down" from="UI/Face Steal Button" to="UI" method="_on_face_steal_button_pressed"]

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dw48ytnb4v578" path="res://Alois/Mesh/Decorations/Level 2/sm_building_base.tscn" id="4_l6axn"]
 [ext_resource type="Script" uid="uid://di85fq50j2eop" path="res://Alois/Scripts/camera_shake.gd" id="4_rfa7h"]
 [ext_resource type="Script" uid="uid://bbdw60f0d54jf" path="res://Alois/Scripts/mask_manager.gd" id="5_cpxnq"]
+[ext_resource type="Texture2D" uid="uid://b805r5722fbkm" path="res://Sprites/PlayerCharacter/T_MainCharacter.png" id="6_mtapa"]
 [ext_resource type="Texture2D" uid="uid://dn4ob6id3dawi" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Everyman.png" id="6_o0vg1"]
 [ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/Level 1/sm_streetlight.tscn" id="8_y5blx"]
 [ext_resource type="PackedScene" uid="uid://bki5h81kigrij" path="res://Alois/Mesh/Decorations/Level 2/sm_traffic_lights.tscn" id="9_5cyfh"]
@@ -15,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://bb7hqh2c2gj4" path="res://Mathys/SM_Ground_Pavement.fbx" id="11_qs7py"]
 [ext_resource type="Script" uid="uid://b61vs6qflbt3x" path="res://Alois/Scripts/Interface.gd" id="12_nir0o"]
 [ext_resource type="PackedScene" uid="uid://dhkcbon4b1gtv" path="res://FXs/FX_BloodSplatter.tscn" id="15_o0vg1"]
+[ext_resource type="Texture2D" uid="uid://xut11wbq6jqr" path="res://Sprites/UI Sprites/T_Hp4.png" id="18_ap63k"]
+[ext_resource type="Texture2D" uid="uid://dp4x8hibd1btk" path="res://Sprites/UI Sprites/T_Hp1.png" id="19_1c3an"]
 
 [sub_resource type="Curve3D" id="Curve3D_qs7py"]
 bake_interval = 1.0
@@ -45,9 +48,57 @@ point_count = 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl1dy"]
 albedo_texture = ExtResource("1_l6axn")
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_eya18"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_60xjm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wg8fj"]
+load_path = "res://.godot/imported/T_Score.png-74e42ba39369fcdd37a7bba39d28cea6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jqlch"]
+load_path = "res://.godot/imported/T_Score_02.png-3d2901f9f2d10d45874cbd969cbbc456.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_lrrki"]
+frames = 2
+speed_scale = 2.0
+frame_0/texture = SubResource("CompressedTexture2D_wg8fj")
+frame_1/texture = SubResource("CompressedTexture2D_jqlch")
+frame_1/duration = 1.0
+
+[sub_resource type="Animation" id="Animation_0pvea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Label:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_14neg"]
+resource_name = "ScoreTextAnim"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Label:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [0.08726646259971647, -0.08726646259971647]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3h7e0"]
+_data = {
+&"RESET": SubResource("Animation_0pvea"),
+&"ScoreTextAnim": SubResource("Animation_14neg")
+}
 
 [node name="Node3D" type="Node3D" unique_id=939731608]
 
@@ -116,7 +167,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.16
 [node name="Player_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
 transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 0, 0.85, 0)
 material_override = SubResource("StandardMaterial3D_hl1dy")
-mesh = SubResource("CapsuleMesh_eya18")
 
 [node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502 node_paths=PackedStringArray("ui_interface")]
 transform = Transform3D(10, 0, 0, 0, 8.191521, 5.7357645, 0, -5.7357645, 8.191521, 0, 2, 3)
@@ -139,6 +189,12 @@ shape = SubResource("BoxShape3D_60xjm")
 
 [node name="Mask_Manager" type="Node3D" parent="Player_Mesh/Visuals" unique_id=199234468]
 script = ExtResource("5_cpxnq")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=205316414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15408921, 0)
+pixel_size = 0.005
+billboard = 2
+texture = ExtResource("6_mtapa")
 
 [node name="PlayerFace" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=1946916395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.25, -0.25)
@@ -260,59 +316,159 @@ anchors_preset = 0
 offset_right = 539.0
 offset_bottom = 962.0
 script = ExtResource("12_nir0o")
-score_label = NodePath("ScoreContainer/Score Label")
+score_label = NodePath("ScoreContainer/TextureRect/AnimationPlayer/Label")
 health_bar = NodePath("Health Bar")
 mask_manager = NodePath("../Player_Mesh/Visuals/Mask_Manager")
 fx_steal_scene = ExtResource("15_o0vg1")
 hauteur_visage = 1.0
-zone_largeur = Vector2(-0.4, 0.4)
+zone_largeur = Vector2(-0.3, 0.3)
 gain_pv_mort = 4.0
 score_objectif = 25000
 prochain_niveau = "face_snatcher_level_3"
 
-[node name="ScoreContainer" type="TextEdit" parent="UI" unique_id=1726788413 groups=["ScoreLabel"]]
-layout_mode = 0
-offset_left = 308.0
-offset_top = 11.0
-offset_right = 528.0
-offset_bottom = 56.0
-editable = false
-context_menu_enabled = false
-emoji_menu_enabled = false
-shortcut_keys_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-middle_mouse_paste_enabled = false
-empty_selection_clipboard_enabled = false
-tab_input_mode = false
-virtual_keyboard_enabled = false
+[node name="ScoreContainer" type="MarginContainer" parent="UI" unique_id=674412134]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -212.83499
+offset_top = -47.015
+offset_right = 43.16504
+offset_bottom = 208.985
+grow_horizontal = 0
+scale = Vector2(0.8, 0.8)
 
-[node name="Score Label" type="Label" parent="UI/ScoreContainer" unique_id=1376001332 groups=["ScoreLabel"]]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 8.0
-offset_right = 214.0
-offset_bottom = 39.0
-text = "Points"
+[node name="TextureRect" type="TextureRect" parent="UI/ScoreContainer" unique_id=2003112708]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_lrrki")
 
-[node name="Face Steal Button" type="Button" parent="UI" unique_id=119236727 groups=["Boutons_interaction"]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/ScoreContainer/TextureRect" unique_id=1360112339]
+libraries/ = SubResource("AnimationLibrary_3h7e0")
+playback_auto_capture_transition_type = 9
+playback_auto_capture_ease_type = 2
+
+[node name="Label" type="Label" parent="UI/ScoreContainer/TextureRect/AnimationPlayer" unique_id=251429407 groups=["ScoreLabel"]]
+offset_left = 370.355
+offset_top = 45.0
+offset_right = 490.355
+offset_bottom = 70.0
+pivot_offset = Vector2(60, 12)
+text = "000000"
+horizontal_alignment = 1
+
+[node name="Face Steal Button" type="Button" parent="UI" unique_id=1578236647 groups=["Boutons_interaction"]]
 visible = false
 layout_mode = 0
 offset_left = 391.0
 offset_top = 341.0
-offset_right = 519.2727
+offset_right = 482.0
 offset_bottom = 424.0
-text = "Vol visage"
+text = "Vol
+visage"
 
-[node name="Health Bar" type="ProgressBar" parent="UI" unique_id=1541017287]
-modulate = Color(0.9999998, 0.090942286, 0.05946441, 1)
+[node name="Health Bar" type="ProgressBar" parent="UI" unique_id=1179138607]
+modulate = Color(1, 0.09019608, 0.05882353, 1)
 layout_mode = 0
 offset_left = 16.0
 offset_top = 19.0
 offset_right = 292.0
 offset_bottom = 46.0
 value = 100.0
+
+[node name="CustomFace" type="Control" parent="UI" unique_id=47553258]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 47.0
+offset_right = 148.0
+offset_bottom = 175.0
+
+[node name="FullFace" type="TextureRect" parent="UI/CustomFace" unique_id=1507459660]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -56.0
+offset_right = 48.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_ap63k")
+expand_mode = 1
+
+[node name="Mask" type="TextureRect" parent="UI/CustomFace" unique_id=355808544]
+clip_contents = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 104.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/CustomFace/Mask" unique_id=2096813294]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 96.0
+texture = ExtResource("19_1c3an")
+expand_mode = 1
+
+[node name="Eyebrows" type="TextureRect" parent="UI/CustomFace" unique_id=738330970]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Eyes" type="TextureRect" parent="UI/CustomFace" unique_id=1883706791]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Nose" type="TextureRect" parent="UI/CustomFace" unique_id=1269997847]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lips" type="TextureRect" parent="UI/CustomFace" unique_id=1743242214]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="timeout" from="Timers/PNJ Spawn Timer" to="Scripts/PNJ_Manager" method="_on_pnj_spawn_timer_timeout"]
 [connection signal="timeout" from="Timers/Decoration Leftleft Timer1" to="Scripts/Decoration_Manager" method="_on_decoration_leftleft_timer_1_timeout"]
@@ -321,4 +477,4 @@ value = 100.0
 [connection signal="timeout" from="Timers/Decoration Rightright Timer4" to="Scripts/Decoration_Manager" method="_on_decoration_rightright_timer_4_timeout"]
 [connection signal="timeout" from="Timers/Decoration Rightcenter Timer5" to="Scripts/Decoration_Manager" method="_on_decoration_rightcenter_timer_5_timeout"]
 [connection signal="timeout" from="Timers/Decoration Rightleft Timer6" to="Scripts/Decoration_Manager" method="_on_decoration_rightleft_timer_6_timeout"]
-[connection signal="pressed" from="UI/Face Steal Button" to="UI" method="_on_face_steal_button_pressed"]
+[connection signal="button_down" from="UI/Face Steal Button" to="UI" method="_on_face_steal_button_pressed"]
