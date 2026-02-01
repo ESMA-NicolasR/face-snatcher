@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6hvl3jtlvpxx"]
 
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_dfprq"]
+[ext_resource type="Script" uid="uid://bbdw60f0d54jf" path="res://Alois/Scripts/mask_manager.gd" id="2_ljird"]
 [ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_n3ymm"]
 [ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="3_ljird"]
 [ext_resource type="PackedScene" uid="uid://dw48ytnb4v578" path="res://Alois/Mesh/Decorations/Level 2/sm_building_base.tscn" id="4_6lbh7"]
@@ -106,6 +107,26 @@ far = 1000.0
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 shape = SubResource("BoxShape3D_60xjm")
 
+[node name="Visuals" type="Node3D" parent="Player_Mesh" unique_id=1328642493]
+
+[node name="Mask_Manager" type="Node3D" parent="Player_Mesh/Visuals" unique_id=904529637]
+script = ExtResource("2_ljird")
+
+[node name="PlayerFace" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=962570086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.25, -0.25)
+
+[node name="EyeBrows" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=1107618453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.006)
+
+[node name="Eyes" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=621156394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.004)
+
+[node name="Nose" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=1080661629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+
+[node name="Lips" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=806032099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
+
 [node name="Timers" type="Node" parent="." unique_id=1303597835]
 
 [node name="PNJ Spawn Timer" type="Timer" parent="Timers" unique_id=362300206]
@@ -209,7 +230,7 @@ timer_RL = NodePath("../../Timers/Decoration Rightleft Timer6")
 script = ExtResource("8_wuqu4")
 increment_vitesse = 0.25
 
-[node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar") groups=["UI"]]
+[node name="UI" type="Control" parent="." unique_id=556213673 node_paths=PackedStringArray("score_label", "health_bar", "mask_manager") groups=["UI"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 539.0
@@ -217,6 +238,7 @@ offset_bottom = 962.0
 script = ExtResource("9_uu2sn")
 score_label = NodePath("ScoreContainer/Score Label")
 health_bar = NodePath("Health Bar")
+mask_manager = NodePath("../Player_Mesh/Visuals/Mask_Manager")
 gain_pv_mort = 5.0
 
 [node name="ScoreContainer" type="TextEdit" parent="UI" unique_id=1726788413 groups=["ScoreLabel"]]
