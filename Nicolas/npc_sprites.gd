@@ -25,5 +25,14 @@ func snatch_face():
 	change_lips(null)
 	change_eyes(null)
 	change_nose(null)
-	change_eyebrows(null)
-	
+	change_eyebrows(null) 
+ 
+# Fonction pour récupérer toutes les données visuelles du PNJ avant destruction
+func get_npc_data() -> Dictionary:
+	return {
+		"face_frame": $BaseFace.frame,
+		"lips": $BaseFace/Lips.texture,
+		"eyes": $BaseFace/Eyes.texture,
+		"nose": $BaseFace/Nose.texture,
+		"eyebrows": $BaseFace/Eyebrows.texture
+	}
