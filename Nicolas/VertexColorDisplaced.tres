@@ -1,0 +1,19 @@
+[gd_resource type="Shader" format=3 uid="uid://cvsl0qeca5cog"]
+
+[resource]
+code = "shader_type spatial;
+
+void vertex() {
+	vec3 world_position = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+
+	vec3 displaced = VERTEX;
+	// displaced.y = pow(world_position.z, 2.0)/50.0;
+	displaced.y -= pow(world_position.z, 2.0)/592.0;
+	VERTEX = displaced;
+}
+
+void fragment() {
+	ALBEDO = COLOR.rgb;
+}
+
+"

@@ -1,0 +1,49 @@
+[gd_resource type="VisualShader" format=3 uid="uid://ca28brccod244"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_us6dk"]
+input_name = "node_position_world"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_1osoh"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_uqju1"]
+operator = 1
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_us6dk"]
+operator = 1
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_1osoh"]
+default_input_values = [0, 0.0, 1, 2.0]
+operator = 5
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_72jiv"]
+default_input_values = [0, 1.0, 1, 2.0, 2, 0.5]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_uqju1"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_1osoh"]
+default_input_values = [0, 1.0, 1, 0.0, 2, 1.0]
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_72jiv"]
+
+[resource]
+nodes/vertex/0/position = Vector2(1000, 180)
+nodes/vertex/3/node = SubResource("VisualShaderNodeInput_uqju1")
+nodes/vertex/3/position = Vector2(-1120, 320)
+nodes/vertex/5/node = SubResource("VisualShaderNodeVectorCompose_1osoh")
+nodes/vertex/5/position = Vector2(400, 380)
+nodes/vertex/6/node = SubResource("VisualShaderNodeVectorDecompose_72jiv")
+nodes/vertex/6/position = Vector2(-520, 300)
+nodes/vertex/10/node = SubResource("VisualShaderNodeInput_us6dk")
+nodes/vertex/10/position = Vector2(-1100, 220)
+nodes/vertex/11/node = SubResource("VisualShaderNodeVectorOp_1osoh")
+nodes/vertex/11/position = Vector2(-760, 200)
+nodes/vertex/13/node = SubResource("VisualShaderNodeVectorOp_uqju1")
+nodes/vertex/13/position = Vector2(540, 120)
+nodes/vertex/19/node = SubResource("VisualShaderNodeFloatOp_us6dk")
+nodes/vertex/19/position = Vector2(140, 260)
+nodes/vertex/20/node = SubResource("VisualShaderNodeFloatOp_1osoh")
+nodes/vertex/20/position = Vector2(-100, 480)
+nodes/vertex/22/node = SubResource("VisualShaderNodeMix_72jiv")
+nodes/vertex/22/position = Vector2(-300, 580)
+nodes/vertex/connections = PackedInt32Array(6, 0, 5, 0, 6, 2, 5, 2, 10, 0, 11, 0, 3, 0, 11, 1, 11, 0, 6, 0, 5, 0, 13, 0, 10, 0, 13, 1, 13, 0, 0, 0, 6, 1, 19, 0, 6, 2, 22, 2, 20, 0, 19, 1, 22, 0, 20, 1, 6, 2, 20, 0, 19, 0, 5, 1)
