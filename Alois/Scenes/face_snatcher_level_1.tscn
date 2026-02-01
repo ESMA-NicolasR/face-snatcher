@@ -3,7 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_forw5"]
 [ext_resource type="Script" uid="uid://bbdw60f0d54jf" path="res://Alois/Scripts/mask_manager.gd" id="2_eellc"]
 [ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_s2v6g"]
+[ext_resource type="Script" uid="uid://di85fq50j2eop" path="res://Alois/Scripts/camera_shake.gd" id="3_dcd8u"]
 [ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="3_eellc"]
+[ext_resource type="Texture2D" uid="uid://dn4ob6id3dawi" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Everyman.png" id="3_i0eqp"]
 [ext_resource type="PackedScene" uid="uid://dajoisdrbqbou" path="res://Alois/Mesh/Decorations/Level 1/sm_tree1.tscn" id="4_i0eqp"]
 [ext_resource type="PackedScene" uid="uid://duc73xitbvn5r" path="res://Alois/Mesh/Decorations/Level 1/sm_tree2.tscn" id="5_dcd8u"]
 [ext_resource type="PackedScene" uid="uid://6kjpu35jhofq" path="res://Alois/Mesh/Decorations/Level 1/sm_tree3.tscn" id="6_4bnli"]
@@ -12,8 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://b5xkaemsjqoka" path="res://Alois/Mesh/Decorations/Level 1/sm_bench.tscn" id="9_jqlch"]
 [ext_resource type="PackedScene" uid="uid://cb4pb4lwmvf24" path="res://Nicolas/NPC_Generator.tscn" id="10_om7mb"]
 [ext_resource type="Script" uid="uid://dvdsvbr7rfl4p" path="res://Alois/Scripts/game_speed_manager.gd" id="11_a27uk"]
-[ext_resource type="Script" uid="uid://bxmottpqr251" path="res://Alois/Scripts/Interface.gd" id="12_rkggn"]
+[ext_resource type="Script" uid="uid://b61vs6qflbt3x" path="res://Alois/Scripts/Interface.gd" id="12_rkggn"]
 [ext_resource type="PackedScene" uid="uid://diaftxgkqrmto" path="res://Mathys/SM_Ground.fbx" id="14_eellc"]
+[ext_resource type="PackedScene" uid="uid://dhkcbon4b1gtv" path="res://FXs/FX_BloodSplatter.tscn" id="17_4bnli"]
 
 [sub_resource type="Curve3D" id="Curve3D_s2v6g"]
 bake_interval = 1.0
@@ -53,45 +56,49 @@ transform = Transform3D(0.08766735, 0.6854392, 0.72283304, 0.8376052, -0.4434892
 light_color = Color(0.71811104, 0.77309656, 0.8151441, 1)
 shadow_enabled = true
 
-[node name="Paths" type="Node3D" parent="." unique_id=1995780754]
+[node name="SM_Ground" parent="." unique_id=326826706 instance=ExtResource("14_eellc")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 0, 0.017298698)
 
-[node name="PNJ Left Path3D" type="Path3D" parent="Paths" unique_id=1600655904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7046095, 0.35, -36.78343)
+[node name="Paths" type="Node3D" parent="SM_Ground" unique_id=1995780754]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -0.017298698, 0, -2.2684503e-09)
+
+[node name="PNJ Left Path3D" type="Path3D" parent="SM_Ground/Paths" unique_id=1600655904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.35, -36.783)
 curve = SubResource("Curve3D_s2v6g")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
-[node name="PNJ Right Path3D" type="Path3D" parent="Paths" unique_id=487030063]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57082903, 0.35, -36.78343)
+[node name="PNJ Right Path3D" type="Path3D" parent="SM_Ground/Paths" unique_id=487030063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.35, -36.783)
 curve = SubResource("Curve3D_eellc")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
-[node name="Decoration LEFT left Path3D" type="Path3D" parent="Paths" unique_id=508389562]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.06, -36.78343)
+[node name="Decoration LEFT left Path3D" type="Path3D" parent="SM_Ground/Paths" unique_id=508389562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 0, -36.783)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
-[node name="Decoration LEFT center Path3D" type="Path3D" parent="Paths" unique_id=253330147]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0.06, -36.78343)
+[node name="Decoration LEFT center Path3D" type="Path3D" parent="SM_Ground/Paths" unique_id=253330147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -36.783)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
-[node name="Decoration LEFT right Path3D" type="Path3D" parent="Paths" unique_id=155671147]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2169099, 0.06, -36.78343)
+[node name="Decoration LEFT right Path3D" type="Path3D" parent="SM_Ground/Paths" unique_id=155671147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -36.783)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
-[node name="Decoration RIGHT right Path3D" type="Path3D" parent="Paths" unique_id=644579637]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.06, -36.78343)
+[node name="Decoration RIGHT right Path3D" type="Path3D" parent="SM_Ground/Paths" unique_id=644579637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75, 0, -36.783)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
-[node name="Decoration RIGHT center Path3D" type="Path3D" parent="Paths" unique_id=1670214885]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 0.06, -36.78343)
+[node name="Decoration RIGHT center Path3D" type="Path3D" parent="SM_Ground/Paths" unique_id=1670214885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -36.783)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
-[node name="Decoration RIGHT left Path3D" type="Path3D" parent="Paths" unique_id=1633807055]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2958851, 0.06, -36.78343)
+[node name="Decoration RIGHT left Path3D" type="Path3D" parent="SM_Ground/Paths" unique_id=1633807055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -36.783)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 
@@ -100,11 +107,16 @@ transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 0, 0.65, -1.3334274
 material_override = SubResource("StandardMaterial3D_hl1dy")
 mesh = SubResource("CapsuleMesh_s2v6g")
 
-[node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502]
+[node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502 node_paths=PackedStringArray("ui_interface")]
 transform = Transform3D(10, 0, 0, 0, 8.191521, 5.7357645, 0, -5.7357645, 8.191521, 0, 2, 3)
 current = true
 fov = 70.0
 far = 1000.0
+script = ExtResource("3_dcd8u")
+seuil_stress = 50.0
+force_min = 0.01
+force_max = 0.25
+ui_interface = NodePath("../../UI")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Player_Mesh" unique_id=501597762 groups=["Player"]]
 
@@ -119,6 +131,7 @@ script = ExtResource("2_eellc")
 
 [node name="PlayerFace" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=2113139002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.25, -0.25)
+texture = ExtResource("3_i0eqp")
 
 [node name="EyeBrows" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=1697586647]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.006)
@@ -172,13 +185,13 @@ autostart = true
 
 [node name="PNJ_Manager" type="Node" parent="Scripts" unique_id=524255491 node_paths=PackedStringArray("path_Left", "path_Right")]
 script = ExtResource("2_s2v6g")
-vitesse_min = 1.25
+vitesse_min = 1.05
 debut_ralentissement = 0.5
-fin_ralentissement = 0.85
+fin_ralentissement = 0.9
 debut_acceleration = 0.9
 fin_acceleration = 1.0
-path_Left = NodePath("../../Paths/PNJ Left Path3D")
-path_Right = NodePath("../../Paths/PNJ Right Path3D")
+path_Left = NodePath("../../SM_Ground/Paths/PNJ Left Path3D")
+path_Right = NodePath("../../SM_Ground/Paths/PNJ Right Path3D")
 
 [node name="Decoration_Manager" type="Node" parent="Scripts" unique_id=2044267013 node_paths=PackedStringArray("path_Left_left", "timer_LL", "path_Left_center", "timer_LC", "path_Left_right", "timer_LR", "path_Right_right", "timer_RR", "path_Right_center", "timer_RC", "path_Right_left", "timer_RL")]
 script = ExtResource("3_eellc")
@@ -209,17 +222,17 @@ range_close_left_min = 4.0
 range_close_left_max = 8.0
 range_close_right_min = 4.0
 range_close_right_max = 8.0
-path_Left_left = NodePath("../../Paths/Decoration LEFT left Path3D")
+path_Left_left = NodePath("../../SM_Ground/Paths/Decoration LEFT left Path3D")
 timer_LL = NodePath("../../Timers/Decoration Leftleft Timer1")
-path_Left_center = NodePath("../../Paths/Decoration LEFT center Path3D")
+path_Left_center = NodePath("../../SM_Ground/Paths/Decoration LEFT center Path3D")
 timer_LC = NodePath("../../Timers/Decoration Leftcenter Timer2")
-path_Left_right = NodePath("../../Paths/Decoration LEFT right Path3D")
+path_Left_right = NodePath("../../SM_Ground/Paths/Decoration LEFT right Path3D")
 timer_LR = NodePath("../../Timers/Decoration Leftright Timer3")
-path_Right_right = NodePath("../../Paths/Decoration RIGHT right Path3D")
+path_Right_right = NodePath("../../SM_Ground/Paths/Decoration RIGHT right Path3D")
 timer_RR = NodePath("../../Timers/Decoration Rightright Timer4")
-path_Right_center = NodePath("../../Paths/Decoration RIGHT center Path3D")
+path_Right_center = NodePath("../../SM_Ground/Paths/Decoration RIGHT center Path3D")
 timer_RC = NodePath("../../Timers/Decoration Rightcenter Timer5")
-path_Right_left = NodePath("../../Paths/Decoration RIGHT left Path3D")
+path_Right_left = NodePath("../../SM_Ground/Paths/Decoration RIGHT left Path3D")
 timer_RL = NodePath("../../Timers/Decoration Rightleft Timer6")
 
 [node name="NPC_Generator" parent="Scripts" unique_id=978562651 instance=ExtResource("10_om7mb")]
@@ -237,14 +250,11 @@ script = ExtResource("12_rkggn")
 score_label = NodePath("ScoreContainer/Score Label")
 health_bar = NodePath("Health Bar")
 mask_manager = NodePath("../Player_Mesh/Visuals/Mask_Manager")
+fx_steal_scene = ExtResource("17_4bnli")
 hauteur_visage = 1.0
-zone_largeur = null
 zone_hauteur = Vector2(-0.4, 0.4)
 scale_min = 0.1
 scale_max = 1.35
-distance_reference = null
-perte_pv_seconde = null
-gain_pv_mort = 5.0
 
 [node name="ScoreContainer" type="TextEdit" parent="UI" unique_id=1726788413 groups=["ScoreLabel"]]
 layout_mode = 0
@@ -273,12 +283,14 @@ offset_bottom = 39.0
 text = "Points"
 
 [node name="Face Steal Button" type="Button" parent="UI" unique_id=119236727 groups=["Boutons_interaction"]]
+visible = false
 layout_mode = 0
 offset_left = 391.0
 offset_top = 341.0
-offset_right = 519.2727
+offset_right = 482.0
 offset_bottom = 424.0
-text = "Vol visage"
+text = "Vol
+visage"
 
 [node name="Health Bar" type="ProgressBar" parent="UI" unique_id=1541017287]
 modulate = Color(0.9989018, 0, 0.082687445, 1)
@@ -313,9 +325,6 @@ offset_right = -37.0
 offset_bottom = -50.0
 grow_horizontal = 0
 grow_vertical = 0
-
-[node name="SM_Ground" parent="." unique_id=326826706 instance=ExtResource("14_eellc")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 0, 0.017298698)
 
 [connection signal="timeout" from="Timers/PNJ Spawn Timer" to="Scripts/PNJ_Manager" method="_on_pnj_spawn_timer_timeout"]
 [connection signal="timeout" from="Timers/Decoration Leftleft Timer1" to="Scripts/Decoration_Manager" method="_on_decoration_leftleft_timer_1_timeout"]
