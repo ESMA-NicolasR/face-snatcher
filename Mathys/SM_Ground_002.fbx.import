@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ba7gus5ftp5hn"
-path="res://.godot/imported/SM_Windows_001.fbx-21424f1e5b0cf2e9b4a5381d2bcc065b.scn"
+uid="uid://t8iavu5cggva"
+path="res://.godot/imported/SM_Ground_002.fbx-0036d3744353da1d21be6e988bba5aff.scn"
 
 [deps]
 
-source_file="res://Elsa/Meshes_Lvl-02/SM_Windows_001.fbx"
-dest_files=["res://.godot/imported/SM_Windows_001.fbx-21424f1e5b0cf2e9b4a5381d2bcc065b.scn"]
+source_file="res://Mathys/SM_Ground_002.fbx"
+dest_files=["res://.godot/imported/SM_Ground_002.fbx-0036d3744353da1d21be6e988bba5aff.scn"]
 
 [params]
 
@@ -41,8 +41,8 @@ _subresources={
 "materials": {
 "standardSurface1": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Nicolas/M_Assets.tres",
-"use_external/path": "uid://dpmiqfvxt4hyf"
+"use_external/fallback_path": "res://Mathys/M_Ground_002.tres",
+"use_external/path": "uid://d0f47usxvlmtm"
 }
 }
 }

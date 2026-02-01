@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfbaomjfanac7"
-path.s3tc="res://.godot/imported/T_Level03_Ground.png-e191c802bbfa46ec0af47ab789104c26.s3tc.ctex"
-path.etc2="res://.godot/imported/T_Level03_Ground.png-e191c802bbfa46ec0af47ab789104c26.etc2.ctex"
+uid="uid://bgj68bpj5vxpg"
+path.s3tc="res://.godot/imported/T_Level02_Sidewalk.png-344663133b6ec3955f070d0bae7ccc15.s3tc.ctex"
+path.etc2="res://.godot/imported/T_Level02_Sidewalk.png-344663133b6ec3955f070d0bae7ccc15.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mathys/T_Level03_Ground.png"
-dest_files=["res://.godot/imported/T_Level03_Ground.png-e191c802bbfa46ec0af47ab789104c26.s3tc.ctex", "res://.godot/imported/T_Level03_Ground.png-e191c802bbfa46ec0af47ab789104c26.etc2.ctex"]
+source_file="res://Mathys/T_Level02_Sidewalk.png"
+dest_files=["res://.godot/imported/T_Level02_Sidewalk.png-344663133b6ec3955f070d0bae7ccc15.s3tc.ctex", "res://.godot/imported/T_Level02_Sidewalk.png-344663133b6ec3955f070d0bae7ccc15.etc2.ctex"]
 
 [params]
 
