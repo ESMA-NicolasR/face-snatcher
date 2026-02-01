@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://b61vs6qflbt3x" path="res://Alois/Scripts/Interface.gd" id="12_nir0o"]
 [ext_resource type="PackedScene" uid="uid://dhkcbon4b1gtv" path="res://FXs/FX_BloodSplatter.tscn" id="15_o0vg1"]
 [ext_resource type="Texture2D" uid="uid://xut11wbq6jqr" path="res://Sprites/UI Sprites/T_Hp4.png" id="18_ap63k"]
+[ext_resource type="Texture2D" uid="uid://bxye1yumkt6q2" path="res://Sprites/UI Sprites/T_SkyPanorama_03.png" id="18_mtapa"]
 [ext_resource type="Texture2D" uid="uid://dp4x8hibd1btk" path="res://Sprites/UI Sprites/T_Hp1.png" id="19_1c3an"]
 
 [sub_resource type="Curve3D" id="Curve3D_qs7py"]
@@ -98,6 +99,17 @@ _data = {
 &"RESET": SubResource("Animation_0pvea"),
 &"ScoreTextAnim": SubResource("Animation_14neg")
 }
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_y5blx"]
+panorama = ExtResource("18_mtapa")
+
+[sub_resource type="Sky" id="Sky_5qsis"]
+sky_material = SubResource("PanoramaSkyMaterial_y5blx")
+
+[sub_resource type="Environment" id="Environment_ap63k"]
+background_mode = 2
+sky = SubResource("Sky_5qsis")
+sky_rotation = Vector3(0, 1.9425515, 0)
 
 [node name="Node3D" type="Node3D" unique_id=939731608]
 
@@ -469,6 +481,9 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1927635744]
+environment = SubResource("Environment_ap63k")
 
 [connection signal="timeout" from="Timers/PNJ Spawn Timer" to="Scripts/PNJ_Manager" method="_on_pnj_spawn_timer_timeout"]
 [connection signal="timeout" from="Timers/Decoration Leftleft Timer1" to="Scripts/Decoration_Manager" method="_on_decoration_leftleft_timer_1_timeout"]

@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dhkcbon4b1gtv" path="res://FXs/FX_BloodSplatter.tscn" id="17_4bnli"]
 [ext_resource type="Texture2D" uid="uid://dp4x8hibd1btk" path="res://Sprites/UI Sprites/T_Hp1.png" id="18_a27uk"]
 [ext_resource type="Texture2D" uid="uid://xut11wbq6jqr" path="res://Sprites/UI Sprites/T_Hp4.png" id="20_om7mb"]
+[ext_resource type="Texture2D" uid="uid://bxye1yumkt6q2" path="res://Sprites/UI Sprites/T_SkyPanorama_03.png" id="21_om7mb"]
 
 [sub_resource type="Curve3D" id="Curve3D_s2v6g"]
 bake_interval = 1.0
@@ -112,7 +113,18 @@ frame_0/texture = SubResource("CompressedTexture2D_om7mb")
 frame_1/texture = SubResource("CompressedTexture2D_a27uk")
 frame_1/duration = 1.0
 
-[node name="Node3D2" type="Node3D" unique_id=939731608]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a27uk"]
+panorama = ExtResource("21_om7mb")
+
+[sub_resource type="Sky" id="Sky_3jy82"]
+sky_material = SubResource("PanoramaSkyMaterial_a27uk")
+
+[sub_resource type="Environment" id="Environment_rkggn"]
+background_mode = 2
+sky = SubResource("Sky_3jy82")
+sky_rotation = Vector3(0, 1.5707964, -1.3107423)
+
+[node name="Node3D" type="Node3D" unique_id=939731608]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=564959843]
 transform = Transform3D(0.08766735, 0.6854392, 0.72283304, 0.8376052, -0.44348922, 0.31895924, 0.53919584, 0.57748634, -0.6130069, 0, 0, -36.78343)
@@ -365,8 +377,8 @@ offset_top = 341.0
 offset_right = 482.0
 offset_bottom = 424.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Vol
-visage"
+text = "Snatch
+Face"
 icon = SubResource("AnimatedTexture_rkggn")
 icon_alignment = 1
 expand_icon = true
@@ -474,6 +486,9 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2135421060]
+environment = SubResource("Environment_rkggn")
 
 [connection signal="timeout" from="Timers/PNJ Spawn Timer" to="Scripts/PNJ_Manager" method="_on_pnj_spawn_timer_timeout"]
 [connection signal="timeout" from="Timers/Decoration Leftleft Timer1" to="Scripts/Decoration_Manager" method="_on_decoration_leftleft_timer_1_timeout"]

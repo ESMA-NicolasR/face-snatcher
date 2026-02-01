@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://dvdsvbr7rfl4p" path="res://Alois/Scripts/game_speed_manager.gd" id="13_0mpgf"]
 [ext_resource type="Script" uid="uid://b61vs6qflbt3x" path="res://Alois/Scripts/Interface.gd" id="14_8obvg"]
 [ext_resource type="PackedScene" uid="uid://dhkcbon4b1gtv" path="res://FXs/FX_BloodSplatter.tscn" id="15_2ha7w"]
+[ext_resource type="Texture2D" uid="uid://bxye1yumkt6q2" path="res://Sprites/UI Sprites/T_SkyPanorama_03.png" id="18_53r6m"]
 [ext_resource type="Texture2D" uid="uid://xut11wbq6jqr" path="res://Sprites/UI Sprites/T_Hp4.png" id="18_ik7uh"]
 [ext_resource type="Texture2D" uid="uid://dp4x8hibd1btk" path="res://Sprites/UI Sprites/T_Hp1.png" id="19_tch37"]
 
@@ -98,6 +99,16 @@ _data = {
 &"RESET": SubResource("Animation_0pvea"),
 &"ScoreTextAnim": SubResource("Animation_14neg")
 }
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_awkde"]
+panorama = ExtResource("18_53r6m")
+
+[sub_resource type="Sky" id="Sky_eadn0"]
+sky_material = SubResource("PanoramaSkyMaterial_awkde")
+
+[sub_resource type="Environment" id="Environment_ik7uh"]
+background_mode = 2
+sky = SubResource("Sky_eadn0")
 
 [node name="Node3D" type="Node3D" unique_id=939731608]
 
@@ -466,6 +477,9 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=10756230]
+environment = SubResource("Environment_ik7uh")
 
 [connection signal="timeout" from="Timers/PNJ Spawn Timer" to="Scripts/PNJ_Manager" method="_on_pnj_spawn_timer_timeout"]
 [connection signal="timeout" from="Timers/Decoration Leftleft Timer1" to="Scripts/Decoration_Manager" method="_on_decoration_leftleft_timer_1_timeout"]
