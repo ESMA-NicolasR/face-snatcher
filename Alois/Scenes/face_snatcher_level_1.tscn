@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_forw5"]
 [ext_resource type="Script" uid="uid://bbdw60f0d54jf" path="res://Alois/Scripts/mask_manager.gd" id="2_eellc"]
-[ext_resource type="Script" uid="uid://c243yria0r6ru" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_s2v6g"]
+[ext_resource type="Script" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_s2v6g"]
 [ext_resource type="Script" uid="uid://di85fq50j2eop" path="res://Alois/Scripts/camera_shake.gd" id="3_dcd8u"]
 [ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="3_eellc"]
 [ext_resource type="Texture2D" uid="uid://dn4ob6id3dawi" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Everyman.png" id="3_i0eqp"]
@@ -191,6 +191,12 @@ shape = SubResource("BoxShape3D_60xjm")
 [node name="Mask_Manager" type="Node3D" parent="Player_Mesh/Visuals" unique_id=1005035685]
 script = ExtResource("2_eellc")
 
+[node name="Sprite3D" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=570441303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15408915, 0)
+pixel_size = 0.005
+billboard = 2
+texture = ExtResource("6_jqlch")
+
 [node name="PlayerFace" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=2113139002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.25, -0.25)
 visible = false
@@ -207,12 +213,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
 
 [node name="Lips" type="Sprite3D" parent="Player_Mesh/Visuals/PlayerFace" unique_id=1824721497]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002)
-
-[node name="Sprite3D" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=570441303]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15408927, 0)
-pixel_size = 0.005
-billboard = 2
-texture = ExtResource("6_jqlch")
 
 [node name="Timers" type="Node" parent="." unique_id=1303597835]
 

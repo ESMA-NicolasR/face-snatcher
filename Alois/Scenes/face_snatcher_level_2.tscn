@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dw48ytnb4v578" path="res://Alois/Mesh/Decorations/Level 2/sm_building_base.tscn" id="4_l6axn"]
 [ext_resource type="Script" uid="uid://di85fq50j2eop" path="res://Alois/Scripts/camera_shake.gd" id="4_rfa7h"]
 [ext_resource type="Script" uid="uid://bbdw60f0d54jf" path="res://Alois/Scripts/mask_manager.gd" id="5_cpxnq"]
+[ext_resource type="Texture2D" uid="uid://b805r5722fbkm" path="res://Sprites/PlayerCharacter/T_MainCharacter.png" id="6_mtapa"]
 [ext_resource type="Texture2D" uid="uid://dn4ob6id3dawi" path="res://Sprites/NPC/Parts/AllFaces/T_Face_Everyman.png" id="6_o0vg1"]
 [ext_resource type="PackedScene" uid="uid://cede8dj1osq7" path="res://Alois/Mesh/Decorations/Level 1/sm_streetlight.tscn" id="8_y5blx"]
 [ext_resource type="PackedScene" uid="uid://bki5h81kigrij" path="res://Alois/Mesh/Decorations/Level 2/sm_traffic_lights.tscn" id="9_5cyfh"]
@@ -46,8 +47,6 @@ point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl1dy"]
 albedo_texture = ExtResource("1_l6axn")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_eya18"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_60xjm"]
 
@@ -168,7 +167,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.16
 [node name="Player_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
 transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 0, 0.85, 0)
 material_override = SubResource("StandardMaterial3D_hl1dy")
-mesh = SubResource("CapsuleMesh_eya18")
 
 [node name="Player Camera3D" type="Camera3D" parent="Player_Mesh" unique_id=1811056502 node_paths=PackedStringArray("ui_interface")]
 transform = Transform3D(10, 0, 0, 0, 8.191521, 5.7357645, 0, -5.7357645, 8.191521, 0, 2, 3)
@@ -191,6 +189,12 @@ shape = SubResource("BoxShape3D_60xjm")
 
 [node name="Mask_Manager" type="Node3D" parent="Player_Mesh/Visuals" unique_id=199234468]
 script = ExtResource("5_cpxnq")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=205316414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15408921, 0)
+pixel_size = 0.005
+billboard = 2
+texture = ExtResource("6_mtapa")
 
 [node name="PlayerFace" type="Sprite3D" parent="Player_Mesh/Visuals" unique_id=1946916395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.25, -0.25)
