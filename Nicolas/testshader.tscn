@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c5bpyc2s2p5gv"]
+
+[ext_resource type="Shader" uid="uid://ca28brccod244" path="res://Nicolas/testshader.tres" id="1_cmjs5"]
+[ext_resource type="PackedScene" uid="uid://pslvs3usjdtr" path="res://Elsa/Meshes_Lvl-01/SM_Bench_001.fbx" id="2_g2b2k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g2b2k"]
+render_priority = 0
+shader = ExtResource("1_cmjs5")
+
+[sub_resource type="BoxMesh" id="BoxMesh_w6uy0"]
+material = SubResource("ShaderMaterial_g2b2k")
+subdivide_height = 10
+subdivide_depth = 10
+
+[sub_resource type="BoxMesh" id="BoxMesh_cmjs5"]
+
+[node name="Node3D" type="Node3D" unique_id=546206240]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1434359249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3038323, 0.1614914, 0.52698326)
+mesh = SubResource("BoxMesh_w6uy0")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=911976640]
+transform = Transform3D(-1, 0, -8.940697e-08, -4.5175632e-08, 0.8629549, 0.5052809, 7.715418e-08, 0.5052809, -0.8629549, 0, 0.92668873, 0)
+fov = 155.2
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2069123510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0196621, 0, 0.70819235)
+mesh = SubResource("BoxMesh_cmjs5")
+
+[node name="SM_Bench_001" parent="." unique_id=1594514265 instance=ExtResource("2_g2b2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0384351, 0, 7.958574)
