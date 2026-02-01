@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://tnrj556cv806"]
 
 [ext_resource type="Texture2D" uid="uid://dt1pwy1r8u4bx" path="res://Nicolas/clodo.png" id="1_forw5"]
-[ext_resource type="Material" uid="uid://ksmjidk4ga1n" path="res://Mathys/M_Ground.tres" id="1_s2v6g"]
 [ext_resource type="Script" uid="uid://c243yria0r6ru" path="res://Alois/Scripts/PNJ_Spawn_and_path.gd" id="2_s2v6g"]
 [ext_resource type="Script" uid="uid://67ki1jnx5lw5" path="res://Alois/Scripts/Decorations_Manager.gd" id="3_eellc"]
 [ext_resource type="PackedScene" uid="uid://dajoisdrbqbou" path="res://Alois/Mesh/Decorations/Level 1/sm_tree1.tscn" id="4_i0eqp"]
@@ -38,9 +37,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
-
-[sub_resource type="BoxMesh" id="BoxMesh_1ptqf"]
-subdivide_depth = 50
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl1dy"]
 albedo_texture = ExtResource("1_forw5")
@@ -95,12 +91,6 @@ debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2958851, 0.06, -36.78343)
 curve = SubResource("Curve3D_1ptqf")
 debug_custom_color = Color(0.9522076, 0.08088475, 7.70092e-07, 1)
-
-[node name="Terrain_Mesh" type="MeshInstance3D" parent="." unique_id=1761828526]
-transform = Transform3D(5.8150234, 0, 0, 0, -0.12125961, 8.94027e-06, 0, -1.8309692e-08, -59.208733, 0, -0.05, -26.940044)
-visible = false
-mesh = SubResource("BoxMesh_1ptqf")
-surface_material_override/0 = ExtResource("1_s2v6g")
 
 [node name="Player_Mesh" type="MeshInstance3D" parent="." unique_id=912936030]
 transform = Transform3D(0.462, 0, 0, 0, 0.6, 0, 0, 0, 0.462, 0, 0.65, -1.3334274)
@@ -198,7 +188,6 @@ rot_y_med_L = Vector2(0, 0)
 rot_y_far_R = Vector2(0, 180)
 rot_y_med_R = Vector2(0, 0)
 rot_y_close_R = Vector2(180, 180)
-range_far_right_max = 10.0
 range_med_left_min = 0.638
 range_med_left_max = 0.638
 range_med_right_min = 0.638
@@ -270,7 +259,6 @@ offset_bottom = 39.0
 text = "Points"
 
 [node name="Face Steal Button" type="Button" parent="UI" unique_id=119236727 groups=["Boutons_interaction"]]
-visible = false
 layout_mode = 0
 offset_left = 391.0
 offset_top = 341.0
@@ -286,6 +274,31 @@ offset_top = 19.0
 offset_right = 292.0
 offset_bottom = 46.0
 value = 100.0
+
+[node name="BoundsLeft" type="Control" parent="UI" unique_id=573824415]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -350.0
+offset_right = 229.0
+offset_bottom = -90.0
+grow_vertical = 0
+
+[node name="BoundsRight" type="Control" parent="UI" unique_id=59165273]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -236.0
+offset_top = -310.0
+offset_right = -37.0
+offset_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="SM_Ground" parent="." unique_id=326826706 instance=ExtResource("14_eellc")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 0, 0.017298698)
