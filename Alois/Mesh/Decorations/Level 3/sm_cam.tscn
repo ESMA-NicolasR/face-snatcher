@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cl5an2sgm43wp"]
+
+[ext_resource type="PackedScene" uid="uid://pkx0eaecpykx" path="res://Arsène/Mesh/SM_cam_001.fbx" id="1_0sfke"]
+
+[node name="SM_cam_001" unique_id=1305318428 instance=ExtResource("1_0sfke")]
